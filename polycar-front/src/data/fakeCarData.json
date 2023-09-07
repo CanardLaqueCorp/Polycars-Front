@@ -1,0 +1,64 @@
+{
+    "cars": [
+        {
+            "marque": "toyota",
+            "modele": "corola",
+            "annee": "1999",
+            "prixDeBase": "2298"
+        },
+        {
+            "marque": "honda",
+            "modele": "civic",
+            "annee": "2005",
+            "prixDeBase": "3500"
+        },
+        {
+            "marque": "ford",
+            "modele": "mustang",
+            "annee": "2010",
+            "prixDeBase": "12000"
+        },
+        {
+            "marque": "chevrolet",
+            "modele": "camaro",
+            "annee": "2015",
+            "prixDeBase": "18000"
+        },
+        {
+            "marque": "nissan",
+            "modele": "altima",
+            "annee": "2012",
+            "prixDeBase": "8000"
+        },
+        {
+            "marque": "bmw",
+            "modele": "serie 3",
+            "annee": "2018",
+            "prixDeBase": "25000"
+        },
+        {
+            "marque": "audi",
+            "modele": "a4",
+            "annee": "2016",
+            "prixDeBase": "20000"
+        },
+        {
+            "marque": "mercedes-benz",
+            "modele": "c-class",
+            "annee": "2014",
+            "prixDeBase": "18000"
+        },
+        {
+            "marque": "volkswagen",
+            "modele": "golf",
+            "annee": "2013",
+            "prixDeBase": "9000"
+        },
+        {
+            "marque": "subaru",
+            "modele": "impreza",
+            "annee": "2011",
+            "prixDeBase": "7000"
+        }
+    ]
+}
