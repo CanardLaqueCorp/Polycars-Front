@@ -5,49 +5,49 @@
             "modele": "corola",
             "annee": "1999",
             "prixDeBase": "2298",
-            "image": "https://picsum.photos/300/300"
+            "image": "https://claq.fr/host/corolla.png"
         },
         {
             "marque": "honda",
             "modele": "civic",
             "annee": "2005",
             "prixDeBase": "3500",
-            "image": "https://picsum.photos/300/300"
+            "image": "https://claq.fr/host/civic.jpg"
         },
         {
             "marque": "ford",
             "modele": "mustang",
             "annee": "2010",
             "prixDeBase": "12000",
-            "image": "https://picsum.photos/300/300"
+            "image": "https://claq.fr/host/mustang.jpg"
         },
         {
             "marque": "chevrolet",
             "modele": "camaro",
             "annee": "2015",
             "prixDeBase": "18000",
-            "image": "https://picsum.photos/300/300"
+            "image": "https://claq.fr/host/camaro.jpg"
         },
         {
             "marque": "nissan",
             "modele": "altima",
             "annee": "2012",
             "prixDeBase": "8000",
-            "image": "https://picsum.photos/300/300"
+            "image": "https://claq.fr/host/altima.jpg"
         },
         {
             "marque": "bmw",
             "modele": "serie 3",
             "annee": "2018",
             "prixDeBase": "25000",
-            "image": "https://picsum.photos/300/300"
+            "image": "https://claq.fr/host/serie3.jpeg"
         },
         {
             "marque": "audi",
             "modele": "a4",
             "annee": "2016",
             "prixDeBase": "20000",
-            "image": "https://picsum.photos/300/300"
+            "image": "https://claq.fr/host/a4.jpg"
         }
     ]
 }
