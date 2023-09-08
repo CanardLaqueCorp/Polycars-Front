@@ -1,37 +1,34 @@
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
 import CarProps from "../interface/CarProps";
-
 import "../styles/car.scss";
 
 function Car(props: CarProps) {
   const { marque, modele, annee, prixDeBase, image } = props;
   return (
     <div className="Car">
-      <Card>
+      <div className="card">
         <div id="CarContent">
-          <Card.Img src={image} />
-          <Card.Body>
+          <img className="card-img-top" src={image} alt="Car image" />
+          <div className="card-body">
             <div id="CarBody">
-              <Card.Title>
+              <h5 className="card-title">
                 <p id="CarMarque">{marque}</p>
-              </Card.Title>
-              <Card.Subtitle className="mb-2 text-muted">
+              </h5>
+              <h6 className="card-subtitle mb-2 text-muted">
                 <p id="CarModele">{modele}</p>
-              </Card.Subtitle>
-              <Card.Text>
+              </h6>
+              <div className="card-text">
                 <div id="CarAnnee">
                   <p>Commercialisation: {annee}</p>
                 </div>
                 <div id="CarPrix">
                   <p>Prix de base: {prixDeBase}€</p>
                 </div>
-              </Card.Text>
-              <Button variant="primary">See more</Button>
+              </div>
+              <button className="btn btn-primary">See more</button>
             </div>
-          </Card.Body>
+          </div>
         </div>
-      </Card>
+      </div>
     </div>
   );
 }

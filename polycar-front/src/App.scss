@@ -4,6 +4,9 @@
 }
 
 
+//we import the variables from index.scss
+@import "./index.scss";
+
 #root {
   text-align: center;
   font-family: Bungee;
@@ -20,7 +23,8 @@
 .Car{
   width: 30%;
   margin-bottom: 20px;
-  border: 1px solid #ccc;
+  //la bordure a la couleur --accent
+  border: 6px solid var(--color-accent);
   border-radius: 5px;
   padding: 10px;
   box-shadow: 0 0 10px #ccc;
@@ -28,8 +32,7 @@
 }
 
 .Car:hover{
-  box-shadow: 0 0 10px #646cff;
-}
+box-shadow: 0 0 20px rgba(131, 58, 180, 0.5), 0 0 20px rgba(253, 29, 29, 0.5), 0 0 30px rgba(252, 176, 69, 0.5);}
 
 .AllCarList{
     display: flex;

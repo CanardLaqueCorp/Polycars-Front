@@ -13,14 +13,14 @@
 
 #CarContent{
     position: relative;
-    background-color: blue;
     display: flex;
     justify-content: center;
     padding: 2rem;
 }
 
+
 img{
-    width: 100%;
+    width: 8rem;
     height: 100%;
     object-fit: cover;
     border-radius: 8%;

@@ -6,13 +6,24 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: --color-primary;
+  
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+
+  --color-primary: #11151C;
+  --color-secondary: #212D40;
+  --color-accent: #ECB7AC;
+  --color--accent-darker: #7D4E57;
+
+}
+
+p{
+  color: var(--color-accent);
 }
 
 a {
@@ -20,6 +31,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -35,6 +47,7 @@ body {
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
+  color: var(--color--accent-darker);
 }
 
 button {
