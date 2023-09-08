@@ -1,12 +1,10 @@
 .AllCarListHeader{
     display: flex;
-    justify-content: space-between;
 }
 
 .AllCarList{
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     flex-direction: row;
     margin-top: 20px;
 }
