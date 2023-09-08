@@ -2,7 +2,7 @@
 import Car from "./components/Car";
 import * as CarData from "./data/fakeCarData.json";
 
-import "./App.css";
+import "./App.scss";
 
 function App() {
   const cars = CarData.cars;
