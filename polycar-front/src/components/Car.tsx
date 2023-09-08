@@ -10,7 +10,7 @@ function Car(props: CarProps) {
     <div className="Car">
       <Card>
         <div id="CarContent">
-          <Card.Img variant="top" src={image} />
+          <Card.Img src={image} />
           <Card.Body>
             <div id="CarBody">
               <Card.Title>
