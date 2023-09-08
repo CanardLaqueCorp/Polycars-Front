@@ -4,8 +4,11 @@ import * as CarData from "../data/fakeCarData.json";
 function AllCarList() {
   const cars = CarData.cars;
   return (
-    <>
-      <p>We have currently {cars.length} cars in our database</p>
+    <div className="AllCarListComponent">
+      <div className="AllCarListHeader">
+        <h1>Car List:</h1>
+        <p>We have currently {cars.length} cars in our database</p>
+      </div>
       <div className="AllCarList">
         {cars.map((car) => (
           <Car
@@ -17,7 +20,7 @@ function AllCarList() {
           />
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

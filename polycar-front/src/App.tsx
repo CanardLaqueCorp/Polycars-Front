@@ -6,7 +6,6 @@ import "./App.scss";
 function App() {
   return (
     <>
-      <h1>Car List:</h1>
       <AllCarList />
     </>
   );
