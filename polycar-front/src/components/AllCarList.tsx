@@ -11,6 +11,7 @@ function AllCarList() {
           modele={car.modele}
           annee={car.annee}
           prixDeBase={car.prixDeBase}
+          image={car.image}
         />
       ))}
     </div>
