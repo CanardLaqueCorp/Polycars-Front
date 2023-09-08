@@ -81,6 +81,7 @@ button:focus-visible {
 }
 
 #TopBar{
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -94,6 +95,8 @@ button:focus-visible {
   z-index: 100;
 }
 
-#root{  background-color: green;
-width: 100%;
+#root{  
+  background-color: green;
+  width: 100%;
+  min-height: 1000px;
 }
