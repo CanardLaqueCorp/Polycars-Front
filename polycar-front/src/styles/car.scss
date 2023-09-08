@@ -10,3 +10,17 @@
 #CarBody{
     letter-spacing: normal;
 }
+
+img{
+    width: 33%;
+    height: 33%;
+    border-radius: 2%;
+}
+
+#CarContent{
+    position: relative;
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+}
