@@ -1,7 +1,7 @@
 import CarProps from "../interface/CarProps";
 import "../styles/car.scss";
 
-function Car({ marque, modele, annee, prixDeBase, image }: CarProps) {
+function Car({ id, marque, modele, annee, prixDeBase, image }: CarProps) {
   return (
     <div className="Car card">
       <div className="carHeader">
@@ -18,7 +18,12 @@ function Car({ marque, modele, annee, prixDeBase, image }: CarProps) {
         <div className="CarPrix">
           <p>Prix de base: {prixDeBase}€</p>
         </div>
-        <button className="btn btn-primary">See more</button>
+        <div className="CarPrix">
+          <p>DEBUG ID: {id} Lea</p>
+        </div>
+
+
+        <button className="btn btn-primary" onClick={ () => window.location.replace("/cars/" + id) }>Voir plus</button> 
       </div>
     </div>
   );
