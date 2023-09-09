@@ -1,11 +1,3 @@
-#CarMarque{
-    font-size: 2.0rem;
-}
-
-#CarModele{
-    font-size: 1.5rem;
-    margin-top: -3.3rem;
-}
 
 #CarBody{
     letter-spacing: normal;
@@ -19,9 +11,23 @@
 }
 
 
-img{
+.carHeader img {
     width: 8rem;
-    height: 100%;
-    object-fit: cover;
+    height: 8rem;
+    object-fit: contain;
     border-radius: 8%;
+  }
+
+.carHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
 }
+
+.card-title {
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }

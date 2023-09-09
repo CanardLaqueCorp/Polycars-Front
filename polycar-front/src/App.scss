@@ -28,12 +28,13 @@
   border-radius: 5px;
   padding: 10px;
   box-shadow: 0 0 10px #ccc;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.6s ease-in-out;
 }
 
 .Car:hover{
-box-shadow: 0 0 20px rgba(131, 58, 180, 0.5), 0 0 20px rgba(253, 29, 29, 0.5), 0 0 30px rgba(252, 176, 69, 0.5);}
-
+  transform: scale(1.02);
+  box-shadow: 0 0 20px #ccc;
+}
 .AllCarList{
     display: flex;
     flex-wrap: wrap;
@@ -41,3 +42,4 @@ box-shadow: 0 0 20px rgba(131, 58, 180, 0.5), 0 0 20px rgba(253, 29, 29, 0.5), 0
     flex-direction: row;
     margin-top: 20px;
 }
+
