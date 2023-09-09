@@ -19,6 +19,7 @@ function AllCarList() {
           value={filterMarque}
           onChange={(e) => setFilterMarque(e.target.value)} // Set the filter value by the input value
         />
+        
       </div>
       <div className="AllCarList">
         {cars.map((car) => (

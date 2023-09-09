@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import TopBar from "./components/TopBar";
 
 import App from "./App";
+import HomePage from "./components/FrontPage";
 import "./App.scss";
 
 function RouterApp() {
@@ -13,9 +14,9 @@ function RouterApp() {
           <Route
             path="/"
             element={
-              <div>
-                <h1>PolyCars</h1> <a href="/cars">See Our Cars!</a>
-              </div>
+              <>
+                <HomePage />
+              </>
             }
           />
           <Route path="/cars" element={<App />} />
