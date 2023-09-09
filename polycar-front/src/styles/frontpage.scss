@@ -5,13 +5,16 @@
 
 .HomePageBackground{
   position: fixed;
-  top: 12vh;
+  top: 2vh;
   left: 3vh;
-  width: 50%;
+  width: 20vw;
   height: 90vh;
   justify-content: center;
   align-items: center;
-  background-size: contain;
+  background-size: cover;
+  // we dezoom the image
+  background-position: right -10vw bottom -10vh;
+
   background-repeat: no-repeat;
   z-index: -1;
 }
@@ -60,4 +63,8 @@
   padding: 2rem;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   backdrop-filter: blur(10px);
+  position: relative;
+  //we put all the content in the right
+  text-align: left;
+  margin-left: 20rem;
 }
