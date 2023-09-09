@@ -1,34 +1,44 @@
 .HomePage {
     height: 100vh;
-    justify-content: center;
-    align-items: center;
-  }
-    
-  .HomePageTitle {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-  }
-  
-  .HomePageSubtitle {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-  }
-  
-  .HomePageDivider {
-    border: none;
-    height: 1px;
-    background-color: #ccc;
-    margin: 2rem auto;
-    width: 50%;
-  }
-  
-  .HomePageDescription {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
-  }
-  
+    position: relative;
+}
 
+.HomePageBackground{
+  position: fixed;
+  top: 12vh;
+  left: 3vh;
+  width: 50%;
+  height: 90vh;
+  justify-content: center;
+  align-items: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
 
+.HomePageTitle {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+  
+.HomePageSubtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+  
+.HomePageDivider {
+  border: none;
+  height: 1px;
+  background-color: #ccc;
+  margin: 2rem auto;
+  width: 50%;
+}
+  
+.HomePageDescription {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+  
 .HomePageButton {
   display: inline-block;
   padding: 1rem 2rem;
@@ -44,4 +54,10 @@
 .HomePageButton:hover {
   background-color: var(--color-accent);
   color: var(--color-accent-darker);
+}
+
+.HomePageHeader {
+  padding: 2rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
 }
