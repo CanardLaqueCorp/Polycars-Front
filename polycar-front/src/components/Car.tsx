@@ -1,7 +1,14 @@
 import CarProps from "../interface/CarProps";
 import "../styles/car.scss";
 
-function Car({ id, brand, model, image }: CarProps) {
+function Car({ id, brand, model,fuel,carType,  image, ecoScore, annualFuelCost }: CarProps) {
+
+  //we check if fuel has more than 10 characters
+  if (fuel.length > 10) {
+    //we cut the string to 10 characters
+    fuel = fuel.substring(0, 9);
+  }
+
   return (
     <div className="Car card">
       <div className="carHeader">
@@ -12,15 +19,22 @@ function Car({ id, brand, model, image }: CarProps) {
         </h5>
       </div>
       <div className="card-body">
-        <div className="CarAnnee">
-          <p>Commercialisation: 1789</p>
+        <div className="CarAnnee">      
         </div>
         <div className="CarPrix">
-          <p>Prix de base: 420.69€</p>
+          
+          <p>🚗 Car type : {carType}</p>
         </div>
         <div className="CarPrix">
-          <p>DEBUG ID: {id} Lea</p>
+          <p>⛽ Type de carburant: {fuel}</p>
         </div>
+        <div className="CarPrix">
+          <p>💰 Fuel/an: {annualFuelCost}€</p>
+        </div>
+        <div className="CarPrix">
+          <p>🌍 Ecoscore: {ecoScore}/100</p>
+        </div>
+       
 
 
         <button className="btn btn-primary" onClick={ () => window.location.replace("/cars/" + id) }>Voir plus</button> 

@@ -36,6 +36,7 @@ interface CarData {
   feRating: number;
   ghgRating: number;
   smogRating: number;
+  ecoScore: number;
 }
 
 function AllCarList() {
@@ -86,13 +87,24 @@ function AllCarList() {
             id={car.id}
             brand={car.brand}
             model={car.model}
+            carTypeId={car.carTypeId}
+            carType={car.carType}
             priceNew={car.priceNew}
             priceUsed={car.priceUsed}
             cylinder={car.cylinder}
+            transmissionTypeId={car.transmissionTypeId}
+            transmissionTypeCode={car.transmissionTypeCode}
+            transmissionType={car.transmissionType}
             transmission={car.transmission}
             gears={car.gears}
+            driveSystemId={car.driveSystemId}
+            driveSystemCode={car.driveSystemCode}
+            driveSystem={car.driveSystem}
+            fuelId={car.fuelId}
+            fuelCode={car.fuelCode}
+            fuel={car.fuel}
             maxBioFuel={car.maxBioFuel}
-            hasStartStop={car.hasStartAndStop}
+            hasStartAndStop={car.hasStartAndStop}
             cityFuel={car.cityFuel}
             cityCarbon={car.cityCarbon}
             highwayFuel={car.highwayFuel}
@@ -105,7 +117,8 @@ function AllCarList() {
             feRating={car.feRating}
             ghgRating={car.ghgRating}
             smogRating={car.smogRating}
-            image="https://via.placeholder.com/150"
+            ecoScore={car.ecoScore}
+            image="https://via.placeholder.com/300"
           />
         ))}
       </div>
