@@ -42,9 +42,28 @@ interface CarData {
 function AllCarList() {
   const [filterType, setFilterType] = useState("brand");
   const [filterValue, setFilterValue] = useState("");
-  const cars = CarData.result.filter((car: CarData) => 
-    car[filterType as keyof CarData].toLowerCase().includes(filterValue.toLowerCase())
-  );
+  const [sortOrder, setSortOrder] = useState("ecoScore");
+  const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
+  const cars = CarData.result
+    .filter((car: CarData) =>
+      car[filterType as keyof CarData]
+        .toLowerCase()
+        .includes(filterValue.toLowerCase())
+    )
+    .sort((a: CarData, b: CarData) => {
+      const direction = sortDirection === "asc" ? 1 : -1;
+      if (sortOrder === "cylinder") {
+        return direction * (b.cylinder - a.cylinder);
+      } else if (sortOrder === "cityFuel") {
+        return direction * (b.cityFuel - a.cityFuel);
+      } else if (sortOrder === "highwayFuel") {
+        return direction * (b.highwayFuel - a.highwayFuel);
+      } else if (sortOrder === "combinedFuel") {
+        return direction * (b.combinedFuel - a.combinedFuel);
+      } else {
+        return direction * (b[sortOrder] - a[sortOrder]);
+      }
+    });
 
   const handleFilterTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFilterType(e.target.value);
@@ -52,6 +71,14 @@ function AllCarList() {
 
   const handleFilterValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilterValue(e.target.value);
+  };
+
+  const handleSortOrderChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setSortOrder(e.target.value);
+  };
+
+  const handleSortDirectionChange = () => {
+    setSortDirection(sortDirection === "asc" ? "desc" : "asc");
   };
 
   return (
@@ -78,6 +105,16 @@ function AllCarList() {
             onChange={handleFilterValueChange}
           />
           <button onClick={() => setFilterValue("")}>Reset</button>
+          <select value={sortOrder} onChange={handleSortOrderChange}>
+            <option value="ecoScore">Eco Score</option>
+            <option value="cylinder">Number of Cylinders</option>
+            <option value="cityFuel">City Fuel Efficiency</option>
+            <option value="highwayFuel">Highway Fuel Efficiency</option>
+            <option value="combinedFuel">Combined Fuel Efficiency</option>
+          </select>
+          <button onClick={handleSortDirectionChange}>
+            {sortDirection === "asc" ? "Ascending" : "Descending"}
+          </button>
         </div>
       </div>
       <div className="AllCarList">

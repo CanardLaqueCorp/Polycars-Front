@@ -1,7 +1,7 @@
 import CarProps from "../interface/CarProps";
 import "../styles/car.scss";
 
-function Car({ id, brand, model,fuel,carType,  image, ecoScore, annualFuelCost }: CarProps) {
+function Car({ id, brand, model,fuel,carType,  image, ecoScore, annualFuelCost, cylinder }: CarProps) {
 
   //we check if fuel has more than 10 characters
   if (fuel.length > 10) {
@@ -34,9 +34,6 @@ function Car({ id, brand, model,fuel,carType,  image, ecoScore, annualFuelCost }
         <div className="CarPrix">
           <p>🌍 Ecoscore: {ecoScore}/100</p>
         </div>
-       
-
-
         <button className="btn btn-primary" onClick={ () => window.location.replace("/cars/" + id) }>Voir plus</button> 
       </div>
     </div>
