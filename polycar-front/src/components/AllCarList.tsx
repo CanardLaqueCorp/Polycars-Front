@@ -1,12 +1,37 @@
 import { useState } from "react";
 import Car from "./Car";
-import * as CarData from "../data/fakeCarData.json";
+import * as CarData from "../data/cars.json";
+
+interface CarData {
+  id: number;
+  brand: string;
+  model: string;
+  priceNew: number;
+  priceUsed: number;
+  cylinder: number;
+  transmission: string;
+  gears: number;
+  maxBioFuel: number;
+  hasStartAndStop: boolean;
+  cityFuel: number;
+  cityCarbon: number;
+  highwayFuel: number;
+  highwayCarbon: number;
+  combinedFuel: number;
+  combinedCarbon: number;
+  hasGuzzler: boolean;
+  annualFuelCost: number;
+  spendOnFiveYears: number;
+  feRating: number;
+  ghgRating: number;
+  smogRating: number;
+}
 
 function AllCarList() {
-  const [filterType, setFilterType] = useState("marque");
+  const [filterType, setFilterType] = useState("brand");
   const [filterValue, setFilterValue] = useState("");
-  const cars = CarData.cars.filter((car: {[key: string]: string}) => 
-    car[filterType].toLowerCase().includes(filterValue.toLowerCase())
+  const cars = CarData.result.filter((car: CarData) => 
+    car[filterType as keyof CarData].toLowerCase().includes(filterValue.toLowerCase())
   );
 
   const handleFilterTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -22,7 +47,7 @@ function AllCarList() {
       <div className="AllCarListHeader">
         <h1>Car List:</h1>
         <p>
-          {filterValue === "" ? ( //le ? est un if et le : est un else, comme en python
+          {filterValue === "" ? (
             `We have ${cars.length} cars in our database`
           ) : (
             `${cars.length} results for your search`
@@ -30,9 +55,9 @@ function AllCarList() {
         </p>
         <div>
           <select value={filterType} onChange={handleFilterTypeChange}>
-            <option value="marque">Marque</option>
-            <option value="prixDeBase">Price</option>
-            <option value="modele">Modele</option>
+            <option value="brand">Brand</option>
+            <option value="priceNew">Price</option>
+            <option value="model">Model</option>
           </select>
           <input
             type="text"
@@ -48,11 +73,28 @@ function AllCarList() {
           <Car
             key={car.id}
             id={car.id}
-            marque={car.marque}
-            modele={car.modele}
-            annee={car.annee}
-            prixDeBase={car.prixDeBase}
-            image={car.image}
+            brand={car.brand}
+            model={car.model}
+            priceNew={car.priceNew}
+            priceUsed={car.priceUsed}
+            cylinder={car.cylinder}
+            transmission={car.transmission}
+            gears={car.gears}
+            maxBioFuel={car.maxBioFuel}
+            hasStartStop={car.hasStartAndStop}
+            cityFuel={car.cityFuel}
+            cityCarbon={car.cityCarbon}
+            highwayFuel={car.highwayFuel}
+            highwayCarbon={car.highwayCarbon}
+            combinedFuel={car.combinedFuel}
+            combinedCarbon={car.combinedCarbon}
+            hasGuzzler={car.hasGuzzler}
+            annualFuelCost={car.annualFuelCost}
+            spendOnFiveYears={car.spendOnFiveYears}
+            feRating={car.feRating}
+            ghgRating={car.ghgRating}
+            smogRating={car.smogRating}
+            image="https://via.placeholder.com/150"
           />
         ))}
       </div>
