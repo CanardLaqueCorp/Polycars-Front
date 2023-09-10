@@ -1,14 +1,12 @@
 import CarProps from "../interface/CarProps";
 import "../styles/car.scss";
 
-function Car({ id, brand, model,fuel,carType,  image, ecoScore, annualFuelCost, cylinder }: CarProps) {
-
+function Car({ id, brand, model,fuel,carType,  image, ecoScore, annualFuelCost}: CarProps) {
   //we check if fuel has more than 10 characters
   if (fuel.length > 10) {
     //we cut the string to 10 characters
     fuel = fuel.substring(0, 9);
   }
-
   return (
     <div className="Car card">
       <div className="carHeader">
