@@ -1,16 +1,27 @@
 import { useState } from "react";
 import Car from "./Car";
-import * as CarData from "../data/cars.json";
+import * as CarData from "../data/car-data-updated.json";
 
 interface CarData {
   id: number;
   brand: string;
   model: string;
+  carTypeId: number;
+  carType: string;
   priceNew: number;
   priceUsed: number;
   cylinder: number;
+  transmissionTypeId: number;
+  transmissionTypeCode: string;
+  transmissionType: string;
   transmission: string;
   gears: number;
+  driveSystemId: number;
+  driveSystemCode: string;
+  driveSystem: string;
+  fuelId: number;
+  fuelCode: string;
+  fuel: string;
   maxBioFuel: number;
   hasStartAndStop: boolean;
   cityFuel: number;
