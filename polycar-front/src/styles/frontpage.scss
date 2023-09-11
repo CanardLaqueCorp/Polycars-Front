@@ -1,41 +1,13 @@
+@import "../index.scss";
+
 .HomePage {
   height: 100vh;
   position: relative;
 }
 
-.HomePageBackground {
-  position: absolute;
-  left: -2rem;
-  width: 100vw;
-  /* Set the height to 90vh to leave some space for the header */
-  height: 90vh;
-  /* Set the background-size to cover only 80% of the element */
-  background-size: 20px 20px;
-  /* Repeat the background image */
-  background-repeat: repeat;
-}
-
 .HomePageTitle {
   font-size: 4rem;
   margin-bottom: 1rem;
-}
-
-.HomePageSubtitle {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-.HomePageDivider {
-  border: none;
-  height: 1px;
-  background-color: #ccc;
-  margin: 2rem auto;
-  width: 50%;
-}
-
-.HomePageDescription {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
 }
 
 .HomePageButton {
@@ -47,7 +19,6 @@
   text-decoration: none;
   font-size: 1.2rem;
   transition: background-color 0.2s ease-in-out;
-  margin-left: 1;
 }
 
 .HomePageButton:hover {
@@ -55,58 +26,24 @@
   color: var(--color-accent-darker);
 }
 
-.HomePageButtonContainer {
-  display: inline;
-  position: relative;
-  /* Center the button */
-  text-align: center;
+.HomePageTitle h1:hover, .HomePageTitle:hover {
+  animation: blinking-shadow 3s ease-in-out infinite;
 }
 
-.HomePageHeader {
-  padding: 2rem;
-  margin-top: 1rem;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
-  display: inline-block;
-  /* Center the header */
-  text-align: center;
-}
 
-.slice {
-  float: left;
-  width: 25%;
-  height: 100%;
-  background-color: #808080;
-  overflow: hidden;
-  z-index: -1;
-}
-
-.slice img {
-  animation: start 3s infinite;
-  -webkit-animation: start 3s infinite;
-  position: relative;
-}
-
-@keyframes start {
+@keyframes blinking-shadow {
   0% {
-    left: 0;
+    text-shadow: 0;
   }
   50% {
-    left: -50px;
+    text-shadow: 0 0 5px var(--color-accent), 0 0 10px var(--color-accent), 0 0 20px var(--color-accent), 0 0 40px var(--color-accent);
   }
   100% {
-    left: 0px;
+    text-shadow: 0;
   }
 }
 
-@-webkit-keyframes start {
-  0% {
-    left: 0;
-  }
-  50% {
-    left: -50px;
-  }
-  100% {
-    left: 0px;
-  }
+.infosAboutPolycars{
+  padding: 10rem;
+  background-color: rebeccapurple;
 }
