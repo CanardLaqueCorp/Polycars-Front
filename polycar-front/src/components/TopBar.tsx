@@ -8,9 +8,9 @@ function BasicExample() {
       </p>
       <p
         onClick={() => window.location.replace("/cars")}
-        className="TopBarText"
+        className="TopBarTextSmall"
       >
-        Cars
+        Cars Library
       </p>
     </div>
   );
