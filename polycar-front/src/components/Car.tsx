@@ -32,7 +32,7 @@ function Car({ id, brand, model,fuel,carType,  image, ecoScore, annualFuelCost}:
         <div className="CarPrix">
           <p>🌍 Ecoscore: {ecoScore}/100</p>
         </div>
-        <button className="btn btn-primary" onClick={ () => window.location.replace("/cars/" + id) }>Voir plus</button> 
+        <button className="btn btn-primary" onClick={ () => window.location.replace("/carStats/" + id) }>Voir plus</button> 
       </div>
     </div>
   );
