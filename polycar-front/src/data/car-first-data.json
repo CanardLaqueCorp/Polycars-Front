@@ -1,0 +1,43 @@
+{
+    "response": "ok",
+    "result": [
+        {
+        "id": 356,
+        "brandId": 30,
+        "brand": "Hyundai",
+        "model": "Elantra Hybrid Blue",
+        "carTypeId": 5,
+        "carType": "Midsize Cars",
+        "priceNew": 0,
+        "priceUsed": 0,
+        "cylinder": 4,
+        "transmissionTypeId": 2,
+        "transmissionTypeCode": "AMS",
+        "transmissionType": "Automated Manual- Selectable (e.g. Automated Manual with paddles)",
+        "transmission": "Auto(AM-S6)",
+        "gears": 6,
+        "driveSystemId": 3,
+        "driveSystemCode": "F",
+        "driveSystem": "2-Wheel Drive. Front",
+        "fuelId": 3,
+        "fuelCode": "G",
+        "fuel": "Gasoline",
+        "fuelDetail": "Regular Unleaded Recommended",
+        "maxBioFuel": 15,
+        "hasStartAndStop": true,
+        "cityFuel": 52.7058,
+        "cityCarbon": 169,
+        "highwayFuel": 55.5898,
+        "highwayCarbon": 161,
+        "combinedFuel": 53.9657,
+        "combinedCarbon": 165,
+        "hasGuzzler": false,
+        "annualFuelCost": 800,
+        "spendOnFiveYears": 0,
+        "feRating": 9,
+        "ghgRating": 9,
+        "smogRating": 7,
+        "ecoScore": 73
+    }
+]
+} 
