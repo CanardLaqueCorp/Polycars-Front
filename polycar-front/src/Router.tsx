@@ -3,6 +3,7 @@ import TopBar from "./components/TopBar";
 
 import App from "./App";
 import HomePage from "./components/FrontPage";
+import AllStatsAboutCar from "./components/AllStatsAboutCar";
 import "./App.scss";
 
 function RouterApp() {
@@ -20,6 +21,7 @@ function RouterApp() {
             }
           />
           <Route path="/cars" element={<App />} />
+          <Route path="/cars/356" element={<AllStatsAboutCar />} />
         </Routes>
       </Router>
     </>
