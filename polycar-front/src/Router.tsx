@@ -3,7 +3,7 @@ import TopBar from "./components/TopBar";
 
 import App from "./App";
 import HomePage from "./components/FrontPage";
-import AllCarStats from "./components/AllCarStats";
+import AllStatsAboutCar from "./components/AllStatsAboutCar";
 import "./App.scss";
 
 function RouterApp() {
@@ -21,7 +21,7 @@ function RouterApp() {
             }
           />
           <Route path="/cars" element={<App />} />
-          <Route path="/carStats/356" element={<AllCarStats />} />
+          <Route path="/car/:id" element={<AllStatsAboutCar />} />
         </Routes>
       </Router>
     </>
