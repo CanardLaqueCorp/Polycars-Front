@@ -26,9 +26,6 @@
   color: var(--color-accent-darker);
 }
 
-.HomePageTitle h1:hover, .HomePageTitle:hover {
-  animation: blinking-shadow 3s ease-in-out infinite;
-}
 
 
 @keyframes blinking-shadow {
@@ -41,9 +38,4 @@
   100% {
     text-shadow: 0;
   }
-}
-
-.infosAboutPolycars{
-  padding: 10rem;
-  background-color: rebeccapurple;
 }

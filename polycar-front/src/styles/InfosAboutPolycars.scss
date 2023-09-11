@@ -1,0 +1,49 @@
+@import "../index.scss";
+
+.infosAboutPolycars {
+    position: absolute;
+    display: inline;
+    padding: 1rem 2rem;
+    width: 60%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border: 2px solid white; /* Add a white border */
+    border-radius: 10px; /* Add rounded corners */
+    background-color: var(--color--accent-darker);
+}
+
+.infosAboutPolycars:hover {
+    animation: shadow 3s ease-in-out infinite;
+    
+}
+
+.infosAboutPolycars p {
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.infosAboutPolycars p::before {
+    content: "•";
+    margin-right: 1rem;
+}
+
+.bddInfosH1 {
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+@keyframes shadow{
+    0% {
+        box-shadow: 0;
+    }
+    50% {
+        box-shadow: 0 0 5px var(--color-accent), 0 0 10px var(--color-accent), 0 0 20px var(--color-accent), 0 0 40px var(--color-accent);
+    }
+    100% {
+        box-shadow: 0;
+    }
+
+}
