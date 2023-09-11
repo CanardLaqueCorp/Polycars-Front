@@ -21,7 +21,7 @@ function RouterApp() {
             }
           />
           <Route path="/cars" element={<App />} />
-          <Route path="/cars/356" element={<AllStatsAboutCar />} />
+          <Route path="/car/:id" element={<AllStatsAboutCar />} />
         </Routes>
       </Router>
     </>
