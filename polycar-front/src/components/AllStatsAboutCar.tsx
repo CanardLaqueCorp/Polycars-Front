@@ -6,7 +6,23 @@ function AllStatsAboutCar() {
   const idOfCar: string = window.location.href.split("/")[4];
 
   // Get the car data by filtering the JSON based on the ID
-  const carData = dataOfTheCar.result.find((car) => car.id === parseInt(idOfCar));
+  const carData = dataOfTheCar.result.find(
+    (car) => car.id === parseInt(idOfCar)
+  );
+
+  if (!carData) {
+    return (
+      <div>
+        <p>
+          <img
+            src="https://media.tenor.com/gMC-purKMQ4AAAAd/sad-cry.gif"
+            alt="loading"
+          />
+          <p>Sorry we couldn't find the car you were looking for</p>
+        </p>
+      </div>
+    );
+  }
 
   // Destructure the carData object to extract its properties
   const {
@@ -87,8 +103,6 @@ function AllStatsAboutCar() {
         ghgRating={ghgRating}
         smogRating={smogRating}
         ecoScore={ecoScore}
-
-        
       />
     </div>
   );
