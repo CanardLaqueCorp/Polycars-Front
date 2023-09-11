@@ -43,7 +43,6 @@ function AllStatsAboutCar() {
     driveSystemId,
     driveSystemCode,
     fuel,
-    fuelDetail,
     fuelId,
     fuelCode,
     maxBioFuel,
@@ -87,7 +86,6 @@ function AllStatsAboutCar() {
         fuel={fuel}
         fuelId={fuelId}
         fuelCode={fuelCode}
-        fuelDetail={fuelDetail}
         maxBioFuel={maxBioFuel}
         hasStartAndStop={hasStartAndStop}
         cityFuel={cityFuel}
