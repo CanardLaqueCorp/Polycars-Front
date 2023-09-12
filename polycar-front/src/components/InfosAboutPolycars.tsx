@@ -54,7 +54,7 @@ function getStatsAboutData() {
   return (
     <>
       <h1 className="bddInfosH1">Dans notre base de données, nous avons:</h1>
-      <div>
+      <div className="infosAboutBdd">
         <p> {numberOfBrands} marques</p>
         <p> {numberOfModels} modèles</p>
         <p> {numberOfCarTypes} types de voitures</p>
