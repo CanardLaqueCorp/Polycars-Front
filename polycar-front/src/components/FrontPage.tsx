@@ -12,7 +12,7 @@ function HomePage() {
       <Parallax pages={8}>
         <div className="HomePageTitle">
           {/*TOP Parralax layer*/}
-          <ParallaxLayer offset={0} speed={1.7} style={{ zIndex: 1 }}>
+          <ParallaxLayer offset={0} speed={1.2} style={{ zIndex: 1 }}>
             <h1>Polycars</h1>
           </ParallaxLayer>
           <ParallaxLayer
