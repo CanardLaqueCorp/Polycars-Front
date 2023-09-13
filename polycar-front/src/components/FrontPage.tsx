@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import "../styles/frontpage.scss";
 
 import InfosAboutPolycars from "./InfosAboutPolycars";
+import GetInTouchFormulaire from "./GetInTouchFormulaire";
 
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 
@@ -34,10 +35,10 @@ function HomePage() {
           </ParallaxLayer>
           <ParallaxLayer offset={0.72} speed={0.07}>
             <Link to="/cars" className="HomePageButton">
-              Car Library
+              📚 Car Library
             </Link>
             <Link to="/quizz" className="HomePageButton">
-              Car finder
+              🔎 Car finder
             </Link>
           </ParallaxLayer>
         </div>
@@ -71,25 +72,7 @@ function HomePage() {
           }}
         />
         <ParallaxLayer offset={1.5} speed={0.2}>
-          <form>
-            <label htmlFor="name">Name:</label>
-            <input type="text" id="name" name="name" />
-            <label htmlFor="email">Email:</label>
-            <input type="email" id="email" name="email" />
-            <label htmlFor="message">Message:</label>
-            <textarea id="message" name="message"></textarea>
-            <button type="submit">Send</button>
-          </form>
-        </ParallaxLayer>
-
-        <ParallaxLayer offset={2} speed={0.4}>
-          <img src="../../public/wpPolycars" alt="Car 2" />
-        </ParallaxLayer>
-        <ParallaxLayer offset={2.5} speed={3}>
-          <img src="../../public/wpPolycars" alt="Car 3" />
-        </ParallaxLayer>
-        <ParallaxLayer offset={4.5} speed={0.3}>
-          <h2>Get in touch with us</h2>
+          <GetInTouchFormulaire />
         </ParallaxLayer>
       </Parallax>
     </div>
