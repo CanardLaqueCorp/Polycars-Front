@@ -1,3 +1,5 @@
+import "../styles/displayStats.scss";
+
 interface Props {
   id: number;
   brand: string;
@@ -35,7 +37,7 @@ interface Props {
   ecoScore: number;
   }
 
-  function DisplayStats({ id, brand, model, carType, priceNew, priceUsed, cylinder, transmissionType, gears, driveSystem, fuel, maxBioFuel, hasStartAndStop, cityFuel, cityCarbon, highwayFuel, highwayCarbon, combinedFuel, combinedCarbon, hasGuzzler, annualFuelCost, spendOnFiveYears, feRating, ghgRating,smogRating, ecoScore  }: Props) {
+  function DisplayStats({ brand, model, carType, priceNew, priceUsed, cylinder, transmissionType, gears, driveSystem, fuel, maxBioFuel, hasStartAndStop, cityFuel, cityCarbon, highwayFuel, highwayCarbon, combinedFuel, combinedCarbon, hasGuzzler, annualFuelCost, spendOnFiveYears, feRating, ghgRating,smogRating, ecoScore  }: Props) {
     // We check if fuel has more than 10 characters
     if (fuel.length > 10) {
       // We cut the string to 10 characters
@@ -51,135 +53,148 @@ interface Props {
         <h1>Stats about car</h1>
         <h3>brand: {brand}</h3>
         <h3>model: {model}</h3>
-        <div className="card">
-            <div className="card-body">
-                <h5 className="card-title">Car Stats</h5>
-                <table className="table_card"> 
-                    <tbody>
-                        <tr>
-                            <th scope="row">Car Type</th>
-                            <td>{carType}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Price New</th>
-                            <td>{priceNew}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Price Used</th>
-                            <td>{priceUsed}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Cylinder</th>
-                            <td>{cylinder}</td> 
-                        </tr>
-                        <tr>
-                            <th scope="row">Transmission Type</th>
-                            <td>{transmissionType}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Gears</th>
-                            <td>{gears}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Drive System</th>
-                            <td>{driveSystem}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Strat And Stop</th>
-                            <td>{hasStartAndStop ? "true" : "false"}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Spend on five years</th>
-                            <td>{spendOnFiveYears}</td>
-                        </tr>
+        <div className="TableContainer">
+            <div className="Technical table">
+                <div className="data-body">
+                    <h5 className="card-title-data">Car data</h5>
+                    <table className="table_Car">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Car Type:</th>
+                                <td>{carType}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Cylinder:</th>
+                                <td>{cylinder}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Gears:</th>
+                                <td>{gears}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Drive System:</th>
+                                <td>{driveSystem}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Transmission Type:</th>
+                                <td>{transmissionType}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Has Start And Stop:</th>
+                                <td>{hasStartAndStop ? "true" : "false"}</td>
+                            </tr>
                         </tbody>
-                </table>
+                    </table>
+                </div>
+            </div>
+            <div className="Fuel table">
+                <div className="data-body">
+                    <h5 className="card-title-data">Fuel data</h5>
+                    <table className="table_Fuel">
+                    <tbody>
+                            <tr>
+                                <th scope="row">Fuel:</th>
+                                <td>{fuel}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Max BioFuel:</th>
+                                <td>{maxBioFuel}</td>
+                            </tr>
+                            <tr>
+                                <th scope ="row">City Fuel:</th>
+                                <td>{cityFuel}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Highway Fuel:</th>
+                                <td>{highwayFuel}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Combined Fuel:</th>
+                                <td>{combinedFuel}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Annual Fuel Cost:</th>
+                                <td>{annualFuelCost}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div className="Rating table">
+                <div className="data-body">
+                    <h5 className="card-title-data">Ecological data</h5>
+                    <table className="table_Rating">
+                    <tbody>
+                            <tr>
+                                <th scope="row">Eco Score:</th>
+                                <td>{ecoScore}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">fe Rating:</th>
+                                <td>{feRating}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">ghg Rating:</th>
+                                <td>{ghgRating}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">smog Rating:</th>
+                                <td>{smogRating}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Has Guzzler:</th>
+                                <td>{hasGuzzler ? "true" : "false"}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-        <div className="Fuel">
-            <div className="card-body">
-                <h5 className="card-title">Données sur le fuel</h5>
-                <table className="table_Fuel">
-                <tbody>
-                        <tr>
-                            <th scope="row">fuel</th>
-                            <td>{fuel}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">max BioFuel</th>
-                            <td>{maxBioFuel}</td>
-                        </tr>
-                        <tr>
-                            <th scope ="row">city Fuel</th>
-                            <td>{cityFuel}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">highway Fuel</th>
-                            <td>{highwayFuel}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">combined Fuel</th>
-                            <td>{combinedFuel}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">annual Fuel Cost</th>
-                            <td>{annualFuelCost}</td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div className="dataContainer">
+                <div className="Carbon table">
+                <div className="data-body">
+                    <h5 className="card-title-data">Carbon Data</h5>
+                    <table className="table_Carbon">
+                    <tbody>
+                            <tr>
+                                <th scope="row">City Carbon:</th>
+                                <td>{cityCarbon}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Highway Carbon:</th>
+                                <td>{highwayCarbon}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Combined Carbon:</th>
+                                <td>{combinedCarbon}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div className="Price table">
+                <div className="data-body">
+                    <h5 className="card-title-data">Prices and Costs</h5>
+                    <table className="table_card"> 
+                        <tbody>
+                            <tr>
+                                <th scope="row">Price New:</th>
+                                <td>{priceNew}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Price Used:</th>
+                                <td>{priceUsed}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Spend on Five Years:</th>
+                                <td>{spendOnFiveYears}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
             </div>
         </div>
-        <div className="Carbon">
-            <div className="card-body">
-                <h5 className="card-title">Données sur le Carbon</h5>
-                <table className="table_Carbon">
-                <tbody>
-                        <tr>
-                            <th scope="row">City Carbon</th>
-                            <td>{cityCarbon}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Highway Carbon</th>
-                            <td>{highwayCarbon}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">Combined Carbon</th>
-                            <td>{combinedCarbon}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div className="Rating">
-            <div className="card-body">
-                <h5 className="card-title">Données sur la Polution</h5>
-                <table className="table_Rating">
-                <tbody>
-                        <tr>
-                            <th scope="row">eco Score</th>
-                            <td>{ecoScore}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">fe Rating</th>
-                            <td>{feRating}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">ghg Rating</th>
-                            <td>{ghgRating}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">smog Rating</th>
-                            <td>{smogRating}</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">has Guzzler</th>
-                            <td>{hasGuzzler ? "true" : "false"}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
     );
   }
   
