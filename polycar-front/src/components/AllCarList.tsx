@@ -101,6 +101,10 @@ function AllCarList() {
             <option value="brand">Brand</option>
             <option value="priceNew">Price</option>
             <option value="model">Model</option>
+            <option value="fuel">Fuel</option>
+            <option value="carType">Car Type</option>
+            <option value="cylinder">Cylinders</option>
+            
           </select>
           <input
             type="text"
