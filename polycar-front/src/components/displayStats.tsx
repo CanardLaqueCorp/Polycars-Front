@@ -35,20 +35,51 @@ interface Props {
   ecoScore: number;
   }
   
-  function DisplayStats({ id, model, carType, priceNew, priceUsed, cylinder, transmissionType, gears, driveSystem, fuel, maxBioFuel, hasStartAndStop, cityFuel, cityCarbon, highwayFuel, highwayCarbon, combinedFuel, combinedCarbon, hasGuzzler, annualFuelCost, spendOnFiveYears, feRating, ghgRating,smogRating, ecoScore  }: Props) {
+  function DisplayStats({ id, brand, model, carType, priceNew, priceUsed, cylinder, transmissionType, gears, driveSystem, fuel, maxBioFuel, hasStartAndStop, cityFuel, cityCarbon, highwayFuel, highwayCarbon, combinedFuel, combinedCarbon, hasGuzzler, annualFuelCost, spendOnFiveYears, feRating, ghgRating,smogRating, ecoScore  }: Props) {
       return (
       <div>
         <h1>Stats about car</h1>
+        <h3>brand: {brand}</h3>
+        <h3>model: {model}</h3>
+
+        <div className="card">
+            <div className="card-body">
+                <h5 className="card-title">Car Stats</h5>
+                <table className="table"> 
+                    <tbody>
+                        <tr>
+                            <th scope="row">Car Type</th>
+                            <td>{carType}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Price New</th>
+                            <td>{priceNew}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Price Used</th>
+                            <td>{priceUsed}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Cylinder</th>
+                            <td>{cylinder}</td> 
+                        </tr>
+                        <tr>
+                            <th scope="row">Transmission Type</th>
+                            <td>{transmissionType}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Gears</th>
+                            <td>{gears}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Drive System</th>
+                            <td>{driveSystem}</td>
+                        </tr>
+                        </tbody>
+                </table>
+            </div>
+        </div>
         <ul>
-          <li>id: {id}</li>
-          <li>model: {model}</li>
-          <li>carType: {carType}</li>
-          <li>priceNew: {priceNew}</li>
-          <li>priceUsed: {priceUsed}</li>
-          <li>cylinder: {cylinder}</li>
-          <li>transmissionType: {transmissionType}</li>
-          <li>gears: {gears}</li>
-          <li>driveSystem: {driveSystem}</li>
           <li>fuel: {fuel}</li>
           <li>maxBioFuel: {maxBioFuel}</li>
           <li>hasStartAndStop: {hasStartAndStop}</li>

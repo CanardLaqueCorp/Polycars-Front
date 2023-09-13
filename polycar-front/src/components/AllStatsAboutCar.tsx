@@ -64,7 +64,6 @@ function AllStatsAboutCar() {
 
   return (
     <div>
-      <h1>Stats about car</h1>
       {/* Pass the extracted variables as props to DisplayStats */}
       <DisplayStats
         id={id}
