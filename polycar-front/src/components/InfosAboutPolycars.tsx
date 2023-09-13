@@ -53,11 +53,11 @@ function getStatsAboutData() {
 
   return (
     <>
-      <h1 className="bddInfosH1">Dans notre base de données, nous avons:</h1>
+      <h1 className="bddInfosH1">🗂️ We have in our Database: 🗃️</h1>
       <div className="infosAboutBdd">
-        <p> {numberOfBrands} marques</p>
-        <p> {numberOfModels} modèles</p>
-        <p> {numberOfCarTypes} types de voitures</p>
+        <p> 🚗 {numberOfBrands} brands </p>
+        <p> 🚙 {numberOfModels} models</p>
+        <p> 🚘 {numberOfCarTypes} types of cars</p>
       </div>
     </>
   );
