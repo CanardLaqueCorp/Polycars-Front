@@ -8,11 +8,24 @@ import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 function HomePage() {
   return (
     <div className="HomePage">
-      <Parallax pages={4}>
+      <Parallax pages={5}>
         <div className="HomePageTitle">
-          <ParallaxLayer offset={0} speed={0.5}>
+          {/*TOP Parralax layer*/}
+          <ParallaxLayer offset={0} speed={1.7}>
             <h1>Polycars</h1>
           </ParallaxLayer>
+          <ParallaxLayer
+            className="photo"
+            offset={0.9}
+            speed={0.8}
+            style={{
+              backgroundImage: `url(../../public/wpPolycars.jpg)`,
+              backgroundSize: "cover",
+              width: "20%",
+              borderRadius: "50% / 10% 20% 14% 20%",
+            }}
+          />
+
           <ParallaxLayer offset={0.5} speed={0.01}>
             {" "}
             {/* j'ai mis une vitesse lente pour que l'appel a l'action soit plus visible */}
