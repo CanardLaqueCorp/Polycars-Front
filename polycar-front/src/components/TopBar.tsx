@@ -12,6 +12,12 @@ function BasicExample() {
       >
         Cars Library
       </p>
+      <p
+        onClick={() => window.location.replace("/quizz")}
+        className="TopBarTextSmall"
+      >
+        Car Finder
+      </p>
     </div>
   );
 }

@@ -5,10 +5,11 @@
     border-radius: 2%;
     margin-bottom: 3rem;
     margin-top: 1rem;
+    padding: 3rem;
 }
 
 #TopBar p {
-    font-size: 2rem;
+    font-size: 4rem;
 }
 
 .TopBarText{
@@ -16,11 +17,25 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
     font-size: 1.5rem;
+    //on mobile
+    @media (max-width: 768px) {
+        font-size: 1.5rem !important;
+    }
 }
 
 .TopBarTextSmall{
-    margin-left: 3rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    font-size: 1.2rem !important;
+    margin-left: 1rem;
+    margin-top: 4rem;
+    font-size: 2.2rem !important;
+    //on mobile
+    @media (max-width: 768px) {
+        font-size: 1.5rem !important;
+    }
+    //we position it on the bottom
+}
+
+.TopBarTextSmall::before{
+    content: "ඞ";
+    margin-right: 1rem;
+    margin-left: 1rem;
 }

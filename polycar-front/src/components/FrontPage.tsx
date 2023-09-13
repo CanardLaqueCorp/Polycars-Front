@@ -8,10 +8,10 @@ import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 function HomePage() {
   return (
     <div className="HomePage">
-      <Parallax pages={5}>
+      <Parallax pages={8}>
         <div className="HomePageTitle">
           {/*TOP Parralax layer*/}
-          <ParallaxLayer offset={0} speed={1.7}>
+          <ParallaxLayer offset={0} speed={1.7} style={{ zIndex: 1 }}>
             <h1>Polycars</h1>
           </ParallaxLayer>
           <ParallaxLayer
@@ -23,6 +23,7 @@ function HomePage() {
               backgroundSize: "cover",
               width: "20%",
               borderRadius: "50% / 10% 20% 14% 20%",
+              zIndex: -1,
             }}
           />
 
@@ -44,6 +45,51 @@ function HomePage() {
           <div className="infosAboutPolycars">
             <InfosAboutPolycars />
           </div>
+        </ParallaxLayer>
+        <ParallaxLayer
+          offset={1.1}
+          speed={0.3}
+          style={{
+            backgroundImage: `url(../../public/wpBMW.jpg)`,
+            backgroundSize: "cover",
+            width: "30%",
+            marginLeft: "70%",
+            borderRadius: "7% 7% 7% 7%",
+            zIndex: -1,
+          }}
+        />
+        <ParallaxLayer
+          offset={1.1}
+          speed={1.9}
+          style={{
+            backgroundImage: `url(../../public/wpCar.jpg)`,
+            backgroundSize: "cover",
+            width: "60%",
+            marginLeft: "-5%",
+            borderRadius: "10% 10% 10% 10%",
+            zIndex: -1,
+          }}
+        />
+        <ParallaxLayer offset={1.5} speed={0.2}>
+          <form>
+            <label htmlFor="name">Name:</label>
+            <input type="text" id="name" name="name" />
+            <label htmlFor="email">Email:</label>
+            <input type="email" id="email" name="email" />
+            <label htmlFor="message">Message:</label>
+            <textarea id="message" name="message"></textarea>
+            <button type="submit">Send</button>
+          </form>
+        </ParallaxLayer>
+
+        <ParallaxLayer offset={2} speed={0.4}>
+          <img src="../../public/wpPolycars" alt="Car 2" />
+        </ParallaxLayer>
+        <ParallaxLayer offset={2.5} speed={3}>
+          <img src="../../public/wpPolycars" alt="Car 3" />
+        </ParallaxLayer>
+        <ParallaxLayer offset={4.5} speed={0.3}>
+          <h2>Get in touch with us</h2>
         </ParallaxLayer>
       </Parallax>
     </div>
