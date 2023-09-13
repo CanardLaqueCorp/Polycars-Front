@@ -129,19 +129,57 @@ interface Props {
                 </table>
             </div>
         </div>
-        <h3>Données sur le carbon</h3>
-        <ul>
-          <li>cityCarbon: {cityCarbon}</li>
-          <li>highwayCarbon: {highwayCarbon}</li>
-          <li>combinedCarbon: {combinedCarbon}</li>
-          <li>hasGuzzler: 
-            {hasGuzzler ? "true" : "false"} </li>
-          <li>feRating: {feRating}</li>
-          <li>ghgRating: {ghgRating}</li>
-          <li>smogRating: {smogRating}</li>
-          <li>ecoScore: {ecoScore}</li>
-        </ul>
-      </div>
+        <div className="Carbon">
+            <div className="card-body">
+                <h5 className="card-title">Données sur le Carbon</h5>
+                <table className="table_Carbon">
+                <tbody>
+                        <tr>
+                            <th scope="row">City Carbon</th>
+                            <td>{cityCarbon}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Highway Carbon</th>
+                            <td>{highwayCarbon}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Combined Carbon</th>
+                            <td>{combinedCarbon}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div className="Rating">
+            <div className="card-body">
+                <h5 className="card-title">Données sur la Polution</h5>
+                <table className="table_Rating">
+                <tbody>
+                        <tr>
+                            <th scope="row">eco Score</th>
+                            <td>{ecoScore}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">fe Rating</th>
+                            <td>{feRating}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">ghg Rating</th>
+                            <td>{ghgRating}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">smog Rating</th>
+                            <td>{smogRating}</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">has Guzzler</th>
+                            <td>{hasGuzzler ? "true" : "false"}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
     );
   }
   
