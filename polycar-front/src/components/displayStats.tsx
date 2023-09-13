@@ -50,9 +50,11 @@ interface Props {
         }
     return (
       <div>
-        <h1>Stats about car</h1>
-        <h3>brand: {brand}</h3>
-        <h3>model: {model}</h3>
+        <h1>Data about this car</h1>
+        <div className="brand">
+        <h3>Brand : {brand}</h3>
+        <h3>Model : {model}</h3>
+        </div>
         <div className="TableContainer">
             <div className="Technical table">
                 <div className="data-body">
@@ -60,27 +62,27 @@ interface Props {
                     <table className="table_Car">
                         <tbody>
                             <tr>
-                                <th scope="row">Car Type:</th>
+                                <th scope="row">Car Type :</th>
                                 <td>{carType}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Cylinder:</th>
+                                <th scope="row">Cylinder :</th>
                                 <td>{cylinder}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Gears:</th>
+                                <th scope="row">Gears :</th>
                                 <td>{gears}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Drive System:</th>
+                                <th scope="row">Drive System :</th>
                                 <td>{driveSystem}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Transmission Type:</th>
+                                <th scope="row">Transmission Type :</th>
                                 <td>{transmissionType}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Has Start And Stop:</th>
+                                <th scope="row">Has Start And Stop :</th>
                                 <td>{hasStartAndStop ? "true" : "false"}</td>
                             </tr>
                         </tbody>
@@ -93,27 +95,27 @@ interface Props {
                     <table className="table_Fuel">
                     <tbody>
                             <tr>
-                                <th scope="row">Fuel:</th>
+                                <th scope="row">Fuel :</th>
                                 <td>{fuel}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Max BioFuel:</th>
+                                <th scope="row">Max BioFuel :</th>
                                 <td>{maxBioFuel}</td>
                             </tr>
                             <tr>
-                                <th scope ="row">City Fuel:</th>
+                                <th scope ="row">City Fuel :</th>
                                 <td>{cityFuel}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Highway Fuel:</th>
+                                <th scope="row">Highway Fuel :</th>
                                 <td>{highwayFuel}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Combined Fuel:</th>
+                                <th scope="row">Combined Fuel :</th>
                                 <td>{combinedFuel}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Annual Fuel Cost:</th>
+                                <th scope="row">Annual Fuel Cost :</th>
                                 <td>{annualFuelCost}</td>
                             </tr>
                         </tbody>
@@ -126,23 +128,23 @@ interface Props {
                     <table className="table_Rating">
                     <tbody>
                             <tr>
-                                <th scope="row">Eco Score:</th>
+                                <th scope="row">Eco Score :</th>
                                 <td>{ecoScore}</td>
                             </tr>
                             <tr>
-                                <th scope="row">fe Rating:</th>
+                                <th scope="row">fe Rating :</th>
                                 <td>{feRating}</td>
                             </tr>
                             <tr>
-                                <th scope="row">ghg Rating:</th>
+                                <th scope="row">ghg Rating :</th>
                                 <td>{ghgRating}</td>
                             </tr>
                             <tr>
-                                <th scope="row">smog Rating:</th>
+                                <th scope="row">smog Rating :</th>
                                 <td>{smogRating}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Has Guzzler:</th>
+                                <th scope="row">Has Guzzler :</th>
                                 <td>{hasGuzzler ? "true" : "false"}</td>
                             </tr>
                         </tbody>
@@ -157,15 +159,15 @@ interface Props {
                     <table className="table_Carbon">
                     <tbody>
                             <tr>
-                                <th scope="row">City Carbon:</th>
+                                <th scope="row">City Carbon :</th>
                                 <td>{cityCarbon}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Highway Carbon:</th>
+                                <th scope="row">Highway Carbon :</th>
                                 <td>{highwayCarbon}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Combined Carbon:</th>
+                                <th scope="row">Combined Carbon :</th>
                                 <td>{combinedCarbon}</td>
                             </tr>
                         </tbody>
@@ -178,15 +180,15 @@ interface Props {
                     <table className="table_card"> 
                         <tbody>
                             <tr>
-                                <th scope="row">Price New:</th>
+                                <th scope="row">Price New :</th>
                                 <td>{priceNew}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Price Used:</th>
+                                <th scope="row">Price Used :</th>
                                 <td>{priceUsed}</td>
                             </tr>
                             <tr>
-                                <th scope="row">Spend on Five Years:</th>
+                                <th scope="row">Spend on Five Years :</th>
                                 <td>{spendOnFiveYears}</td>
                             </tr>
                         </tbody>
@@ -194,6 +196,12 @@ interface Props {
                 </div>
             </div>
             </div>
+            <button
+          className="btn-data btn-primary"
+          onClick={() => window.location.replace("/cars")}
+        >
+          Return to cars list
+        </button>
         </div>
     );
   }
