@@ -49,21 +49,21 @@ interface Props {
         transmissionType = transmissionType.substring(0, 9);
         }
     return (
-      <div>
+    <div>
         <div className="HeaderContainer-data">
             <div className="ImageContainer-data"> <img src="https://picsum.photos/200"/>  </div>
             <div className="TitleContainer-data">
-        <h1>Data about this car</h1>
-        <div className="brand">
-        <h3>Brand : {brand}</h3>
-        <h3>Model : {model}</h3>
-        </div>
-        </div>
-        <div className="ImageContainer-data"> <img className="image_reverse" src="https://picsum.photos/200"/>  </div>
+                <h1>Data about this car</h1>
+                <div className="brand">
+                <h3>Brand : {brand}</h3>
+                <h3>Model : {model}</h3>
+                </div>
+            </div>
+            <div className="ImageContainer-data"> <img className="image_reverse" src="https://picsum.photos/200"/>  </div>
         </div>
         <div className="TableContainer">
             <div className="Technical table">
-                <div className="data-body">
+                    <div className="data-body">
                     <h5 className="card-title-data">Car data</h5>
                     <table className="table_Car">
                         <tbody>
@@ -99,7 +99,7 @@ interface Props {
                 <div className="data-body">
                     <h5 className="card-title-data">Fuel data</h5>
                     <table className="table_Fuel">
-                    <tbody>
+                        <tbody>
                             <tr>
                                 <th scope="row">Fuel :</th>
                                 <td>{fuel}</td>
@@ -132,7 +132,7 @@ interface Props {
                 <div className="data-body">
                     <h5 className="card-title-data">Ecological data</h5>
                     <table className="table_Rating">
-                    <tbody>
+                        <tbody>
                             <tr>
                                 <th scope="row">Eco Score :</th>
                                 <td>{ecoScore}</td>
@@ -158,12 +158,12 @@ interface Props {
                 </div>
             </div>
         </div>
-            <div className="dataContainer">
-                <div className="Carbon table">
+        <div className="dataContainer">
+            <div className="Carbon table">
                 <div className="data-body">
                     <h5 className="card-title-data">Carbon Data</h5>
                     <table className="table_Carbon">
-                    <tbody>
+                        <tbody>
                             <tr>
                                 <th scope="row">City Carbon :</th>
                                 <td>{cityCarbon}</td>
@@ -201,14 +201,13 @@ interface Props {
                     </table>
                 </div>
             </div>
-            </div>
-            <button
-          className="btn-data btn-primary"
-          onClick={() => window.location.replace("/cars")}
-        >
-          Return to cars list
-        </button>
         </div>
+        <button className="btn-data btn-primary"
+        onClick={() => window.location.replace("/cars")}
+        >
+            Return to cars list
+        </button>
+    </div>
     );
   }
   
