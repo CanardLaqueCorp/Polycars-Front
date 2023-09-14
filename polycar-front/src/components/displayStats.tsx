@@ -37,7 +37,8 @@ interface Props {
   ecoScore: number;
   }
 
-  function DisplayStats({brand, model, carType, priceNew, priceUsed, cylinder, transmissionType, gears, driveSystem, fuel, maxBioFuel, hasStartAndStop, cityFuel, cityCarbon, highwayFuel, highwayCarbon, combinedFuel, combinedCarbon, hasGuzzler, annualFuelCost, spendOnFiveYears, feRating, ghgRating,smogRating, ecoScore  }: Props) {
+  function DisplayStats({id, brand, model, carType, priceNew, priceUsed, cylinder, transmissionType, gears, driveSystem, fuel, maxBioFuel, hasStartAndStop, cityFuel, cityCarbon, highwayFuel, highwayCarbon, combinedFuel, combinedCarbon, hasGuzzler, annualFuelCost, spendOnFiveYears, feRating, ghgRating,smogRating, ecoScore  }: Props) {
+    let imageUrl = "https://claq.fr/host/" + id + ".jpg";
     // We check if fuel has more than 10 characters
     if (fuel.length > 10) {
       // We cut the string to 10 characters
@@ -48,10 +49,11 @@ interface Props {
         // We cut the string to 10 characters
         transmissionType = transmissionType.substring(0, 9);
         }
+
     return (
     <div>
         <div className="HeaderContainer-data">
-            <div className="ImageContainer-data"> <img src="https://picsum.photos/200"/>  </div>
+            <div className="ImageContainer-data"> <img src={imageUrl}/>  </div>
             <div className="TitleContainer-data">
                 <h1>Data about this car</h1>
                 <div className="brand">
@@ -59,10 +61,10 @@ interface Props {
                 <h3>Model : {model}</h3>
                 </div>
             </div>
-            <div className="ImageContainer-data"> <img className="image_reverse" src="https://picsum.photos/200"/>  </div>
+            <div className="ImageContainer-data"> <img className="image_reverse" src={imageUrl}/>  </div>
         </div>
         <div className="TableContainer">
-            <div className="Technical table">
+            <div className="Technical table data-body-container">
                     <div className="data-body">
                     <h5 className="card-title-data">Car data</h5>
                     <table className="table_Car">
@@ -95,7 +97,7 @@ interface Props {
                     </table>
                 </div>
             </div>
-            <div className="Fuel table">
+            <div className="Fuel table data-body-container">
                 <div className="data-body">
                     <h5 className="card-title-data">Fuel data</h5>
                     <table className="table_Fuel">
@@ -128,7 +130,7 @@ interface Props {
                     </table>
                 </div>
             </div>
-            <div className="Rating table">
+            <div className="Rating table data-body-container">
                 <div className="data-body">
                     <h5 className="card-title-data">Ecological data</h5>
                     <table className="table_Rating">
@@ -159,7 +161,7 @@ interface Props {
             </div>
         </div>
         <div className="dataContainer">
-            <div className="Carbon table">
+            <div className="Carbon table data-body-container">
                 <div className="data-body">
                     <h5 className="card-title-data">Carbon Data</h5>
                     <table className="table_Carbon">
@@ -180,7 +182,7 @@ interface Props {
                     </table>
                 </div>
             </div>
-            <div className="Price table">
+            <div className="Price table data-body-container">
                 <div className="data-body">
                     <h5 className="card-title-data">Prices and Costs</h5>
                     <table className="table_card"> 

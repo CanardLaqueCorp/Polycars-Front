@@ -9,7 +9,7 @@
 }
 
 .ImageContainer-data {
-    margin: 2rem;
+    margin: 1.5rem;
 }
 
 .brand {
@@ -46,7 +46,8 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
-.data-body {
+
+.data-body-container {
     border: 1px solid black;
     margin: 10px;
     padding: 10px;
@@ -54,7 +55,7 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     background-color: #7D4E57;
     flex: 1 1 400px;
-    min-width: 500px;
+    width: 100%;
     max-width: 500px;
     text-align: left;
     flex-direction: column;
