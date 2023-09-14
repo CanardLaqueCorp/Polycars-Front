@@ -37,7 +37,7 @@ interface Props {
   ecoScore: number;
   }
 
-  function DisplayStats({ brand, model, carType, priceNew, priceUsed, cylinder, transmissionType, gears, driveSystem, fuel, maxBioFuel, hasStartAndStop, cityFuel, cityCarbon, highwayFuel, highwayCarbon, combinedFuel, combinedCarbon, hasGuzzler, annualFuelCost, spendOnFiveYears, feRating, ghgRating,smogRating, ecoScore  }: Props) {
+  function DisplayStats({brand, model, carType, priceNew, priceUsed, cylinder, transmissionType, gears, driveSystem, fuel, maxBioFuel, hasStartAndStop, cityFuel, cityCarbon, highwayFuel, highwayCarbon, combinedFuel, combinedCarbon, hasGuzzler, annualFuelCost, spendOnFiveYears, feRating, ghgRating,smogRating, ecoScore  }: Props) {
     // We check if fuel has more than 10 characters
     if (fuel.length > 10) {
       // We cut the string to 10 characters
@@ -50,10 +50,16 @@ interface Props {
         }
     return (
       <div>
+        <div className="HeaderContainer-data">
+            <div className="ImageContainer-data"> <img src="https://picsum.photos/200"/>  </div>
+            <div className="TitleContainer-data">
         <h1>Data about this car</h1>
         <div className="brand">
         <h3>Brand : {brand}</h3>
         <h3>Model : {model}</h3>
+        </div>
+        </div>
+        <div className="ImageContainer-data"> <img className="image_reverse" src="https://picsum.photos/200"/>  </div>
         </div>
         <div className="TableContainer">
             <div className="Technical table">

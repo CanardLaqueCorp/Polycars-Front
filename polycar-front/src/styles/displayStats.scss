@@ -1,3 +1,17 @@
+.HeaderContainer-data {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.image_reverse {
+    transform: scaleX(-1);
+}
+
+.ImageContainer-data {
+    margin: 2rem;
+}
+
 .brand {
     font-size: 1.5rem;
     text-align: center;
@@ -57,4 +71,8 @@
 }
 h5 {
     margin: 8px 0 24px 0;
+}
+
+h1 {
+    margin: 0 0 0 0;
 }
