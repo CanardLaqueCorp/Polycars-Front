@@ -37,7 +37,6 @@ interface CarData {
   ghgRating: number;
   smogRating: number;
   ecoScore: number;
-
 }
 
 function AllCarList() {
@@ -46,38 +45,44 @@ function AllCarList() {
   const [sortOrder, setSortOrder] = useState("ecoScore");
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
   const cars = CarData.result
-  ? CarData.result
-      .filter((car: CarData) =>
-        car[filterType as keyof CarData]
-          .toString()
-          .toLowerCase()
-          .includes(filterValue.toLowerCase())
-      )
-      .sort((a: CarData, b: CarData) => {
-        const direction = sortDirection === "asc" ? 1 : -1;
-        if (sortOrder === "cylinder") {
-          return direction * (b.cylinder - a.cylinder);
-        } else if (sortOrder === "cityFuel") {
-          return direction * (b.cityFuel - a.cityFuel);
-        } else if (sortOrder === "highwayFuel") {
-          return direction * (b.highwayFuel - a.highwayFuel);
-        } else if (sortOrder === "combinedFuel") {
-          return direction * (b.combinedFuel - a.combinedFuel);
-        } else {
-          return direction * (b.ecoScore - a.ecoScore); //si on n'applique pas de filtre, on trie par ecoScore
-        }
-      })
-  : [];
+    ? CarData.result
+        .filter((car: CarData) =>
+          car[filterType as keyof CarData]
+            .toString()
+            .toLowerCase()
+            .includes(filterValue.toLowerCase())
+        )
+        .sort((a: CarData, b: CarData) => {
+          const direction = sortDirection === "asc" ? 1 : -1;
+          if (sortOrder === "cylinder") {
+            return direction * (b.cylinder - a.cylinder);
+          } else if (sortOrder === "cityFuel") {
+            return direction * (b.cityFuel - a.cityFuel);
+          } else if (sortOrder === "highwayFuel") {
+            return direction * (b.highwayFuel - a.highwayFuel);
+          } else if (sortOrder === "combinedFuel") {
+            return direction * (b.combinedFuel - a.combinedFuel);
+          } else {
+            return direction * (b.ecoScore - a.ecoScore); //si on n'applique pas de filtre, on trie par ecoScore
+          }
+        })
+    : [];
 
-  const handleFilterTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleFilterTypeChange = (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ) => {
     setFilterType(e.target.value);
   };
 
-  const handleFilterValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFilterValueChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     setFilterValue(e.target.value);
   };
 
-  const handleSortOrderChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleSortOrderChange = (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ) => {
     setSortOrder(e.target.value);
   };
 
@@ -101,6 +106,9 @@ function AllCarList() {
             <option value="brand">Brand</option>
             <option value="priceNew">Price</option>
             <option value="model">Model</option>
+            <option value="fuel">Fuel</option>
+            <option value="carType">Car Type</option>
+            <option value="cylinder">Cylinders</option>
           </select>
           <input
             type="text"
@@ -122,46 +130,49 @@ function AllCarList() {
         </div>
       </div>
       <div className="AllCarList">
-        {cars.map((car) => (
-          <Car
-            key={car.id}
-            id={car.id}
-            brand={car.brand}
-            model={car.model}
-            carTypeId={car.carTypeId}
-            carType={car.carType}
-            priceNew={car.priceNew}
-            priceUsed={car.priceUsed}
-            cylinder={car.cylinder}
-            transmissionTypeId={car.transmissionTypeId}
-            transmissionTypeCode={car.transmissionTypeCode}
-            transmissionType={car.transmissionType}
-            transmission={car.transmission}
-            gears={car.gears}
-            driveSystemId={car.driveSystemId}
-            driveSystemCode={car.driveSystemCode}
-            driveSystem={car.driveSystem}
-            fuelId={car.fuelId}
-            fuelCode={car.fuelCode}
-            fuel={car.fuel}
-            maxBioFuel={car.maxBioFuel}
-            hasStartAndStop={car.hasStartAndStop}
-            cityFuel={car.cityFuel}
-            cityCarbon={car.cityCarbon}
-            highwayFuel={car.highwayFuel}
-            highwayCarbon={car.highwayCarbon}
-            combinedFuel={car.combinedFuel}
-            combinedCarbon={car.combinedCarbon}
-            hasGuzzler={car.hasGuzzler}
-            annualFuelCost={car.annualFuelCost}
-            spendOnFiveYears={car.spendOnFiveYears}
-            feRating={car.feRating}
-            ghgRating={car.ghgRating}
-            smogRating={car.smogRating}
-            ecoScore={car.ecoScore}
-            image="https://via.placeholder.com/300"
-          />
-        ))}
+        {cars.map((car) => {
+          const imageUrl = `https://claq.fr/host/${car.id}.jpg`;
+          return (
+            <Car
+              key={car.id}
+              id={car.id}
+              brand={car.brand}
+              model={car.model}
+              carTypeId={car.carTypeId}
+              carType={car.carType}
+              priceNew={car.priceNew}
+              priceUsed={car.priceUsed}
+              cylinder={car.cylinder}
+              transmissionTypeId={car.transmissionTypeId}
+              transmissionTypeCode={car.transmissionTypeCode}
+              transmissionType={car.transmissionType}
+              transmission={car.transmission}
+              gears={car.gears}
+              driveSystemId={car.driveSystemId}
+              driveSystemCode={car.driveSystemCode}
+              driveSystem={car.driveSystem}
+              fuelId={car.fuelId}
+              fuelCode={car.fuelCode}
+              fuel={car.fuel}
+              maxBioFuel={car.maxBioFuel}
+              hasStartAndStop={car.hasStartAndStop}
+              cityFuel={car.cityFuel}
+              cityCarbon={car.cityCarbon}
+              highwayFuel={car.highwayFuel}
+              highwayCarbon={car.highwayCarbon}
+              combinedFuel={car.combinedFuel}
+              combinedCarbon={car.combinedCarbon}
+              hasGuzzler={car.hasGuzzler}
+              annualFuelCost={car.annualFuelCost}
+              spendOnFiveYears={car.spendOnFiveYears}
+              feRating={car.feRating}
+              ghgRating={car.ghgRating}
+              smogRating={car.smogRating}
+              ecoScore={car.ecoScore}
+              image={imageUrl}
+            />
+          );
+        })}
       </div>
     </div>
   );
