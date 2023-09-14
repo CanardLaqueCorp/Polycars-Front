@@ -28,7 +28,7 @@ function HomePage() {
             }}
           />
 
-          <ParallaxLayer offset={0.5} speed={0.01}>
+          <ParallaxLayer offset={0.3} speed={0.01}>
             {" "}
             {/* j'ai mis une vitesse lente pour que l'appel a l'action soit plus visible */}
             <h2>Find your next car. Now</h2>
