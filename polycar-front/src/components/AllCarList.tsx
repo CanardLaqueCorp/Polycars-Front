@@ -130,7 +130,7 @@ function AllCarList() {
             </button>
           </div>
         </ParallaxLayer>
-        <ParallaxLayer offset={0.15} speed={0.8} style={{ zIndex: -1 }}>
+        <ParallaxLayer offset={0.15} speed={0.3} style={{ zIndex: -1 }}>
           <div className="AllCarList">
             {cars.map((car) => {
               const imageUrl = `https://claq.fr/host/${car.id}.jpg`;

@@ -143,3 +143,12 @@ button:focus-visible {
 .numberOfResults{
     margin-left: 2rem;
 }
+
+.AllCarListTop {
+  padding: 1rem 2rem;
+  background-color: var(--color-accent-darker);
+  color: #fff;
+  border-radius: 0.5rem;
+  border: 3px solid #eaeaea;
+  transition: background-color 0.2s ease-in-out;
+}
