@@ -68,21 +68,15 @@ function AllCarList() {
         })
     : [];
 
-  const handleFilterTypeChange = (
-    e: React.ChangeEvent<HTMLSelectElement>
-  ) => {
+  const handleFilterTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFilterType(e.target.value);
   };
 
-  const handleFilterValueChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleFilterValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilterValue(e.target.value);
   };
 
-  const handleSortOrderChange = (
-    e: React.ChangeEvent<HTMLSelectElement>
-  ) => {
+  const handleSortOrderChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSortOrder(e.target.value);
   };
 
@@ -95,39 +89,37 @@ function AllCarList() {
       <div className="AllCarListHeader">
         <h1>Car List:</h1>
         <p>
-          {filterValue === "" ? (
-            `We have ${cars.length} cars in our database`
-          ) : (
-            `${cars.length} results for your search`
-          )}
+          {filterValue === ""
+            ? `We have ${cars.length} cars in our database`
+            : `${cars.length} results for your search`}
         </p>
-        <div>
-          <select value={filterType} onChange={handleFilterTypeChange}>
-            <option value="brand">Brand</option>
-            <option value="priceNew">Price</option>
-            <option value="model">Model</option>
-            <option value="fuel">Fuel</option>
-            <option value="carType">Car Type</option>
-            <option value="cylinder">Cylinders</option>
-          </select>
-          <input
-            type="text"
-            placeholder={`Enter your ${filterType}`}
-            value={filterValue}
-            onChange={handleFilterValueChange}
-          />
-          <button onClick={() => setFilterValue("")}>Reset</button>
-          <select value={sortOrder} onChange={handleSortOrderChange}>
-            <option value="ecoScore">Eco Score</option>
-            <option value="cylinder">Number of Cylinders</option>
-            <option value="cityFuel">City Fuel Efficiency</option>
-            <option value="highwayFuel">Highway Fuel Efficiency</option>
-            <option value="combinedFuel">Combined Fuel Efficiency</option>
-          </select>
-          <button onClick={handleSortDirectionChange}>
-            {sortDirection === "asc" ? "Ascending" : "Descending"}
-          </button>
-        </div>
+      </div>
+      <div className="HeaderForm">
+        <select value={filterType} onChange={handleFilterTypeChange}>
+          <option value="brand">Brand</option>
+          <option value="priceNew">Price</option>
+          <option value="model">Model</option>
+          <option value="fuel">Fuel</option>
+          <option value="carType">Car Type</option>
+          <option value="cylinder">Cylinders</option>
+        </select>
+        <input
+          type="text"
+          placeholder={`Enter your ${filterType}`}
+          value={filterValue}
+          onChange={handleFilterValueChange}
+        />
+        <button onClick={() => setFilterValue("")}>Reset</button>
+        <select value={sortOrder} onChange={handleSortOrderChange}>
+          <option value="ecoScore">Eco Score</option>
+          <option value="cylinder">Number of Cylinders</option>
+          <option value="cityFuel">City Fuel Efficiency</option>
+          <option value="highwayFuel">Highway Fuel Efficiency</option>
+          <option value="combinedFuel">Combined Fuel Efficiency</option>
+        </select>
+        <button onClick={handleSortDirectionChange}>
+          {sortDirection === "asc" ? "Ascending" : "Descending"}
+        </button>
       </div>
       <div className="AllCarList">
         {cars.map((car) => {

@@ -125,5 +125,18 @@ button:focus-visible {
   //we make it the smallest possible withour breaking the content
   width: 20%;
   position: absolute;
-
 }
+
+.AllCarListHeader{
+  flex-direction: row;
+  display: flex;
+}
+
+.HeaderForm{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
