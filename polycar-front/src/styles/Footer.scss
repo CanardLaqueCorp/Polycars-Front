@@ -1,0 +1,26 @@
+$primary-color: #333;
+$secondary-color: #fff;
+
+#Footer {
+  background-color: $primary-color;
+  color: $secondary-color;
+  padding: 1rem;
+
+  p {
+    margin: 0;
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+
+    a {
+      i {
+        color: $secondary-color;
+        margin-right: 1rem;
+        font-size: 2rem;
+      }
+    }
+  }
+}
