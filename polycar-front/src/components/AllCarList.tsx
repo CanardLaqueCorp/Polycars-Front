@@ -88,11 +88,13 @@ function AllCarList() {
     <div className="AllCarListComponent">
       <div className="AllCarListHeader">
         <h1>Car List:</h1>
-        <p>
-          {filterValue === ""
-            ? `We have ${cars.length} cars in our database`
-            : `${cars.length} results for your search`}
-        </p>
+        <div className="numberOfResults">
+          <p>
+            {filterValue === ""
+              ? `We have ${cars.length} cars in our database`
+              : `${cars.length} results for your search`}
+          </p>
+        </div>
       </div>
       <div className="HeaderForm">
         <select value={filterType} onChange={handleFilterTypeChange}>
