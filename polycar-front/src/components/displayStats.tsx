@@ -1,3 +1,5 @@
+import "../styles/displayStats.scss";
+
 interface Props {
   id: number;
   brand: string;
@@ -34,39 +36,180 @@ interface Props {
   smogRating: number;
   ecoScore: number;
   }
-  
-  function DisplayStats({ id, model, carType, priceNew, priceUsed, cylinder, transmissionType, gears, driveSystem, fuel, maxBioFuel, hasStartAndStop, cityFuel, cityCarbon, highwayFuel, highwayCarbon, combinedFuel, combinedCarbon, hasGuzzler, annualFuelCost, spendOnFiveYears, feRating, ghgRating,smogRating, ecoScore  }: Props) {
-      return (
-      <div>
-        <h1>Stats about car</h1>
-        <ul>
-          <li>id: {id}</li>
-          <li>model: {model}</li>
-          <li>carType: {carType}</li>
-          <li>priceNew: {priceNew}</li>
-          <li>priceUsed: {priceUsed}</li>
-          <li>cylinder: {cylinder}</li>
-          <li>transmissionType: {transmissionType}</li>
-          <li>gears: {gears}</li>
-          <li>driveSystem: {driveSystem}</li>
-          <li>fuel: {fuel}</li>
-          <li>maxBioFuel: {maxBioFuel}</li>
-          <li>hasStartAndStop: {hasStartAndStop}</li>
-          <li>cityFuel: {cityFuel}</li>
-          <li>cityCarbon: {cityCarbon}</li>
-          <li>highwayFuel: {highwayFuel}</li>
-          <li>highwayCarbon: {highwayCarbon}</li>
-          <li>combinedFuel: {combinedFuel}</li>
-          <li>combinedCarbon: {combinedCarbon}</li>
-          <li>hasGuzzler: {hasGuzzler}</li>
-          <li>annualFuelCost: {annualFuelCost}</li>
-          <li>spendOnFiveYears: {spendOnFiveYears}</li>
-          <li>feRating: {feRating}</li>
-          <li>ghgRating: {ghgRating}</li>
-          <li>smogRating: {smogRating}</li>
-          <li>ecoScore: {ecoScore}</li>
-        </ul>
-      </div>
+
+  function DisplayStats({id, brand, model, carType, priceNew, priceUsed, cylinder, transmissionType, gears, driveSystem, fuel, maxBioFuel, hasStartAndStop, cityFuel, cityCarbon, highwayFuel, highwayCarbon, combinedFuel, combinedCarbon, hasGuzzler, annualFuelCost, spendOnFiveYears, feRating, ghgRating,smogRating, ecoScore  }: Props) {
+    let imageUrl = "https://claq.fr/host/" + id + ".jpg";
+    // We check if fuel has more than 10 characters
+    if (fuel.length > 10) {
+      // We cut the string to 10 characters
+      fuel = fuel.substring(0, 9);
+    }
+    // We check if transmissionType has more than 10 characters
+    if (transmissionType.length > 10) {
+        // We cut the string to 10 characters
+        transmissionType = transmissionType.substring(0, 9);
+        }
+
+    return (
+    <div>
+        <div className="HeaderContainer-data">
+            <div className="ImageContainer-data"> <img src={imageUrl}/>  </div>
+            <div className="TitleContainer-data">
+                <h1>Data about this car</h1>
+                <div className="brand">
+                <h3>Brand : {brand}</h3>
+                <h3>Model : {model}</h3>
+                </div>
+            </div>
+            <div className="ImageContainer-data"> <img className="image_reverse" src={imageUrl}/>  </div>
+        </div>
+        <div className="TableContainer">
+            <div className="Technical table data-body-container">
+                    <div className="data-body">
+                    <h5 className="card-title-data">Car data</h5>
+                    <table className="table_Car">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Car Type :</th>
+                                <td>{carType}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Cylinder :</th>
+                                <td>{cylinder}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Gears :</th>
+                                <td>{gears}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Drive System :</th>
+                                <td>{driveSystem}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Transmission Type :</th>
+                                <td>{transmissionType}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Has Start And Stop :</th>
+                                <td>{hasStartAndStop ? "true" : "false"}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div className="Fuel table data-body-container">
+                <div className="data-body">
+                    <h5 className="card-title-data">Fuel data</h5>
+                    <table className="table_Fuel">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Fuel :</th>
+                                <td>{fuel}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Max BioFuel :</th>
+                                <td>{maxBioFuel}</td>
+                            </tr>
+                            <tr>
+                                <th scope ="row">City Fuel :</th>
+                                <td>{cityFuel}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Highway Fuel :</th>
+                                <td>{highwayFuel}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Combined Fuel :</th>
+                                <td>{combinedFuel}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Annual Fuel Cost :</th>
+                                <td>{annualFuelCost}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div className="Rating table data-body-container">
+                <div className="data-body">
+                    <h5 className="card-title-data">Ecological data</h5>
+                    <table className="table_Rating">
+                        <tbody>
+                            <tr>
+                                <th scope="row">Eco Score :</th>
+                                <td>{ecoScore}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">fe Rating :</th>
+                                <td>{feRating}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">ghg Rating :</th>
+                                <td>{ghgRating}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">smog Rating :</th>
+                                <td>{smogRating}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Has Guzzler :</th>
+                                <td>{hasGuzzler ? "true" : "false"}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div className="dataContainer">
+            <div className="Carbon table data-body-container">
+                <div className="data-body">
+                    <h5 className="card-title-data">Carbon Data</h5>
+                    <table className="table_Carbon">
+                        <tbody>
+                            <tr>
+                                <th scope="row">City Carbon :</th>
+                                <td>{cityCarbon}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Highway Carbon :</th>
+                                <td>{highwayCarbon}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Combined Carbon :</th>
+                                <td>{combinedCarbon}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div className="Price table data-body-container">
+                <div className="data-body">
+                    <h5 className="card-title-data">Prices and Costs</h5>
+                    <table className="table_card"> 
+                        <tbody>
+                            <tr>
+                                <th scope="row">Price New :</th>
+                                <td>{priceNew}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Price Used :</th>
+                                <td>{priceUsed}</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Spend on Five Years :</th>
+                                <td>{spendOnFiveYears}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <button className="btn-data btn-primary"
+        onClick={() => window.location.replace("/cars")}
+        >
+            Return to cars list
+        </button>
+    </div>
     );
   }
   

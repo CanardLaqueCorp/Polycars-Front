@@ -1,0 +1,79 @@
+.HeaderContainer-data {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.image_reverse {
+    transform: scaleX(-1);
+}
+
+.ImageContainer-data {
+    margin: 1.5rem;
+}
+
+.brand {
+    font-size: 1.5rem;
+    text-align: center;
+    color: wheat;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.TableContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction:  row;
+  justify-content: center;
+}
+
+.dataContainer {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction:  row;
+  text-align: center;
+  justify-content: center;
+}
+
+.table {
+    display: flex;
+}
+
+.card-title-data{
+    font-size: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+    color: wheat;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+
+.data-body-container {
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: #7D4E57;
+    flex: 1 1 400px;
+    width: 100%;
+    max-width: 500px;
+    text-align: left;
+    flex-direction: column;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+}
+h5 {
+    margin: 8px 0 24px 0;
+}
+
+h1 {
+    margin: 0 0 0 0;
+}
