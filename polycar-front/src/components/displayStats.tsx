@@ -137,19 +137,19 @@ interface Props {
                         <tbody>
                             <tr>
                                 <th scope="row">Eco Score :</th>
-                                <td>{ecoScore}</td>
+                                <td>{ecoScore}/100</td>
                             </tr>
                             <tr>
                                 <th scope="row">fe Rating :</th>
-                                <td>{feRating}</td>
+                                <td>{feRating}/10</td>
                             </tr>
                             <tr>
                                 <th scope="row">ghg Rating :</th>
-                                <td>{ghgRating}</td>
+                                <td>{ghgRating}/10</td>
                             </tr>
                             <tr>
                                 <th scope="row">smog Rating :</th>
-                                <td>{smogRating}</td>
+                                <td>{smogRating}/10</td>
                             </tr>
                             <tr>
                                 <th scope="row">Has Guzzler :</th>
