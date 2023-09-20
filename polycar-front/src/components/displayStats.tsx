@@ -189,15 +189,15 @@ interface Props {
                         <tbody>
                             <tr>
                                 <th scope="row">Price New :</th>
-                                <td>{priceNew}</td>
+                                <td>{priceNew} $</td>
                             </tr>
                             <tr>
                                 <th scope="row">Price Used :</th>
-                                <td>{priceUsed}</td>
+                                <td>{priceUsed} $</td>
                             </tr>
                             <tr>
                                 <th scope="row">Spend on Five Years :</th>
-                                <td>{spendOnFiveYears}</td>
+                                <td>{spendOnFiveYears} $</td>
                             </tr>
                         </tbody>
                     </table>
