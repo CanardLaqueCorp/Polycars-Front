@@ -108,23 +108,23 @@ interface Props {
                             </tr>
                             <tr>
                                 <th scope="row">Max BioFuel :</th>
-                                <td>{maxBioFuel}</td>
+                                <td>{maxBioFuel} %</td>
                             </tr>
                             <tr>
                                 <th scope ="row">City Fuel :</th>
-                                <td>{cityFuel}</td>
+                                <td>{cityFuel} mpg</td>
                             </tr>
                             <tr>
                                 <th scope="row">Highway Fuel :</th>
-                                <td>{highwayFuel}</td>
+                                <td>{highwayFuel} mpg</td>
                             </tr>
                             <tr>
                                 <th scope="row">Combined Fuel :</th>
-                                <td>{combinedFuel}</td>
+                                <td>{combinedFuel} mpg</td>
                             </tr>
                             <tr>
                                 <th scope="row">Annual Fuel Cost :</th>
-                                <td>{annualFuelCost}</td>
+                                <td>{annualFuelCost} $</td>
                             </tr>
                         </tbody>
                     </table>
