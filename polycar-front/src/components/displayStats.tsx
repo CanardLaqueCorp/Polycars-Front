@@ -168,15 +168,15 @@ interface Props {
                         <tbody>
                             <tr>
                                 <th scope="row">City Carbon :</th>
-                                <td>{cityCarbon} GCO<span style={{fontSize:'0.9rem'}}>2</span>/100M</td>
+                                <td>{cityCarbon} GCO<span style={{fontSize:'0.9rem'}}>2</span>/M</td>
                             </tr>
                             <tr>
                                 <th scope="row">Highway Carbon :</th>
-                                <td>{highwayCarbon} GCO<span style={{fontSize:'0.9rem'}}>2</span>/100M</td>
+                                <td>{highwayCarbon} GCO<span style={{fontSize:'0.9rem'}}>2</span>/M</td>
                             </tr>
                             <tr>
                                 <th scope="row">Combined Carbon :</th>
-                                <td>{combinedCarbon} GCO<span style={{fontSize:'0.9rem'}}>2</span>/100M</td>
+                                <td>{combinedCarbon} GCO<span style={{fontSize:'0.9rem'}}>2</span>/M</td>
                             </tr>
                         </tbody>
                     </table>
