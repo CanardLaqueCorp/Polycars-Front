@@ -1,4 +1,6 @@
 import "../styles/displayStats.scss";
+import { Radar } from "react-chartjs-2";
+
 
 interface Props {
   id: number;
@@ -36,6 +38,24 @@ interface Props {
   smogRating: number;
   ecoScore: number;
   }
+
+  const radarData = {
+    labels: ["Max Biofuel", "City Fuel", "Highway Fuel", "Combined Fuel", "Annual Fuel Cost", "Eco Score", "fe Rating", "ghg Rating", "smog Rating", "City Carbon", "Highway Carbon", "Combined Carbon" ],
+    datasets: [
+      {
+        label: "Car Data",
+        backgroundColor: "rgba(179,181,198,0.2)",
+        borderColor: "rgba(179,181,198,1)",
+        pointBackgroundColor: "rgba(179,181,198,1)",
+        pointBorderColor: "#fff",
+        pointHoverBackgroundColor: "#fff",
+        pointHoverBorderColor: "rgba(179,181,198,1)",
+        data: [ 15, 52.7, 55.6, 53.9, 800, 73, 9, 9, 7, 169, 161, 165],
+      },
+    ],
+  };
+  
+
 
   function DisplayStats({id, brand, model, carType, priceNew, priceUsed, cylinder, transmissionType, gears, driveSystem, fuel, maxBioFuel, hasStartAndStop, cityFuel, cityCarbon, highwayFuel, highwayCarbon, combinedFuel, combinedCarbon, hasGuzzler, annualFuelCost, spendOnFiveYears, feRating, ghgRating,smogRating, ecoScore  }: Props) {
     let imageUrl = "https://claq.fr/host/" + id + ".jpg";
@@ -201,6 +221,9 @@ interface Props {
                             </tr>
                         </tbody>
                     </table>
+                </div>
+                <div className="RadarChartContainer">
+                    <Radar data={radarData} />
                 </div>
             </div>
         </div>
