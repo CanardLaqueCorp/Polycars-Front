@@ -5,7 +5,7 @@
 }
 
 .type {
-	font-size: 1.8em;
+	font-size: 1.7em;
 	margin-left: 6.4%;
 	width: 40%;
 	text-align: center;
@@ -48,6 +48,11 @@ textarea {
 }
 
 .submit:hover {
+	color:darksalmon;
 	transform: scale(1.02);
 	box-shadow: 0 0 20px #ccc;
+}
+
+abbr {
+	text-decoration: none;
 }
