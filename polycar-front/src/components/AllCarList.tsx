@@ -125,7 +125,7 @@ function AllCarList() {
       </div>
       <div className="AllCarList">
         {cars.map((car) => {
-          const imageUrl = `https://claq.fr/host/${car.id}.jpg`;
+          const imageUrl = `https://claq-dev.com/host/${car.id}.jpg`;
           return (
             <Car
               key={car.id}
