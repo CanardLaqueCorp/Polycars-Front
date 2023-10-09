@@ -65,7 +65,7 @@ function DisplayStats({
   smogRating,
   ecoScore,
 }: Props) {
-  const imageUrl = "https://claq.fr/host/" + id + ".jpg";
+  const imageUrl = "https://claq-dev.com/host/" + id + ".jpg";
   // We check if fuel has more than 10 characters
   if (fuel.length > 10) {
     // We cut the string to 10 characters
