@@ -36,67 +36,32 @@ interface Props {
   ghgRating: number;
   smogRating: number;
   ecoScore: number;
-}
-
-function DisplayStats({
-  id,
-  brand,
-  model,
-  carType,
-  priceNew,
-  priceUsed,
-  cylinder,
-  transmissionType,
-  gears,
-  driveSystem,
-  fuel,
-  maxBioFuel,
-  hasStartAndStop,
-  cityFuel,
-  cityCarbon,
-  highwayFuel,
-  highwayCarbon,
-  combinedFuel,
-  combinedCarbon,
-  hasGuzzler,
-  annualFuelCost,
-  spendOnFiveYears,
-  feRating,
-  ghgRating,
-  smogRating,
-  ecoScore,
-}: Props) {
-  const imageUrl = "https://claq-dev.com/host/" + id + ".jpg";
-  // We check if fuel has more than 10 characters
-  if (fuel.length > 10) {
-    // We cut the string to 10 characters
-    fuel = fuel.substring(0, 9);
   }
-  // We check if transmissionType has more than 10 characters
-  if (transmissionType.length > 10) {
-    // We cut the string to 10 characters
-    transmissionType = transmissionType.substring(0, 9);
-  }
+  function DisplayStats({id, brand, model, carType, priceNew, priceUsed, cylinder, transmissionType, gears, driveSystem, fuel, maxBioFuel, hasStartAndStop, cityFuel, cityCarbon, highwayFuel, highwayCarbon, combinedFuel, combinedCarbon, hasGuzzler, annualFuelCost, spendOnFiveYears, feRating, ghgRating,smogRating, ecoScore  }: Props) {
+    let imageUrl = "https://claq-dev.com/host/" + id + ".jpg";
+    // We check if fuel has more than 10 characters
+    if (fuel.length > 10) {
+      // We cut the string to 10 characters
+      fuel = fuel.substring(0, 9);
+    }
+    // We check if transmissionType has more than 10 characters
+    if (transmissionType.length > 10) {
+        // We cut the string to 10 characters
+        transmissionType = transmissionType.substring(0, 9);
+        }
 
-
-
-  return (
+    return (
     <div>
-      <div className="HeaderContainer-data">
-        <div className="ImageContainer-data">
-          {" "}
-          <img src={imageUrl} />{" "}
-        </div>
-        <div className="TitleContainer-data">
-          <h1>Data about this car</h1>
-          <div className="brand">
-            <h3>Brand : {brand}</h3>
-            <h3>Model : {model}</h3>
-          </div>
-        </div>
-        <div className="ImageContainer-data">
-          {" "}
-          <img className="image_reverse" src={imageUrl} />{" "}
+        <div className="HeaderContainer-data">
+            <div className="ImageContainer-data"> <img src={imageUrl}/>  </div>
+            <div className="TitleContainer-data">
+                <h1>Data about this car</h1>
+                <div className="brand">
+                <h3>Brand : {brand}</h3>
+                <h3>Model : {model}</h3>
+                </div>
+            </div>
+            <div className="ImageContainer-data"> <img className="image_reverse" src={imageUrl}/>  </div>
         </div>
         <div className="TableContainer">
             <div className="Technical table data-body-container">
@@ -239,16 +204,19 @@ function DisplayStats({
                 </div>
             </div>
         </div>
-      </div>
-      <button
-        className="btn-data btn-primary"
-        onClick={() => window.location.replace("/cars")}>
-        Return to cars list
-      </button>
+        <button className="btn-data btn-primary"
+        onClick={() => window.location.replace("/cars")}
+        >
+            Return to cars list
+        </button>
     </div>
-
     );
   }
+  
   export default DisplayStats;
 
-
+  /*
+  <div className="RadarChartContainer">
+                    <Radar data={radarData} />
+                </div>
+                */
