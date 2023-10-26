@@ -1,5 +1,4 @@
 import "../styles/displayStats.scss";
-import { Radar } from "react-chartjs-2";
 
 
 interface Props {
@@ -38,23 +37,6 @@ interface Props {
   smogRating: number;
   ecoScore: number;
 }
-
-
-  const radarData = {
-    labels: ["Max Biofuel", "City Fuel", "Highway Fuel", "Combined Fuel", "Annual Fuel Cost", "Eco Score", "fe Rating", "ghg Rating", "smog Rating", "City Carbon", "Highway Carbon", "Combined Carbon" ],
-    datasets: [
-      {
-        label: "Car Data",
-        backgroundColor: "rgba(179,181,198,0.2)",
-        borderColor: "rgba(179,181,198,1)",
-        pointBackgroundColor: "rgba(179,181,198,1)",
-        pointBorderColor: "#fff",
-        pointHoverBackgroundColor: "#fff",
-        pointHoverBorderColor: "rgba(179,181,198,1)",
-        data: [ 15, 52.7, 55.6, 53.9, 800, 73, 9, 9, 7, 169, 161, 165],
-      },
-    ],
-  };
 
 function DisplayStats({
   id,
@@ -257,84 +239,10 @@ function DisplayStats({
                 </div>
             </div>
         </div>
-        <div className="Rating table data-body-container">
-          <div className="data-body">
-            <h5 className="card-title-data">Ecological data</h5>
-            <table className="table_Rating">
-              <tbody>
-                <tr>
-                  <th scope="row">Eco Score :</th>
-                  <td>{ecoScore}</td>
-                </tr>
-                <tr>
-                  <th scope="row">fe Rating :</th>
-                  <td>{feRating}</td>
-                </tr>
-                <tr>
-                  <th scope="row">ghg Rating :</th>
-                  <td>{ghgRating}</td>
-                </tr>
-                <tr>
-                  <th scope="row">smog Rating :</th>
-                  <td>{smogRating}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Has Guzzler :</th>
-                  <td>{hasGuzzler ? "true" : "false"}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <div className="dataContainer">
-        <div className="Carbon table data-body-container">
-          <div className="data-body">
-            <h5 className="card-title-data">Carbon Data</h5>
-            <table className="table_Carbon">
-              <tbody>
-                <tr>
-                  <th scope="row">City Carbon :</th>
-                  <td>{cityCarbon}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Highway Carbon :</th>
-                  <td>{highwayCarbon}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Combined Carbon :</th>
-                  <td>{combinedCarbon}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div className="Price table data-body-container">
-          <div className="data-body">
-            <h5 className="card-title-data">Prices and Costs</h5>
-            <table className="table_card">
-              <tbody>
-                <tr>
-                  <th scope="row">Price New :</th>
-                  <td>{priceNew}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Price Used :</th>
-                  <td>{priceUsed}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Spend on Five Years :</th>
-                  <td>{spendOnFiveYears}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
       </div>
       <button
         className="btn-data btn-primary"
-        onClick={() => window.location.replace("/cars")}
-      >
+        onClick={() => window.location.replace("/cars")}>
         Return to cars list
       </button>
     </div>
@@ -342,10 +250,5 @@ function DisplayStats({
     );
   }
   export default DisplayStats;
-
-  // ajouter dans la fin de la div dataContainer
-  // <div className="RadarChartContainer">
-  //<Radar data={radarData} />
-  //</div>
 
 
