@@ -55,21 +55,7 @@ interface Props {
       },
     ],
   };
-  
 
-
-  function DisplayStats({id, brand, model, carType, priceNew, priceUsed, cylinder, transmissionType, gears, driveSystem, fuel, maxBioFuel, hasStartAndStop, cityFuel, cityCarbon, highwayFuel, highwayCarbon, combinedFuel, combinedCarbon, hasGuzzler, annualFuelCost, spendOnFiveYears, feRating, ghgRating,smogRating, ecoScore  }: Props) {
-    let imageUrl = "https://claq.fr/host/" + id + ".jpg";
-    // We check if fuel has more than 10 characters
-    if (fuel.length > 10) {
-      // We cut the string to 10 characters
-      fuel = fuel.substring(0, 9);
-    }
-    // We check if transmissionType has more than 10 characters
-    if (transmissionType.length > 10) {
-        // We cut the string to 10 characters
-        transmissionType = transmissionType.substring(0, 9);
-        }
 function DisplayStats({
   id,
   brand,
@@ -109,6 +95,7 @@ function DisplayStats({
     // We cut the string to 10 characters
     transmissionType = transmissionType.substring(0, 9);
   }
+
 
 
   return (
@@ -354,10 +341,11 @@ function DisplayStats({
 
     );
   }
-  
   export default DisplayStats;
 
   // ajouter dans la fin de la div dataContainer
   // <div className="RadarChartContainer">
   //<Radar data={radarData} />
   //</div>
+
+
