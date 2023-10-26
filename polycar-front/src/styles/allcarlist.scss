@@ -1,6 +1,3 @@
-.AllCarListHeader{
-    display: flex;
-}
 
 .AllCarList{
     display: flex;
@@ -8,4 +5,38 @@
     flex-direction: row;
     margin-top: 20px;
 
+}
+.HeaderForm{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.numberOfResults{
+    background-color: red !important;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 20px;
+    margin-left: 2rem;
+}
+
+.numberOfResults{
+    background-color: red !important;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-right: 20px;
+    margin-left: 2rem;
+}
+
+.AllCarListTop {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: var(--color-accent-darker);
+  color: #fff;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  font-size: 2.2rem;
+  transition: background-color 0.2s ease-in-out;
 }
