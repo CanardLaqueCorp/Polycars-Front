@@ -77,3 +77,20 @@ h5 {
 h1 {
     margin: 0 0 0 0;
 }
+
+
+.RadarChartContainer {
+    width: 100%;
+    max-width: 400px; // Ajustez la largeur maximale selon vos besoins
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+  
+    canvas {
+      width: 100% !important;
+      height: auto !important;
+    }
+  }
+  
