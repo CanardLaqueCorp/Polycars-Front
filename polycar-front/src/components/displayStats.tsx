@@ -222,9 +222,6 @@ interface Props {
                         </tbody>
                     </table>
                 </div>
-                <div className="RadarChartContainer">
-                    <Radar data={radarData} />
-                </div>
             </div>
         </div>
         <button className="btn-data btn-primary"
@@ -237,3 +234,8 @@ interface Props {
   }
   
   export default DisplayStats;
+
+  // ajouter dans la fin de la div dataContainer
+  // <div className="RadarChartContainer">
+  //<Radar data={radarData} />
+  //</div>
