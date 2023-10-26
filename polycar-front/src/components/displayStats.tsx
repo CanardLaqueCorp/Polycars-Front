@@ -37,8 +37,7 @@ interface Props {
   ghgRating: number;
   smogRating: number;
   ecoScore: number;
-}
-
+  }
 
   const radarData = {
     labels: ["Max Biofuel", "City Fuel", "Highway Fuel", "Combined Fuel", "Annual Fuel Cost", "Eco Score", "fe Rating", "ghg Rating", "smog Rating", "City Carbon", "Highway Carbon", "Combined Carbon" ],
@@ -70,64 +69,19 @@ interface Props {
         // We cut the string to 10 characters
         transmissionType = transmissionType.substring(0, 9);
         }
-function DisplayStats({
-  id,
-  brand,
-  model,
-  carType,
-  priceNew,
-  priceUsed,
-  cylinder,
-  transmissionType,
-  gears,
-  driveSystem,
-  fuel,
-  maxBioFuel,
-  hasStartAndStop,
-  cityFuel,
-  cityCarbon,
-  highwayFuel,
-  highwayCarbon,
-  combinedFuel,
-  combinedCarbon,
-  hasGuzzler,
-  annualFuelCost,
-  spendOnFiveYears,
-  feRating,
-  ghgRating,
-  smogRating,
-  ecoScore,
-}: Props) {
-  const imageUrl = "https://claq-dev.com/host/" + id + ".jpg";
-  // We check if fuel has more than 10 characters
-  if (fuel.length > 10) {
-    // We cut the string to 10 characters
-    fuel = fuel.substring(0, 9);
-  }
-  // We check if transmissionType has more than 10 characters
-  if (transmissionType.length > 10) {
-    // We cut the string to 10 characters
-    transmissionType = transmissionType.substring(0, 9);
-  }
 
-
-  return (
+    return (
     <div>
-      <div className="HeaderContainer-data">
-        <div className="ImageContainer-data">
-          {" "}
-          <img src={imageUrl} />{" "}
-        </div>
-        <div className="TitleContainer-data">
-          <h1>Data about this car</h1>
-          <div className="brand">
-            <h3>Brand : {brand}</h3>
-            <h3>Model : {model}</h3>
-          </div>
-        </div>
-        <div className="ImageContainer-data">
-          {" "}
-          <img className="image_reverse" src={imageUrl} />{" "}
+        <div className="HeaderContainer-data">
+            <div className="ImageContainer-data"> <img src={imageUrl}/>  </div>
+            <div className="TitleContainer-data">
+                <h1>Data about this car</h1>
+                <div className="brand">
+                <h3>Brand : {brand}</h3>
+                <h3>Model : {model}</h3>
+                </div>
+            </div>
+            <div className="ImageContainer-data"> <img className="image_reverse" src={imageUrl}/>  </div>
         </div>
         <div className="TableContainer">
             <div className="Technical table data-body-container">
@@ -270,94 +224,19 @@ function DisplayStats({
                 </div>
             </div>
         </div>
-        <div className="Rating table data-body-container">
-          <div className="data-body">
-            <h5 className="card-title-data">Ecological data</h5>
-            <table className="table_Rating">
-              <tbody>
-                <tr>
-                  <th scope="row">Eco Score :</th>
-                  <td>{ecoScore}</td>
-                </tr>
-                <tr>
-                  <th scope="row">fe Rating :</th>
-                  <td>{feRating}</td>
-                </tr>
-                <tr>
-                  <th scope="row">ghg Rating :</th>
-                  <td>{ghgRating}</td>
-                </tr>
-                <tr>
-                  <th scope="row">smog Rating :</th>
-                  <td>{smogRating}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Has Guzzler :</th>
-                  <td>{hasGuzzler ? "true" : "false"}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <div className="dataContainer">
-        <div className="Carbon table data-body-container">
-          <div className="data-body">
-            <h5 className="card-title-data">Carbon Data</h5>
-            <table className="table_Carbon">
-              <tbody>
-                <tr>
-                  <th scope="row">City Carbon :</th>
-                  <td>{cityCarbon}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Highway Carbon :</th>
-                  <td>{highwayCarbon}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Combined Carbon :</th>
-                  <td>{combinedCarbon}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div className="Price table data-body-container">
-          <div className="data-body">
-            <h5 className="card-title-data">Prices and Costs</h5>
-            <table className="table_card">
-              <tbody>
-                <tr>
-                  <th scope="row">Price New :</th>
-                  <td>{priceNew}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Price Used :</th>
-                  <td>{priceUsed}</td>
-                </tr>
-                <tr>
-                  <th scope="row">Spend on Five Years :</th>
-                  <td>{spendOnFiveYears}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <button
-        className="btn-data btn-primary"
+        <button className="btn-data btn-primary"
         onClick={() => window.location.replace("/cars")}
-      >
-        Return to cars list
-      </button>
+        >
+            Return to cars list
+        </button>
     </div>
-
     );
   }
   
   export default DisplayStats;
 
-  // ajouter dans la fin de la div dataContainer
-  // <div className="RadarChartContainer">
-  //<Radar data={radarData} />
-  //</div>
+  /*
+  <div className="RadarChartContainer">
+                    <Radar data={radarData} />
+                </div>
+                */
