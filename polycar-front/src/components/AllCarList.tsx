@@ -1,6 +1,5 @@
-import { useState } from "react";
 import Car from "./Car";
-import * as CarData from "../data/car-data-updated.json";
+import { useEffect, useState } from "react";
 
 interface CarData {
   id: number;
@@ -44,29 +43,14 @@ function AllCarList() {
   const [filterValue, setFilterValue] = useState("");
   const [sortOrder, setSortOrder] = useState("ecoScore");
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
-  const cars = CarData.result
-    ? CarData.result
-        .filter((car: CarData) =>
-          car[filterType as keyof CarData]
-            .toString()
-            .toLowerCase()
-            .includes(filterValue.toLowerCase())
-        )
-        .sort((a: CarData, b: CarData) => {
-          const direction = sortDirection === "asc" ? 1 : -1;
-          if (sortOrder === "cylinder") {
-            return direction * (b.cylinder - a.cylinder);
-          } else if (sortOrder === "cityFuel") {
-            return direction * (b.cityFuel - a.cityFuel);
-          } else if (sortOrder === "highwayFuel") {
-            return direction * (b.highwayFuel - a.highwayFuel);
-          } else if (sortOrder === "combinedFuel") {
-            return direction * (b.combinedFuel - a.combinedFuel);
-          } else {
-            return direction * (b.ecoScore - a.ecoScore); //si on n'applique pas de filtre, on trie par ecoScore
-          }
-        })
-    : [];
+  const [cars, setCars] = useState<CarData[]>([]); //les voitures sont ici
+
+  useEffect(() => {
+    fetch("https://cars.poly-api.fr/public/get/car/all/light")
+      .then((response) => response.json())
+      .then((data) => setCars(data.result))
+      .catch((error) => console.error(error));
+  }, []);
 
   const handleFilterTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFilterType(e.target.value);
@@ -84,16 +68,42 @@ function AllCarList() {
     setSortDirection(sortDirection === "asc" ? "desc" : "asc");
   };
 
+  const filteredCars = cars
+    .filter((car: CarData) =>
+      car[filterType as keyof CarData]
+        .toString()
+        .toLowerCase()
+        .includes(filterValue.toLowerCase())
+    )
+    .sort((a: CarData, b: CarData) => {
+      const direction = sortDirection === "asc" ? 1 : -1;
+      if (sortOrder === "cylinder") {
+        return direction * (b.cylinder - a.cylinder);
+      } else if (sortOrder === "cityFuel") {
+        return direction * (b.cityFuel - a.cityFuel);
+      } else if (sortOrder === "highwayFuel") {
+        return direction * (b.highwayFuel - a.highwayFuel);
+      } else if (sortOrder === "combinedFuel") {
+        return direction * (b.combinedFuel - a.combinedFuel);
+      } else {
+        return direction * (b.ecoScore - a.ecoScore); //si on n'applique pas de filtre, on trie par ecoScore
+      }
+    });
+
   return (
     <div className="AllCarListComponent">
       <div className="AllCarListHeader">
         <h1>Car List:</h1>
         <div className="numberOfResults">
-          <p>
-            {filterValue === ""
-              ? `We have ${cars.length} cars in our database`
-              : `${cars.length} results for your search`}
-          </p>
+          {cars.length === 0 ? (
+            <h1>The cars are still loading...</h1>
+          ) : (
+            <p>
+              {filterValue === ""
+                ? `We have ${filteredCars.length} cars in our database`
+                : `${filteredCars.length} results for your search`}
+            </p>
+          )}
         </div>
       </div>
       <div className="HeaderForm">
