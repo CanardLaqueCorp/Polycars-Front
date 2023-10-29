@@ -1,5 +1,7 @@
 import Car from "./Car";
+import LoadingScreen from "./LoadingScreen";
 import { useEffect, useState } from "react";
+
 
 interface CarData {
   id: number;
@@ -44,11 +46,15 @@ function AllCarList() {
   const [sortOrder, setSortOrder] = useState("ecoScore");
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
   const [cars, setCars] = useState<CarData[]>([]); //les voitures sont ici
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch("https://cars.poly-api.fr/public/get/car/all/light")
       .then((response) => response.json())
-      .then((data) => setCars(data.result))
+      .then((data) => {
+        setCars(data.result);
+        setIsLoading(false);
+      })
       .catch((error) => console.error(error));
   }, []);
 
@@ -95,8 +101,10 @@ function AllCarList() {
       <div className="AllCarListHeader">
         <h1>Car List:</h1>
         <div className="numberOfResults">
-          {cars.length === 0 ? (
-            <h1>The cars are still loading...</h1>
+          {isLoading ? (
+            <div className="LoadingScreenWrapper" style={{ height: "10" }}>
+              <LoadingScreen />
+            </div>
           ) : (
             <p>
               {filterValue === ""
@@ -134,7 +142,7 @@ function AllCarList() {
         </button>
       </div>
       <div className="AllCarList">
-        {cars.map((car) => {
+        {filteredCars.map((car) => {
           const imageUrl = `https://claq-dev.com/host/${car.id}.jpg`;
           return (
             <Car

@@ -1,4 +1,5 @@
 import DisplayStats from "./displayStats";
+import LoadingScreen from "./LoadingScreen";
 import { useState, useEffect } from "react";
 
 interface CarData {
@@ -51,17 +52,7 @@ function AllStatsAboutCar() {
   }, []);
 
   if (!carData) {
-    return (
-      <div>
-        <p>
-          <img
-            src="https://media.tenor.com/gMC-purKMQ4AAAAd/sad-cry.gif"
-            alt="loading"
-          />
-          <p>Sorry we couldn't find the car you were looking for</p>
-        </p>
-      </div>
-    );
+    return <LoadingScreen />;
   }
 
   // Destructure the carData object to extract its properties

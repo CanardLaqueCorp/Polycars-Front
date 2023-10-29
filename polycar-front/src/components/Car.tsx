@@ -21,7 +21,9 @@ function Car({
       <div className="carHeader">
         <img className="card-img-top" src={image} alt="Car image" />
         <h5 className="card-title">
-          <p className="CarMarque">{brand}</p>
+          <p className="CarMarque">
+            {brand === "HYUNDAI MOTOR COMPANY" ? "Hyundai" : brand}
+          </p>
           <p className="CarModele">{model}</p>
         </h5>
       </div>
