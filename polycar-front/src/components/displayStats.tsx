@@ -51,7 +51,7 @@ interface Props {
         }
 
     return (
-    <div>
+    <div className="all">
         <div className="HeaderContainer-data">
             <div className="ImageContainer-data"> <img src={imageUrl}/>  </div>
             <div className="TitleContainer-data">
