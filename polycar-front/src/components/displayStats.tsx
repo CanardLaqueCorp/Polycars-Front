@@ -221,8 +221,8 @@ interface Props {
                 </div>
             </div>
             <div className="FuelChart">
-            <ResponsiveContainer width="100%" height={400}>
-                <RadarChart cx={300} cy={250} outerRadius={150} width={500} height={500} data={Fuel}>
+            <ResponsiveContainer width="100%" height="100%">
+                <RadarChart cx={300} cy={170} outerRadius={150} width={600} height={325} data={Fuel}>
                     <PolarGrid />
                     <PolarAngleAxis dataKey="subject" />
                     <PolarRadiusAxis />
@@ -263,8 +263,8 @@ interface Props {
                 </div>
             </div>
             <div className="EcologicalChart">
-            <ResponsiveContainer width="100%" height={400}>
-                <RadarChart cx={300} cy={250} outerRadius={150} width={500} height={500} data={Ecological}>
+            <ResponsiveContainer width="100%" height="100%">
+                <RadarChart cx={300} cy={170} outerRadius={150} width={600} height={325} data={Ecological}>
                     <PolarGrid />
                     <PolarAngleAxis dataKey="subject" />
                     <PolarRadiusAxis />
@@ -274,7 +274,7 @@ interface Props {
             </ResponsiveContainer>
             </div>
         </div>
-        <div className="dataContainer">
+        <div className="TableContainer">
             <div className="Carbon table data-body-container">
                 <div className="data-body">
                     <h5 className="card-title-data">Carbon Data</h5>
@@ -297,8 +297,8 @@ interface Props {
                 </div>
             </div>
             <div className="CarbonChart">
-                <ResponsiveContainer width="100%" height={400}>
-                    <RadarChart cx={300} cy={250} outerRadius={150} width={500} height={500} data={Carbon}>
+            <ResponsiveContainer width="100%" height="100%">
+                <RadarChart cx={300} cy={200} outerRadius={150} width={600} height={325} data={Carbon}>
                         <PolarGrid />
                         <PolarAngleAxis dataKey="subject" />
                         <PolarRadiusAxis />
