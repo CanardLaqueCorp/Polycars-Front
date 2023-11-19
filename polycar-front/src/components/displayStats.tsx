@@ -164,6 +164,29 @@ interface Props {
                     </table>
                 </div>
             </div>
+            <div className="Price table data-body-container">
+                <div className="data-body">
+                    <h5 className="card-title-data">Prices and Costs</h5>
+                    <table className="table_card"> 
+                        <tbody>
+                            <tr>
+                                <th scope="row">Price New :</th>
+                                <td>{priceNew} $</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Price Used :</th>
+                                <td>{priceUsed} $</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Spend on Five Years :</th>
+                                <td>{spendOnFiveYears} $</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div className="TableContainer">
             <div className="Fuel table data-body-container">
                 <div className="data-body">
                     <h5 className="card-title-data">Fuel data</h5>
@@ -197,6 +220,19 @@ interface Props {
                     </table>
                 </div>
             </div>
+            <div className="FuelChart">
+            <ResponsiveContainer width="100%" height={400}>
+                <RadarChart cx={300} cy={250} outerRadius={150} width={500} height={500} data={Fuel}>
+                    <PolarGrid />
+                    <PolarAngleAxis dataKey="subject" />
+                    <PolarRadiusAxis />
+                    <Radar name="Fuel" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+                    <Radar name="Max Fuel" dataKey="B" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6}/>
+                </RadarChart>
+            </ResponsiveContainer>
+            </div>
+        </div>
+        <div className="TableContainer">
             <div className="Rating table data-body-container">
                 <div className="data-body">
                     <h5 className="card-title-data">Ecological data</h5>
@@ -226,6 +262,17 @@ interface Props {
                     </table>
                 </div>
             </div>
+            <div className="EcologicalChart">
+            <ResponsiveContainer width="100%" height={400}>
+                <RadarChart cx={300} cy={250} outerRadius={150} width={500} height={500} data={Ecological}>
+                    <PolarGrid />
+                    <PolarAngleAxis dataKey="subject" />
+                    <PolarRadiusAxis />
+                    <Radar name="Ecological" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+                    <Radar name="Max Ecological" dataKey="B" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6}/>
+                </RadarChart>
+            </ResponsiveContainer>
+            </div>
         </div>
         <div className="dataContainer">
             <div className="Carbon table data-body-container">
@@ -249,61 +296,16 @@ interface Props {
                     </table>
                 </div>
             </div>
-            <div className="Price table data-body-container">
-                <div className="data-body">
-                    <h5 className="card-title-data">Prices and Costs</h5>
-                    <table className="table_card"> 
-                        <tbody>
-                            <tr>
-                                <th scope="row">Price New :</th>
-                                <td>{priceNew} $</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Price Used :</th>
-                                <td>{priceUsed} $</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Spend on Five Years :</th>
-                                <td>{spendOnFiveYears} $</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div className="RadarChartContainer">
             <div className="CarbonChart">
-            <ResponsiveContainer width="100%" height={400}>
-                <RadarChart cx={300} cy={250} outerRadius={150} width={500} height={500} data={Carbon}>
-                    <PolarGrid />
-                    <PolarAngleAxis dataKey="subject" />
-                    <PolarRadiusAxis />
-                    <Radar name="Carbon" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-                    <Radar name="Max Carbon" dataKey="B" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6}/>
-                </RadarChart>
-            </ResponsiveContainer>
-            </div>
-            <div className="EcologicalChart">
-            <ResponsiveContainer width="100%" height={400}>
-                <RadarChart cx={300} cy={250} outerRadius={150} width={500} height={500} data={Ecological}>
-                    <PolarGrid />
-                    <PolarAngleAxis dataKey="subject" />
-                    <PolarRadiusAxis />
-                    <Radar name="Ecological" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-                    <Radar name="Max Ecological" dataKey="B" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6}/>
-                </RadarChart>
-            </ResponsiveContainer>
-            </div>
-            <div className="FuelChart">
-            <ResponsiveContainer width="100%" height={400}>
-                <RadarChart cx={300} cy={250} outerRadius={150} width={500} height={500} data={Fuel}>
-                    <PolarGrid />
-                    <PolarAngleAxis dataKey="subject" />
-                    <PolarRadiusAxis />
-                    <Radar name="Fuel" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-                    <Radar name="Max Fuel" dataKey="B" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6}/>
-                </RadarChart>
-            </ResponsiveContainer>
+                <ResponsiveContainer width="100%" height={400}>
+                    <RadarChart cx={300} cy={250} outerRadius={150} width={500} height={500} data={Carbon}>
+                        <PolarGrid />
+                        <PolarAngleAxis dataKey="subject" />
+                        <PolarRadiusAxis />
+                        <Radar name="Carbon" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+                        <Radar name="Max Carbon" dataKey="B" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6}/>
+                    </RadarChart>
+                </ResponsiveContainer>
             </div>
         </div>
         <button className="btn-data btn-primary"
