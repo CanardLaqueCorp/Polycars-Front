@@ -1,5 +1,6 @@
 import "../styles/displayStats.scss";
-import { Radar } from "react-chartjs-2";
+import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
+
 
 
 interface Props {
@@ -38,27 +39,8 @@ interface Props {
   smogRating: number;
   ecoScore: number;
   }
-
-  const radarData = {
-    labels: ["Max Biofuel", "City Fuel", "Highway Fuel", "Combined Fuel", "Annual Fuel Cost", "Eco Score", "fe Rating", "ghg Rating", "smog Rating", "City Carbon", "Highway Carbon", "Combined Carbon" ],
-    datasets: [
-      {
-        label: "Car Data",
-        backgroundColor: "rgba(179,181,198,0.2)",
-        borderColor: "rgba(179,181,198,1)",
-        pointBackgroundColor: "rgba(179,181,198,1)",
-        pointBorderColor: "#fff",
-        pointHoverBackgroundColor: "#fff",
-        pointHoverBorderColor: "rgba(179,181,198,1)",
-        data: [ 15, 52.7, 55.6, 53.9, 800, 73, 9, 9, 7, 169, 161, 165],
-      },
-    ],
-  };
-  
-
-
   function DisplayStats({id, brand, model, carType, priceNew, priceUsed, cylinder, transmissionType, gears, driveSystem, fuel, maxBioFuel, hasStartAndStop, cityFuel, cityCarbon, highwayFuel, highwayCarbon, combinedFuel, combinedCarbon, hasGuzzler, annualFuelCost, spendOnFiveYears, feRating, ghgRating,smogRating, ecoScore  }: Props) {
-    let imageUrl = "https://claq.fr/host/" + id + ".jpg";
+    let imageUrl = "https://claq-dev.com/host/" + id + ".jpg";
     // We check if fuel has more than 10 characters
     if (fuel.length > 10) {
       // We cut the string to 10 characters
@@ -68,10 +50,50 @@ interface Props {
     if (transmissionType.length > 10) {
         // We cut the string to 10 characters
         transmissionType = transmissionType.substring(0, 9);
-        }
+    }
+
+     // Define radar chart data
+    const radarData = [
+    {
+      subject: 'Math',
+      A: 120,
+      B: 110,
+      fullMark: 150,
+    },
+    {
+        subject: "Chinese",
+        A: 98,
+        B: 130,
+        fullMark: 150
+      },
+      {
+        subject: "English",
+        A: 86,
+        B: 130,
+        fullMark: 150
+      },
+      {
+        subject: "Geography",
+        A: 99,
+        B: 100,
+        fullMark: 150
+      },
+      {
+        subject: "Physics",
+        A: 85,
+        B: 90,
+        fullMark: 150
+      },
+      {
+        subject: "History",
+        A: 65,
+        B: 85,
+        fullMark: 150
+      }
+    ];
 
     return (
-    <div>
+    <div className="all">
         <div className="HeaderContainer-data">
             <div className="ImageContainer-data"> <img src={imageUrl}/>  </div>
             <div className="TitleContainer-data">
@@ -224,6 +246,17 @@ interface Props {
                 </div>
             </div>
         </div>
+        <div className="RadarChartContainer">
+            <ResponsiveContainer width="100%" height={400}>
+                <RadarChart cx={300} cy={250} outerRadius={150} width={500} height={500} data={radarData}>
+                    <PolarGrid />
+                    <PolarAngleAxis dataKey="subject" />
+                    <PolarRadiusAxis />
+                    <Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+                    {/* Add more Radar components for additional data sets if needed */}
+                </RadarChart>
+            </ResponsiveContainer>
+        </div>
         <button className="btn-data btn-primary"
         onClick={() => window.location.replace("/cars")}
         >
@@ -234,9 +267,3 @@ interface Props {
   }
   
   export default DisplayStats;
-
-  /*
-  <div className="RadarChartContainer">
-                    <Radar data={radarData} />
-                </div>
-                */
