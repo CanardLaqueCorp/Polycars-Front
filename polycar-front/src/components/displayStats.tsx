@@ -53,43 +53,68 @@ interface Props {
     }
 
      // Define radar chart data
-    const radarData = [
+    const Carbon = [
     {
-      subject: 'Math',
-      A: 120,
-      B: 110,
-      fullMark: 150,
+      subject: 'cityCarbon',
+      A: 154,
+      B: 1135,
     },
     {
-        subject: "Chinese",
-        A: 98,
-        B: 130,
-        fullMark: 150
-      },
-      {
-        subject: "English",
-        A: 86,
-        B: 130,
-        fullMark: 150
-      },
-      {
-        subject: "Geography",
-        A: 99,
-        B: 100,
-        fullMark: 150
-      },
-      {
-        subject: "Physics",
-        A: 85,
-        B: 90,
-        fullMark: 150
-      },
-      {
-        subject: "History",
-        A: 65,
-        B: 85,
-        fullMark: 150
-      }
+      subject: 'highwayCarbon',
+      A: 158,
+      B: 788,
+    },
+    {
+        subject: "combinedCarbon",
+        A: 155,
+        B: 979,
+    }
+    ];
+
+    const Ecological = [
+        {
+          subject: 'ecoScore',
+          A: 73,
+          B: 21,
+        },
+        {
+          subject: 'feRating',
+          A: 9,
+          B: 1,
+        },
+        {
+            subject: "ghgRating",
+            A: 9,
+            B: 1,
+        },
+        {
+            subject: "smogRating",
+            A: 7,
+            B: 1,
+        }
+    ];
+
+    const Fuel = [
+        {
+            subject: 'maxBioFuel',
+            A: 15,
+            B: 0,
+        },
+        {
+          subject: 'cityFuel',
+          A: 57,
+          B: 7.76,
+        },
+        {
+          subject: 'highwayFuel',
+          A: 56,
+          B: 11.24,
+        },
+        {
+            subject: "combinedFuel",
+            A: 57,
+            B: 9.02,
+        }
     ];
 
     return (
@@ -247,15 +272,39 @@ interface Props {
             </div>
         </div>
         <div className="RadarChartContainer">
+            <div className="CarbonChart">
             <ResponsiveContainer width="100%" height={400}>
-                <RadarChart cx={300} cy={250} outerRadius={150} width={500} height={500} data={radarData}>
+                <RadarChart cx={300} cy={250} outerRadius={150} width={500} height={500} data={Carbon}>
                     <PolarGrid />
                     <PolarAngleAxis dataKey="subject" />
                     <PolarRadiusAxis />
-                    <Radar name="Mike" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
-                    {/* Add more Radar components for additional data sets if needed */}
+                    <Radar name="Carbon" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+                    <Radar name="Max Carbon" dataKey="B" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6}/>
                 </RadarChart>
             </ResponsiveContainer>
+            </div>
+            <div className="EcologicalChart">
+            <ResponsiveContainer width="100%" height={400}>
+                <RadarChart cx={300} cy={250} outerRadius={150} width={500} height={500} data={Ecological}>
+                    <PolarGrid />
+                    <PolarAngleAxis dataKey="subject" />
+                    <PolarRadiusAxis />
+                    <Radar name="Ecological" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+                    <Radar name="Max Ecological" dataKey="B" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6}/>
+                </RadarChart>
+            </ResponsiveContainer>
+            </div>
+            <div className="FuelChart">
+            <ResponsiveContainer width="100%" height={400}>
+                <RadarChart cx={300} cy={250} outerRadius={150} width={500} height={500} data={Fuel}>
+                    <PolarGrid />
+                    <PolarAngleAxis dataKey="subject" />
+                    <PolarRadiusAxis />
+                    <Radar name="Fuel" dataKey="A" stroke="#8884d8" fill="#8884d8" fillOpacity={0.6} />
+                    <Radar name="Max Fuel" dataKey="B" stroke="#82ca9d" fill="#82ca9d" fillOpacity={0.6}/>
+                </RadarChart>
+            </ResponsiveContainer>
+            </div>
         </div>
         <button className="btn-data btn-primary"
         onClick={() => window.location.replace("/cars")}
