@@ -14,7 +14,6 @@ function DisplayStats({
   brand,
   model,
   carType,
-  priceNew,
   priceUsed,
   cylinder,
   transmissionType,
@@ -88,7 +87,54 @@ function DisplayStats({
   const Fuel = [
     {
       subject: "maxBioFuel",
-      A: graphs.maxBioFuelGraph,
+      A: graphs.bioFuelGraph,
+    },
+    {
+      subject: "cityFuel",
+      A: graphs.cityFuelGraph,
+    },
+    {
+      subject: "highwayFuel",
+      A: graphs.highwayFuelGraph,
+    },
+    {
+      subject: "combinedFuel",
+      A: graphs.combinedFuelGraph,
+    },
+  ];
+
+  const All = [
+    {
+      subject: "cityCarbon",
+      A: graphs.cityCarbonGraph,
+    },
+    {
+      subject: "highwayCarbon",
+      A: graphs.highwayCarbonGraph,
+    },
+    {
+      subject: "combinedCarbon",
+      A: graphs.combinedCarbonGraph,
+    },
+    {
+      subject: "ecoScore",
+      A: graphs.ecoScoreGraph,
+    },
+    {
+      subject: "feRating",
+      A: graphs.feRatingGraph,
+    },
+    {
+      subject: "ghgRating",
+      A: graphs.ghgRatingGraph,
+    },
+    {
+      subject: "smogRating",
+      A: graphs.smogRatingGraph,
+    },
+    {
+      subject: "maxBioFuel",
+      A: graphs.bioFuelGraph,
     },
     {
       subject: "cityFuel",
@@ -155,17 +201,8 @@ function DisplayStats({
                 </tr>
               </tbody>
             </table>
-          </div>
-        </div>
-        <div className="Price table data-body-container">
-          <div className="data-body">
-            <h5 className="card-title-data">Prices and Costs</h5>
             <table className="table_card">
               <tbody>
-                <tr>
-                  <th scope="row">Price New :</th>
-                  <td>{priceNew} $</td>
-                </tr>
                 <tr>
                   <th scope="row">Price Used :</th>
                   <td>{priceUsed} $</td>
@@ -177,6 +214,29 @@ function DisplayStats({
               </tbody>
             </table>
           </div>
+        </div>
+        <div className="AllChart">
+          <ResponsiveContainer width="100%" height={400}>
+            <RadarChart
+              cx={300}
+              cy={170}
+              outerRadius={150}
+              width={600}
+              height={325}
+              data={All}
+            >
+              <PolarGrid />
+              <PolarAngleAxis dataKey="subject" />
+              <PolarRadiusAxis domain={[0, 100]} />
+              <Radar
+                name="All"
+                dataKey="A"
+                stroke="red"
+                fill="red"
+                fillOpacity={0.6}
+              />
+            </RadarChart>
+          </ResponsiveContainer>
         </div>
       </div>
       <div className="TableContainer">
