@@ -1,4 +1,4 @@
-import CarProps from "../interface/CarProps";
+import { CarProps } from "../interface/props";
 import "../styles/car.scss";
 
 function Car({
