@@ -1,6 +1,7 @@
-import { useState } from "react";
 import Car from "./Car";
-import * as CarData from "../data/car-data-updated.json";
+import LoadingScreen from "./LoadingScreen";
+import { useEffect, useState } from "react";
+
 
 interface CarData {
   id: number;
@@ -44,45 +45,28 @@ function AllCarList() {
   const [filterValue, setFilterValue] = useState("");
   const [sortOrder, setSortOrder] = useState("ecoScore");
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
-  const cars = CarData.result
-    ? CarData.result
-        .filter((car: CarData) =>
-          car[filterType as keyof CarData]
-            .toString()
-            .toLowerCase()
-            .includes(filterValue.toLowerCase())
-        )
-        .sort((a: CarData, b: CarData) => {
-          const direction = sortDirection === "asc" ? 1 : -1;
-          if (sortOrder === "cylinder") {
-            return direction * (b.cylinder - a.cylinder);
-          } else if (sortOrder === "cityFuel") {
-            return direction * (b.cityFuel - a.cityFuel);
-          } else if (sortOrder === "highwayFuel") {
-            return direction * (b.highwayFuel - a.highwayFuel);
-          } else if (sortOrder === "combinedFuel") {
-            return direction * (b.combinedFuel - a.combinedFuel);
-          } else {
-            return direction * (b.ecoScore - a.ecoScore); //si on n'applique pas de filtre, on trie par ecoScore
-          }
-        })
-    : [];
+  const [cars, setCars] = useState<CarData[]>([]); //les voitures sont ici
+  const [isLoading, setIsLoading] = useState(true);
 
-  const handleFilterTypeChange = (
-    e: React.ChangeEvent<HTMLSelectElement>
-  ) => {
+  useEffect(() => {
+    fetch("https://cars.poly-api.fr/public/get/car/all/light")
+      .then((response) => response.json())
+      .then((data) => {
+        setCars(data.result);
+        setIsLoading(false);
+      })
+      .catch((error) => console.error(error));
+  }, []);
+
+  const handleFilterTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFilterType(e.target.value);
   };
 
-  const handleFilterValueChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleFilterValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFilterValue(e.target.value);
   };
 
-  const handleSortOrderChange = (
-    e: React.ChangeEvent<HTMLSelectElement>
-  ) => {
+  const handleSortOrderChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setSortOrder(e.target.value);
   };
 
@@ -90,48 +74,76 @@ function AllCarList() {
     setSortDirection(sortDirection === "asc" ? "desc" : "asc");
   };
 
+  const filteredCars = cars
+    .filter((car: CarData) =>
+      car[filterType as keyof CarData]
+        .toString()
+        .toLowerCase()
+        .includes(filterValue.toLowerCase())
+    )
+    .sort((a: CarData, b: CarData) => {
+      const direction = sortDirection === "asc" ? 1 : -1;
+      if (sortOrder === "cylinder") {
+        return direction * (b.cylinder - a.cylinder);
+      } else if (sortOrder === "cityFuel") {
+        return direction * (b.cityFuel - a.cityFuel);
+      } else if (sortOrder === "highwayFuel") {
+        return direction * (b.highwayFuel - a.highwayFuel);
+      } else if (sortOrder === "combinedFuel") {
+        return direction * (b.combinedFuel - a.combinedFuel);
+      } else {
+        return direction * (b.ecoScore - a.ecoScore); //si on n'applique pas de filtre, on trie par ecoScore
+      }
+    });
+
   return (
     <div className="AllCarListComponent">
       <div className="AllCarListHeader">
         <h1>Car List:</h1>
-        <p>
-          {filterValue === "" ? (
-            `We have ${cars.length} cars in our database`
+        <div className="numberOfResults">
+          {isLoading ? (
+            <div className="LoadingScreenWrapper" style={{ height: "10" }}>
+              <LoadingScreen />
+            </div>
           ) : (
-            `${cars.length} results for your search`
+            <p>
+              {filterValue === ""
+                ? `We have ${filteredCars.length} cars in our database`
+                : `${filteredCars.length} results for your search`}
+            </p>
           )}
-        </p>
-        <div>
-          <select value={filterType} onChange={handleFilterTypeChange}>
-            <option value="brand">Brand</option>
-            <option value="priceNew">Price</option>
-            <option value="model">Model</option>
-            <option value="fuel">Fuel</option>
-            <option value="carType">Car Type</option>
-            <option value="cylinder">Cylinders</option>
-          </select>
-          <input
-            type="text"
-            placeholder={`Enter your ${filterType}`}
-            value={filterValue}
-            onChange={handleFilterValueChange}
-          />
-          <button onClick={() => setFilterValue("")}>Reset</button>
-          <select value={sortOrder} onChange={handleSortOrderChange}>
-            <option value="ecoScore">Eco Score</option>
-            <option value="cylinder">Number of Cylinders</option>
-            <option value="cityFuel">City Fuel Efficiency</option>
-            <option value="highwayFuel">Highway Fuel Efficiency</option>
-            <option value="combinedFuel">Combined Fuel Efficiency</option>
-          </select>
-          <button onClick={handleSortDirectionChange}>
-            {sortDirection === "asc" ? "Ascending" : "Descending"}
-          </button>
         </div>
       </div>
+      <div className="HeaderForm">
+        <select value={filterType} onChange={handleFilterTypeChange}>
+          <option value="brand">Brand</option>
+          <option value="priceNew">Price</option>
+          <option value="model">Model</option>
+          <option value="fuel">Fuel</option>
+          <option value="carType">Car Type</option>
+          <option value="cylinder">Cylinders</option>
+        </select>
+        <input
+          type="text"
+          placeholder={`Enter your ${filterType}`}
+          value={filterValue}
+          onChange={handleFilterValueChange}
+        />
+        <button onClick={() => setFilterValue("")}>Reset</button>
+        <select value={sortOrder} onChange={handleSortOrderChange}>
+          <option value="ecoScore">Eco Score</option>
+          <option value="cylinder">Number of Cylinders</option>
+          <option value="cityFuel">City Fuel Efficiency</option>
+          <option value="highwayFuel">Highway Fuel Efficiency</option>
+          <option value="combinedFuel">Combined Fuel Efficiency</option>
+        </select>
+        <button onClick={handleSortDirectionChange}>
+          {sortDirection === "asc" ? "Ascending" : "Descending"}
+        </button>
+      </div>
       <div className="AllCarList">
-        {cars.map((car) => {
-          const imageUrl = `https://claq.fr/host/${car.id}.jpg`;
+        {filteredCars.map((car) => {
+          const imageUrl = `https://claq-dev.com/host/${car.id}.jpg`;
           return (
             <Car
               key={car.id}

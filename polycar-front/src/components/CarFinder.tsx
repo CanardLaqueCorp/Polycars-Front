@@ -119,4 +119,8 @@ function CarFinder() {
 	);
 }
 
+<<<<<<< HEAD
 export default CarFinder;
+=======
+export default CarFinder;
+>>>>>>> main

@@ -9,7 +9,7 @@ import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 function HomePage() {
   return (
     <div className="HomePage">
-      <Parallax pages={8}>
+      <Parallax pages={6}>
         <div className="HomePageTitle">
           {/*TOP Parralax layer*/}
           <ParallaxLayer offset={0} speed={1.2} style={{ zIndex: 1 }}>
@@ -28,7 +28,7 @@ function HomePage() {
             }}
           />
 
-          <ParallaxLayer offset={0.5} speed={0.01}>
+          <ParallaxLayer offset={0.3} speed={0.01}>
             {" "}
             {/* j'ai mis une vitesse lente pour que l'appel a l'action soit plus visible */}
             <h2>Find your next car. Now</h2>

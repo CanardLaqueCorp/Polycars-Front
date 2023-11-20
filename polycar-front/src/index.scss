@@ -97,7 +97,7 @@ button:focus-visible {
   position: relative;
   top: 0;
   left: 0;
-  width: 98%;
+  width: 97%;
   height: 60px;
   display: flex;
   align-items: center;
@@ -125,5 +125,57 @@ button:focus-visible {
   //we make it the smallest possible withour breaking the content
   width: 20%;
   position: absolute;
+}
 
+.AllCarListHeader{
+  flex-direction: row;
+  display: flex;
+}
+
+.HeaderForm{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.numberOfResults{
+    margin-left: 2rem;
+}
+
+.AllCarListTop {
+  padding: 1rem 2rem;
+  background-color: var(--color-accent-darker);
+  color: #fff;
+  border-radius: 0.5rem;
+  border: 3px solid #eaeaea;
+  transition: background-color 0.2s ease-in-out;
+}
+
+$primary-color: #333;
+$secondary-color: #fff;
+
+#Footer {
+  background-color: $primary-color;
+  color: $secondary-color;
+  padding: 1rem;
+
+  p {
+    margin: 0;
+  }
+
+  div {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+
+    a {
+      i {
+        color: $secondary-color;
+        margin-right: 1rem;
+        font-size: 2rem;
+      }
+    }
+  }
 }

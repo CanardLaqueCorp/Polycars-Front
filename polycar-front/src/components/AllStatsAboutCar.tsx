@@ -1,27 +1,58 @@
 import DisplayStats from "./displayStats";
-import * as dataOfTheCar from "../data/car-data-updated.json";
+import LoadingScreen from "./LoadingScreen";
+import { useState, useEffect } from "react";
+
+interface CarData {
+  id: number;
+  brand: string;
+  model: string;
+  carTypeId: number;
+  carType: string;
+  priceNew: number;
+  priceUsed: number;
+  cylinder: number;
+  transmissionTypeId: number;
+  transmissionTypeCode: string;
+  transmissionType: string;
+  transmission: string;
+  gears: number;
+  driveSystemId: number;
+  driveSystemCode: string;
+  driveSystem: string;
+  fuelId: number;
+  fuelCode: string;
+  fuel: string;
+  maxBioFuel: number;
+  hasStartAndStop: boolean;
+  cityFuel: number;
+  cityCarbon: number;
+  highwayFuel: number;
+  highwayCarbon: number;
+  combinedFuel: number;
+  combinedCarbon: number;
+  hasGuzzler: boolean;
+  annualFuelCost: number;
+  spendOnFiveYears: number;
+  feRating: number;
+  ghgRating: number;
+  smogRating: number;
+  ecoScore: number;
+}
 
 function AllStatsAboutCar() {
   // Get the car ID from the URL
   const idOfCar: string = window.location.href.split("/")[4];
-
-  // Get the car data by filtering the JSON based on the ID
-  const carData = dataOfTheCar.result.find(
-    (car) => car.id === parseInt(idOfCar)
-  );
+  const [carData, setCarData] = useState<CarData | null>(null);
+  useEffect(() => {
+    fetch(`https://cars.poly-api.fr/public/get/car/${idOfCar}`)
+      .then((response) => response.json())
+      .then((carData) => setCarData(carData.result))
+      .then(() => console.log(carData))
+      .catch((error) => console.error(error));
+  }, []);
 
   if (!carData) {
-    return (
-      <div>
-        <p>
-          <img
-            src="https://media.tenor.com/gMC-purKMQ4AAAAd/sad-cry.gif"
-            alt="loading"
-          />
-          <p>Sorry we couldn't find the car you were looking for</p>
-        </p>
-      </div>
-    );
+    return <LoadingScreen />;
   }
 
   // Destructure the carData object to extract its properties
@@ -64,7 +95,6 @@ function AllStatsAboutCar() {
 
   return (
     <div>
-      <h1>Stats about car</h1>
       {/* Pass the extracted variables as props to DisplayStats */}
       <DisplayStats
         id={id}
