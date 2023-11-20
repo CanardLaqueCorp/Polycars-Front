@@ -45,14 +45,6 @@ function RecupTypes() {
 	return(elementsHTML);
 }
 
-function RecupSeats() {
-  const elements = [1, 2, 3, 4, 5, 6, 7, 8];
-  const elementsHTML = elements.map((element) => (
-    <option value={element.toString()}>{element}</option>
-  ));
-  return elementsHTML;
-}
-
 function RecupDriveSystems() {
   const elements = Recup(`https://cars.poly-api.fr/public/get/drive/system`);
   const elementsHTML = elements.map((element) => (
