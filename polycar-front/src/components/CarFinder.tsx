@@ -1,9 +1,14 @@
 import '../styles/CarFinder.scss';
 import { useState, useEffect } from "react";
 
+interface Data {
+	id: number;
+	label: string;
+}
+
 //return a list of id and label 
 function Recup (path: RequestInfo) {
-	const [data, setData] = useState<String [] | null>(null);
+	const [data, setData] = useState<Data [] | null>(null);
 	useEffect(() => {
 		fetch(path)
 		  .then((response) => response.json())
