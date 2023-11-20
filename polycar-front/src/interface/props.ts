@@ -34,5 +34,6 @@ export interface CarProps {
   smogRating: number;
   ecoScore: number;
   //on rajoute image
-  image: string;
+  image?: string;
 }
+
