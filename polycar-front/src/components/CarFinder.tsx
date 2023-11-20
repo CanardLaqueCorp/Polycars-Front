@@ -78,15 +78,7 @@ function RecupCylinders() {
 }
 
 function RecupGears() {
-  const elements = [2, 3, 4, 5, 6, 7, 8];
-  const elementsHTML = elements.map((element) => (
-    <option value={element.toString()}>{element}</option>
-  ));
-  return elementsHTML;
-}
-
-function RecupDrivingWheels() {
-  const elements = [2, 3, 4];
+  const elements = [1, 5, 6, 7, 8, 9, 10];
   const elementsHTML = elements.map((element) => (
     <option value={element.toString()}>{element}</option>
   ));
@@ -97,40 +89,34 @@ function CarFinder() {
   return (
     <>
       <h1>Let's find your dream car !</h1>
-      <form method="get">
+      <form method="get" action="cars">
         <p className="type">
           <abbr title="Everything about the car">🚗</abbr>
           <br />
           <abbr title="The brand of cars">Brand : </abbr>
           <select className="button" name="brand">
-            <option value="0">All</option>
+            <option value="">All</option>
             <RecupBrands />;
           </select>
           <br />
           <abbr title="The type of cars">Type of the car : </abbr>
-          <select className="button" name="type">
-            <option value="0">All</option>
+          <select className="button" name="cartype">
+            <option value="">All</option>
             <RecupTypes />;
-          </select>
-          <br />
-          <abbr title="The number of seats in cars">Number of seats : </abbr>
-          <select className="button" name="gear">
-            <option value="0">All</option>
-            <RecupSeats />;
           </select>
           <br />
           <abbr title="If cars must have a Start and Stop system">
             Start and Stop :{" "}
           </abbr>
-          <select className="button" name="startAndStop">
-            <option value="0">All</option>
+          <select className="button" name="startandstop">
+            <option value="">All</option>
             <option value="yes">Yes</option>
             <option value="no">No</option>
           </select>
           <br />
           <abbr title="The number of gears of cars">Number of gears : </abbr>
-          <select className="button" name="gear">
-            <option value="0">All</option>
+          <select className="button" name="gears">
+            <option value="">All</option>
             <RecupGears />;
           </select>
           <br />
@@ -141,15 +127,15 @@ function CarFinder() {
           <textarea
             className="button"
             maxLength={8}
-            name="minPriceNew"
-            defaultValue="0"
+            name="minPrice"
+            defaultValue=""
           />{" "}
           € | Max :{" "}
           <textarea
             className="button"
             maxLength={8}
-            name="maxPriceNew"
-            defaultValue="99999999"
+            name="maxPrice"
+            defaultValue=""
           />{" "}
           €
           <br />
@@ -158,7 +144,7 @@ function CarFinder() {
           <br />
           <abbr title="The type of fuel used by cars">Type of fuel : </abbr>
           <select className="button" name="fuel">
-            <option value="0">All</option>
+            <option value="">All</option>
             <RecupFuels />;
           </select>
           <br />
@@ -169,15 +155,15 @@ function CarFinder() {
             Type of transmission :{" "}
           </abbr>
           <select className="button" name="transmission">
-            <option value="0">All</option>
+            <option value="">All</option>
             <RecupTransmissions />;
           </select>
           <br />
           <abbr title="The tye of drive system of cars">
             Type of drive system :{" "}
           </abbr>
-          <select className="button" name="driveSystem">
-            <option value="0">All</option>
+          <select className="button" name="drivesystem">
+            <option value="">All</option>
             <RecupDriveSystems />;
           </select>
           <br />
@@ -185,16 +171,8 @@ function CarFinder() {
             Number of cylinders{" "}
           </abbr>
           <select className="button" name="cylinder">
-            <option value="0">All</option>
+            <option value="">All</option>
             <RecupCylinders />;
-          </select>
-          <br />
-          <abbr title="The number of driving wheels of cars">
-            Number of driving wheels :{" "}
-          </abbr>
-          <select className="button" name="drivingWheels">
-            <option value="0">All</option>
-            <RecupDrivingWheels />;
           </select>
         </p>
         <input className="submit" type="submit" value="Search" name="action" />
