@@ -2,7 +2,6 @@ import "../styles/displayStats.scss";
 import { Radar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer } from 'recharts';
 
 
-
 interface Props {
   id: number;
   brand: string;
@@ -74,8 +73,8 @@ interface Props {
     const Ecological = [
         {
           subject: 'ecoScore',
-          A: 73,
-          B: 21,
+          A: 7.3,
+          B: 2.1,
         },
         {
           subject: 'feRating',
@@ -221,7 +220,7 @@ interface Props {
                 </div>
             </div>
             <div className="FuelChart">
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height={400}>
                 <RadarChart cx={300} cy={170} outerRadius={150} width={600} height={325} data={Fuel}>
                     <PolarGrid />
                     <PolarAngleAxis dataKey="subject" />
@@ -263,7 +262,7 @@ interface Props {
                 </div>
             </div>
             <div className="EcologicalChart">
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height={400}>
                 <RadarChart cx={300} cy={170} outerRadius={150} width={600} height={325} data={Ecological}>
                     <PolarGrid />
                     <PolarAngleAxis dataKey="subject" />
@@ -297,7 +296,7 @@ interface Props {
                 </div>
             </div>
             <div className="CarbonChart">
-            <ResponsiveContainer width="100%" height="100%">
+            <ResponsiveContainer width="100%" height={400}>
                 <RadarChart cx={300} cy={200} outerRadius={150} width={600} height={325} data={Carbon}>
                         <PolarGrid />
                         <PolarAngleAxis dataKey="subject" />
