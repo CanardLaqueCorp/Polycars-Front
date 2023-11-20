@@ -1,20 +1,63 @@
 import '../styles/CarFinder.scss';
+import { useState, useEffect } from "react";
 
 //return the options for the fuel
 function RecupFuels() {
-	const elements= [{id: 1, label: "gasoline"}, {id: 2, label: "diesel"}]; //getById(fuels,"all");
+	const [fuelData, setFuelData] = useState<String [] | null>(null);
+	useEffect(() => {
+		fetch(`https://cars.poly-api.fr/public/get/fuel`)
+		  .then((response) => response.json())
+		  .then((fuelData) => setFuelData(fuelData.result))
+		  .then(() => console.log(fuelData))
+		  .catch((error) => console.error(error));
+	}, []);
+	var elements=new Array();
+	if (fuelData) {
+		fuelData.forEach(function (value) {
+			console.log(value.id,value.label);
+			elements.push({id: value.id, label: value.label});
+		});
+	}
 	const elementsHTML=elements.map((element) => (<option value={element['id'].toString()}>{element['label']}</option>));
 	return(elementsHTML);
 }
 
 function RecupBrands() {
-	const elements= [{id: 1, label: "Toyota"}, {id: 2, label: "Mercedes"}]; //getById(brands,"all");
+	const [brandData, setBrandData] = useState<String [] | null>(null);
+	useEffect(() => {
+		fetch(`https://cars.poly-api.fr/public/get/brand`)
+		  .then((response) => response.json())
+		  .then((brandData) => setBrandData(brandData.result))
+		  .then(() => console.log(brandData))
+		  .catch((error) => console.error(error));
+	}, []);
+	var elements=new Array();
+	if (brandData) {
+		brandData.forEach(function (value) {
+			console.log(value.id,value.label);
+			elements.push({id: value.id, label: value.label});
+		});
+	}
 	const elementsHTML=elements.map((element) => (<option value={element['id'].toString()}>{element['label']}</option>));
 	return(elementsHTML);
 }
 
 function RecupTypes() {
-	const elements= [{id: 1, label: "Midsize Cars"}, {id: 2, label: "Compact Cars"}]; //getById(carTypes,"all");
+	const [typeData, setTypeData] = useState<String [] | null>(null);
+	useEffect(() => {
+		fetch(`https://cars.poly-api.fr/public/get/type`)
+		  .then((response) => response.json())
+		  .then((typeData) => setTypeData(typeData.result))
+		  .then(() => console.log(typeData))
+		  .catch((error) => console.error(error));
+	}, []);
+	var elements=new Array();
+	if (typeData) {
+		typeData.forEach(function (value) {
+			console.log(value.id,value.label);
+			elements.push({id: value.id, label: value.label});
+		});
+	}
 	const elementsHTML=elements.map((element) => (<option value={element['id'].toString()}>{element['label']}</option>));
 	return(elementsHTML);
 }
@@ -119,8 +162,4 @@ function CarFinder() {
 	);
 }
 
-<<<<<<< HEAD
 export default CarFinder;
-=======
-export default CarFinder;
->>>>>>> main
