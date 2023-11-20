@@ -1,13 +1,9 @@
-.box {
-	display: inline-flex;
-	width: 100%;
-	height: 400px;
-}
-
 .type {
 	font-size: 1.7em;
-	margin-left: 6.4%;
-	width: 40%;
+	position: relative;
+	left: -500px;
+	margin-left: 50%;
+	width: 1000px;
 	text-align: center;
 	border: 6px solid var(--color-accent);
 	border-radius: 20px;
