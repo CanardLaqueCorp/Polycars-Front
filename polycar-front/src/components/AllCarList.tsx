@@ -11,8 +11,16 @@ function AllCarList() {
   const [cars, setCars] = useState<CarData[]>([]); //les voitures sont ici
   const [isLoading, setIsLoading] = useState(true);
 
+  const params =new URLSearchParams(window.location.search);
+  if (params.get("action")=="Search") {
+    var param=document.location.href.split("?");
+    var path="https://cars.poly-api.fr/public/search/car/light?"+param[1];
+  }
+  else
+    var path="https://cars.poly-api.fr/public/get/car/all/light";
+  console.log(path);
   useEffect(() => {
-    fetch("https://cars.poly-api.fr/public/get/car/all/light")
+    fetch(path)
       .then((response) => response.json())
       .then((data) => {
         setCars(data.result);
