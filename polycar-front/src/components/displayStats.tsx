@@ -36,6 +36,7 @@ function DisplayStats({
   ghgRating,
   smogRating,
   ecoScore,
+  graphs,
 }: CarProps) {
   const imageUrl = "https://claq-dev.com/host/" + id + ".jpg";
   // We check if fuel has more than 10 characters
@@ -53,64 +54,53 @@ function DisplayStats({
   const Carbon = [
     {
       subject: "cityCarbon",
-      A: 154,
-      B: 1135,
+      A: graphs.cityCarbonGraph,
     },
     {
       subject: "highwayCarbon",
-      A: 158,
-      B: 788,
+      A: graphs.highwayCarbonGraph,
     },
     {
       subject: "combinedCarbon",
-      A: 155,
-      B: 979,
+      A: graphs.combinedCarbonGraph,
     },
   ];
 
   const Ecological = [
     {
       subject: "ecoScore",
-      A: 7.3,
-      B: 2.1,
+      A: graphs.ecoScoreGraph,
     },
     {
       subject: "feRating",
-      A: 9,
-      B: 1,
+      A: graphs.feRatingGraph,
     },
     {
       subject: "ghgRating",
-      A: 9,
-      B: 1,
+      A: graphs.ghgRatingGraph,
     },
     {
       subject: "smogRating",
-      A: 7,
-      B: 1,
+      A: graphs.smogRatingGraph,
     },
   ];
 
   const Fuel = [
     {
       subject: "maxBioFuel",
-      A: 15,
-      B: 0,
+      A: graphs.maxBioFuelGraph,
     },
     {
       subject: "cityFuel",
-      A: 57,
-      B: 7.76,
+      A: graphs.cityFuelGraph,
     },
     {
       subject: "highwayFuel",
-      A: 56,
-      B: 11.24,
+      A: graphs.highwayFuelGraph,
     },
     {
       subject: "combinedFuel",
-      A: 57,
-      B: 9.02,
+      A: graphs.combinedFuelGraph,
     },
   ];
 
@@ -235,19 +225,12 @@ function DisplayStats({
             >
               <PolarGrid />
               <PolarAngleAxis dataKey="subject" />
-              <PolarRadiusAxis />
+              <PolarRadiusAxis domain={[0, 100]}/>
               <Radar
                 name="Fuel"
                 dataKey="A"
                 stroke="#8884d8"
                 fill="#8884d8"
-                fillOpacity={0.6}
-              />
-              <Radar
-                name="Max Fuel"
-                dataKey="B"
-                stroke="#82ca9d"
-                fill="#82ca9d"
                 fillOpacity={0.6}
               />
             </RadarChart>
@@ -296,19 +279,12 @@ function DisplayStats({
             >
               <PolarGrid />
               <PolarAngleAxis dataKey="subject" />
-              <PolarRadiusAxis />
+              <PolarRadiusAxis domain={[0, 100]}/>
               <Radar
                 name="Ecological"
                 dataKey="A"
                 stroke="#8884d8"
                 fill="#8884d8"
-                fillOpacity={0.6}
-              />
-              <Radar
-                name="Max Ecological"
-                dataKey="B"
-                stroke="#82ca9d"
-                fill="#82ca9d"
                 fillOpacity={0.6}
               />
             </RadarChart>
@@ -358,19 +334,12 @@ function DisplayStats({
             >
               <PolarGrid />
               <PolarAngleAxis dataKey="subject" />
-              <PolarRadiusAxis />
+              <PolarRadiusAxis domain={[0, 100]} />
               <Radar
                 name="Carbon"
                 dataKey="A"
                 stroke="#8884d8"
                 fill="#8884d8"
-                fillOpacity={0.6}
-              />
-              <Radar
-                name="Max Carbon"
-                dataKey="B"
-                stroke="#82ca9d"
-                fill="#82ca9d"
                 fillOpacity={0.6}
               />
             </RadarChart>
