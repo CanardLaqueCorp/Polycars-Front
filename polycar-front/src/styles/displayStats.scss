@@ -23,16 +23,11 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction:  row;
-  justify-content: center;
-}
-
-.dataContainer {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction:  row;
   text-align: center;
   justify-content: center;
+  align-items: stretch;
 }
+
 
 .table {
     display: flex;
@@ -56,7 +51,7 @@
     background-color: #7D4E57;
     flex: 1 1 400px;
     width: 100%;
-    max-width: 500px;
+    max-width: 600px;
     text-align: left;
     flex-direction: column;
     font-size: 20px;
@@ -77,3 +72,30 @@ h5 {
 h1 {
     margin: 0 0 0 0;
 }
+
+.CarbonChart, .FuelChart, .EcologicalChart {
+    width: 100%;
+    height: 100%;
+    max-height: 325px;
+    max-width: 600px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    font-family: sans-serif;
+    text-align: center;
+  
+    canvas {
+      width: 100% !important;
+      height: 100% !important; 
+    }
+
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+}
+
+  

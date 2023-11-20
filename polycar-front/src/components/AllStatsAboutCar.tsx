@@ -1,27 +1,22 @@
 import DisplayStats from "./displayStats";
-import * as dataOfTheCar from "../data/car-data-updated.json";
+import LoadingScreen from "./LoadingScreen";
+import { useState, useEffect } from "react";
+import { CarData } from "../interface/types";
 
 function AllStatsAboutCar() {
   // Get the car ID from the URL
   const idOfCar: string = window.location.href.split("/")[4];
-
-  // Get the car data by filtering the JSON based on the ID
-  const carData = dataOfTheCar.result.find(
-    (car) => car.id === parseInt(idOfCar)
-  );
+  const [carData, setCarData] = useState<CarData | null>(null);
+  useEffect(() => {
+    fetch(`https://cars.poly-api.fr/public/get/car/${idOfCar}`)
+      .then((response) => response.json())
+      .then((carData) => setCarData(carData.result))
+      .then(() => console.log(carData))
+      .catch((error) => console.error(error));
+  }, []);
 
   if (!carData) {
-    return (
-      <div>
-        <p>
-          <img
-            src="https://media.tenor.com/gMC-purKMQ4AAAAd/sad-cry.gif"
-            alt="loading"
-          />
-          <p>Sorry we couldn't find the car you were looking for</p>
-        </p>
-      </div>
-    );
+    return <LoadingScreen />;
   }
 
   // Destructure the carData object to extract its properties
@@ -64,7 +59,6 @@ function AllStatsAboutCar() {
 
   return (
     <div>
-      {/* Pass the extracted variables as props to DisplayStats */}
       <DisplayStats
         id={id}
         brand={brand}
