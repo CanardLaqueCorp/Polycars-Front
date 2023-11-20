@@ -1,63 +1,41 @@
 import '../styles/CarFinder.scss';
 import { useState, useEffect } from "react";
 
-//return the options for the fuel
-function RecupFuels() {
-	const [fuelData, setFuelData] = useState<String [] | null>(null);
+//return a list of id and label 
+function Recup (path: RequestInfo) {
+	const [data, setData] = useState<String [] | null>(null);
 	useEffect(() => {
-		fetch(`https://cars.poly-api.fr/public/get/fuel`)
+		fetch(path)
 		  .then((response) => response.json())
-		  .then((fuelData) => setFuelData(fuelData.result))
-		  .then(() => console.log(fuelData))
+		  .then((data) => setData(data.result))
+		  .then(() => console.log(data))
 		  .catch((error) => console.error(error));
 	}, []);
 	var elements=new Array();
-	if (fuelData) {
-		fuelData.forEach(function (value) {
+	if (data) {
+		data.forEach(function (value) {
 			console.log(value.id,value.label);
 			elements.push({id: value.id, label: value.label});
 		});
 	}
+	return elements;
+}
+
+//return the options for the fuel
+function RecupFuels() {
+	var elements=Recup(`https://cars.poly-api.fr/public/get/fuel`);
 	const elementsHTML=elements.map((element) => (<option value={element['id'].toString()}>{element['label']}</option>));
 	return(elementsHTML);
 }
 
 function RecupBrands() {
-	const [brandData, setBrandData] = useState<String [] | null>(null);
-	useEffect(() => {
-		fetch(`https://cars.poly-api.fr/public/get/brand`)
-		  .then((response) => response.json())
-		  .then((brandData) => setBrandData(brandData.result))
-		  .then(() => console.log(brandData))
-		  .catch((error) => console.error(error));
-	}, []);
-	var elements=new Array();
-	if (brandData) {
-		brandData.forEach(function (value) {
-			console.log(value.id,value.label);
-			elements.push({id: value.id, label: value.label});
-		});
-	}
+	var elements=Recup(`https://cars.poly-api.fr/public/get/brand`);
 	const elementsHTML=elements.map((element) => (<option value={element['id'].toString()}>{element['label']}</option>));
 	return(elementsHTML);
 }
 
 function RecupTypes() {
-	const [typeData, setTypeData] = useState<String [] | null>(null);
-	useEffect(() => {
-		fetch(`https://cars.poly-api.fr/public/get/type`)
-		  .then((response) => response.json())
-		  .then((typeData) => setTypeData(typeData.result))
-		  .then(() => console.log(typeData))
-		  .catch((error) => console.error(error));
-	}, []);
-	var elements=new Array();
-	if (typeData) {
-		typeData.forEach(function (value) {
-			console.log(value.id,value.label);
-			elements.push({id: value.id, label: value.label});
-		});
-	}
+	var elements=Recup(`https://cars.poly-api.fr/public/get/type`);
 	const elementsHTML=elements.map((element) => (<option value={element['id'].toString()}>{element['label']}</option>));
 	return(elementsHTML);
 }
@@ -71,10 +49,7 @@ function RecupSeats() {
 }
 
 function RecupDriveSystems() {
-  const elements = [
-    { id: 1, label: "Mechanical" },
-    { id: 2, label: "Hydraulic" },
-  ]; //getById(driveSystems,"all");
+  const elements = Recup(`https://cars.poly-api.fr/public/get/drive/system`);
   const elementsHTML = elements.map((element) => (
     <option value={element["id"].toString()}>{element["label"]}</option>
   ));
@@ -82,11 +57,8 @@ function RecupDriveSystems() {
 }
 
 function RecupTransmissions() {
-  const elements = [
-    { id: 1, label: "Auto" },
-    { id: 2, label: "Manual" },
-  ]; //getById(transmissions,"all");
-  const elementsHTML = elements.map((element) => (
+	var elements=Recup(`https://cars.poly-api.fr/public/get/transmission`);
+  	const elementsHTML = elements.map((element) => (
     <option value={element["id"].toString()}>{element["label"]}</option>
   ));
   return elementsHTML;
