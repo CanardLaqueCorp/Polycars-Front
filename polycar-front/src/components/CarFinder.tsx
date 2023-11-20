@@ -1,9 +1,14 @@
 import '../styles/CarFinder.scss';
 import { useState, useEffect } from "react";
 
+interface Data {
+	id: number;
+	label: string;
+}
+
 //return a list of id and label 
 function Recup (path: RequestInfo) {
-	const [data, setData] = useState<String [] | null>(null);
+	const [data, setData] = useState<Data [] | null>(null);
 	useEffect(() => {
 		fetch(path)
 		  .then((response) => response.json())
@@ -57,22 +62,8 @@ function RecupDriveSystems() {
 }
 
 function RecupTransmissions() {
-  const [transmissionData, setTransmissionData] = useState<String [] | null>(null);
-	useEffect(() => {
-		fetch(`https://cars.poly-api.fr/public/get/transmission`)
-		  .then((response) => response.json())
-		  .then((transmissionData) => setTransmissionData(transmissionData.result))
-		  .then(() => console.log(transmissionData))
-		  .catch((error) => console.error(error));
-	}, []);
-	var elements=new Array();
-	if (transmissionData) {
-		transmissionData.forEach(function (value) {
-			console.log(value.id,value.label);
-			elements.push({id: value.id, label: value.label});
-		});
-	}
-  const elementsHTML = elements.map((element) => (
+	var elements=Recup(`https://cars.poly-api.fr/public/get/transmission`);
+  	const elementsHTML = elements.map((element) => (
     <option value={element["id"].toString()}>{element["label"]}</option>
   ));
   return elementsHTML;
