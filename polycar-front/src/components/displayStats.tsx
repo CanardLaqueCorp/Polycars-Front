@@ -1,5 +1,6 @@
 import "../styles/displayStats.scss";
 import { CarProps } from "../interface/props";
+import { useEffect, useState } from "react";
 
 import {
   Radar,

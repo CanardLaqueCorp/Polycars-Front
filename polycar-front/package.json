@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "@react-spring/parallax": "^9.7.3",
     "@tanstack/react-table": "^8.9.8",
     "bootstrap": "^5.3.1",

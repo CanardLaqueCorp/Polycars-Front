@@ -3,7 +3,6 @@
   src: url("./assets/Bungee-Regular.ttf");
 }
 
-
 //we import the variables from index.scss
 @import "./index.scss";
 
@@ -43,3 +42,8 @@
     margin-top: 20px;
 }
 
+
+.switch-units{
+  font-size: 1.5rem;
+  background-color: $primary;
+}
