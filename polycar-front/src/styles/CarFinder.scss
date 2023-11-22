@@ -1,14 +1,18 @@
 .type {
 	font-size: 1.7em;
 	position: relative;
-	left: -500px;
+	left: -700px;
 	margin-left: 50%;
-	width: 1000px;
+	width: 1400px;
 	text-align: center;
 	border: 6px solid var(--color-accent);
 	border-radius: 20px;
 	box-shadow: 0 0 10px #ccc;
 	transition: all 0.3s ease-in-out;
+	display: grid;
+  	grid-template-columns: 1fr 1fr;
+  	gap: 10px 2em;
+	padding-bottom: 30px;
 }
 
 .type:hover{

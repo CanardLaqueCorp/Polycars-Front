@@ -83,6 +83,7 @@ function CarFinder() {
       <h1>Let's find your dream car !</h1>
       <form method="get" action="cars">
         <p className="type">
+		<div>
           <abbr title="Everything about the car">🚗</abbr>
           <br />
           <abbr title="The brand of cars">Brand : </abbr>
@@ -130,17 +131,8 @@ function CarFinder() {
             defaultValue=""
           />{" "}
           €
-          <br />
-          <br />
-          <abbr title="Everything about fuel">⛽</abbr>
-          <br />
-          <abbr title="The type of fuel used by cars">Type of fuel : </abbr>
-          <select className="button" name="fuel">
-            <option value="">All</option>
-            <RecupFuels />;
-          </select>
-          <br />
-          <br />
+		  </div>
+		  <div>
           <abbr title="Everything about the system">⚙️</abbr>
           <br />
           <abbr title="The type of transmission of cars">
@@ -166,6 +158,17 @@ function CarFinder() {
             <option value="">All</option>
             <RecupCylinders />;
           </select>
+          <br />
+          <br />
+		  <br />
+		  <abbr title="Everything about fuel">⛽</abbr>
+          <br />
+          <abbr title="The type of fuel used by cars">Type of fuel : </abbr>
+          <select className="button" name="fuel">
+            <option value="">All</option>
+            <RecupFuels />;
+          </select>
+		  </div>
         </p>
         <input className="submit" type="submit" value="Search" name="action" />
       </form>
