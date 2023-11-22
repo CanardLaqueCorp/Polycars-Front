@@ -84,90 +84,91 @@ function CarFinder() {
       <form method="get" action="cars">
         <p className="type">
 		<div>
-          <abbr title="Everything about the car">🚗</abbr>
-          <br />
-          <abbr title="The brand of cars">Brand : </abbr>
-          <select className="button" name="brand">
-            <option value="">All</option>
-            <RecupBrands />;
-          </select>
-          <br />
-          <abbr title="The type of cars">Type of the car : </abbr>
-          <select className="button" name="cartype">
-            <option value="">All</option>
-            <RecupTypes />;
-          </select>
-          <br />
-          <abbr title="If cars must have a Start and Stop system">
-            Start and Stop :{" "}
-          </abbr>
-          <select className="button" name="startandstop">
-            <option value="">All</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-          </select>
-          <br />
-          <abbr title="The number of gears of cars">Number of gears : </abbr>
-          <select className="button" name="gears">
-            <option value="">All</option>
-            <RecupGears />;
-          </select>
-          <br />
-          <br />
-          <abbr title="Everything about the price">💰</abbr>
-          <br />
-          <abbr title="The price of cars">Price : </abbr> Min :{" "}
-          <textarea
-            className="button"
-            maxLength={8}
-            name="minPrice"
-            defaultValue=""
-          />{" "}
-          € | Max :{" "}
-          <textarea
-            className="button"
-            maxLength={8}
-            name="maxPrice"
-            defaultValue=""
-          />{" "}
-          €
+          	<abbr title="Everything about the car">🚗</abbr>
+          	<br />
+          	<abbr title="The brand of cars">Brand : </abbr>
+          	<select className="button" name="brand">
+            	<option value="">All</option>
+            	<RecupBrands />;
+          	</select>
+          	<br />
+          	<abbr title="The type of cars">Type of the car : </abbr>
+          	<select className="button" name="cartype">
+            	<option value="">All</option>
+            	<RecupTypes />;
+          	</select>
+          	<br />
+          	<abbr title="If cars must have a Start and Stop system">
+            	Start and Stop :{" "}
+          	</abbr>
+          	<select className="button" name="startandstop">
+            	<option value="">All</option>
+            	<option value="yes">Yes</option>
+            	<option value="no">No</option>
+          	</select>
+          	<br />
+          	<abbr title="The number of gears of cars">Number of gears : </abbr>
+          	<select className="button" name="gears">
+            	<option value="">All</option>
+            	<RecupGears />;
+          	</select>
+          	<br />
+          	<br />
+          	<abbr title="Everything about the price">💰</abbr>
+          	<br />
+          	<abbr title="The price of cars">Price : </abbr> Min :{" "}
+          	<textarea
+            	className="button"
+            	maxLength={8}
+            	name="minPrice"
+            	defaultValue=""
+          	/>{" "}
+          	€ | Max :{" "}
+          	<textarea
+            	className="button"
+            	maxLength={8}
+            	name="maxPrice"
+            	defaultValue=""
+          	/>{" "}
+          	€
 		  </div>
+		  
 		  <div>
-          <abbr title="Everything about the system">⚙️</abbr>
-          <br />
-          <abbr title="The type of transmission of cars">
-            Type of transmission :{" "}
-          </abbr>
-          <select className="button" name="transmission">
-            <option value="">All</option>
-            <RecupTransmissions />;
-          </select>
-          <br />
-          <abbr title="The tye of drive system of cars">
-            Type of drive system :{" "}
-          </abbr>
-          <select className="button" name="drivesystem">
-            <option value="">All</option>
-            <RecupDriveSystems />;
-          </select>
-          <br />
-          <abbr title="The number of cylinders of cars">
-            Number of cylinders{" "}
-          </abbr>
-          <select className="button" name="cylinder">
-            <option value="">All</option>
-            <RecupCylinders />;
-          </select>
-          <br />
-          <br />
-		  <br />
-		  <abbr title="Everything about fuel">⛽</abbr>
-          <br />
-          <abbr title="The type of fuel used by cars">Type of fuel : </abbr>
-          <select className="button" name="fuel">
-            <option value="">All</option>
-            <RecupFuels />;
-          </select>
+          	<abbr title="Everything about the system">⚙️</abbr>
+          	<br />
+          	<abbr title="The type of transmission of cars">
+            	Type of transmission :{" "}
+          	</abbr>
+          	<select className="button" name="transmission">
+            	<option value="">All</option>
+            	<RecupTransmissions />;
+          	</select>
+          	<br />
+          	<abbr title="The tye of drive system of cars">
+            	Type of drive system :{" "}
+          	</abbr>
+          	<select className="button" name="drivesystem">
+            	<option value="">All</option>
+            	<RecupDriveSystems />;
+          	</select>
+          	<br />
+          	<abbr title="The number of cylinders of cars">
+            	Number of cylinders{" "}
+          	</abbr>
+          	<select className="button" name="cylinder">
+            	<option value="">All</option>
+           		<RecupCylinders />;
+          	</select>
+          	<br />
+          	<br />
+		  	<br />
+		  	<abbr title="Everything about fuel">⛽</abbr>
+          	<br />
+          	<abbr title="The type of fuel used by cars">Type of fuel : </abbr>
+          	<select className="button" name="fuel">
+            	<option value="">All</option>
+            	<RecupFuels />;
+          	</select>
 		  </div>
         </p>
         <input className="submit" type="submit" value="Search" name="action" />
