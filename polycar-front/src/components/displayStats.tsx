@@ -46,7 +46,10 @@ function DisplayStats({
   smogRating,
   ecoScore,
   views,
+<<<<<<< HEAD
   unit,
+=======
+>>>>>>> 8e19f37 (show number of views roughly in the displaystats)
 }: CarProps) {
   const imageUrl = "https://claq-dev.com/host/" + id + ".jpg";
   // We check if fuel has more than 10 characters
@@ -133,7 +136,11 @@ function DisplayStats({
           <img src={imageUrl} />{" "}
         </div>
         <div className="TitleContainer-data">
+<<<<<<< HEAD
           <h1>Data about this car:</h1>
+=======
+          <h1>Data about this car that has {views} views!</h1>
+>>>>>>> 8e19f37 (show number of views roughly in the displaystats)
           <div className="brand">
             <h3>Brand : {brand}</h3>
             <h3>Model : {model}</h3>
