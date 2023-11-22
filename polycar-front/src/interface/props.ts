@@ -35,5 +35,6 @@ export interface CarProps {
   ecoScore: number;
   //on rajoute image
   image?: string;
+  views: number;
 }
 

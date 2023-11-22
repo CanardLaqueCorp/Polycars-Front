@@ -33,4 +33,5 @@ export interface CarData {
   ghgRating: number;
   smogRating: number;
   ecoScore: number;
+  views: number;
 }
