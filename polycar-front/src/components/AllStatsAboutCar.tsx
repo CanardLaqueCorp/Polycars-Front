@@ -7,6 +7,8 @@ function AllStatsAboutCar() {
   // Get the car ID from the URL
   const idOfCar: string = window.location.href.split("/")[4];
   const [carData, setCarData] = useState<CarData | null>(null);
+
+
   useEffect(() => {
     fetch(`https://cars.poly-api.fr/public/get/car/${idOfCar}`)
       .then((response) => response.json())
