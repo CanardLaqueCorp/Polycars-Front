@@ -10,6 +10,7 @@ function Car({
   image,
   ecoScore,
   annualFuelCost,
+  views,
 }: CarProps) {
   //we check if fuel has more than 10 characters
   if (fuel.length > 10) {
@@ -25,6 +26,7 @@ function Car({
             {brand === "HYUNDAI MOTOR COMPANY" ? "Hyundai" : brand}
           </p>
           <p className="CarModele">{model}</p>
+          <p id="views-counter-car">{views} views</p>
         </h5>
       </div>
       <div className="card-body">
