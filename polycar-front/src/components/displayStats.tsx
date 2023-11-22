@@ -137,10 +137,14 @@ function DisplayStats({
         </div>
         <div className="TitleContainer-data">
 <<<<<<< HEAD
+<<<<<<< HEAD
           <h1>Data about this car:</h1>
 =======
           <h1>Data about this car that has {views} views!</h1>
 >>>>>>> 8e19f37 (show number of views roughly in the displaystats)
+=======
+          <h1>Data about this car:</h1>
+>>>>>>> fb1cde3 (view count in allcarlist)
           <div className="brand">
             <h3>Brand : {brand}</h3>
             <h3>Model : {model}</h3>
