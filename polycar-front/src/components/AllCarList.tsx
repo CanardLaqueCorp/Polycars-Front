@@ -153,6 +153,7 @@ function AllCarList() {
                   smogRating={car.smogRating}
                   ecoScore={car.ecoScore}
                   image={imageUrl}
+                  views={car.views}
                 />
               );
             })}
