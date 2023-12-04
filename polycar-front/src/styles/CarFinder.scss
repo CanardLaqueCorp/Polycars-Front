@@ -33,9 +33,11 @@ textarea {
 }
 
 .submit {
-	width: 200px;
-	height: 70px;
+	width: 210px;
+	height: 80px;
+	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 	color: var(--color--accent-darker);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -48,6 +50,9 @@ textarea {
 	margin-left: 50%;
 	font-size: 50px;
 >>>>>>> a92e97f (Update CarFinder.scss)
+=======
+	font-size: 30px;
+>>>>>>> f00a9e4 (Police correcte)
 	border: 6px solid var(--color-accent);
 	border-radius: 20px;
 	box-shadow: 0 0 10px #ccc;
