@@ -172,10 +172,14 @@ function CarFinder() {
 		  </div>
         </p>
 <<<<<<< HEAD
+<<<<<<< HEAD
 		<button className='submit'>Search</button>
 =======
         <button className="submit">Search</button>
 >>>>>>> 902946b (merge)
+=======
+        <input className="submit" type="submit" value="Search" name="action" />
+>>>>>>> 6a498b4 (Police correcte)
       </form>
     </>
   );
