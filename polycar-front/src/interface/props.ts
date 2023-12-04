@@ -21,19 +21,26 @@ export interface CarProps {
   maxBioFuel: number;
   hasStartAndStop: boolean;
   cityFuel: number;
+  cityFuelMetric: number;
   cityCarbon: number;
+  cityCarbonMetric: number;
   highwayFuel: number;
+  highwayFuelMetric: number;
   highwayCarbon: number;
+  highwayCarbonMetric: number;
   combinedFuel: number;
+  combinedFuelMetric: number;
   combinedCarbon: number;
+  combinedCarbonMetric: number;
   hasGuzzler: boolean;
   annualFuelCost: number;
+  annualFuelCostEuro: number;
   spendOnFiveYears: number;
+  spendOnFiveYearsEuro: number;
   feRating: number;
   ghgRating: number;
   smogRating: number;
   ecoScore: number;
-  //on rajoute image
   image?: string;
   views: number;
 }
