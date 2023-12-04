@@ -47,9 +47,13 @@ function DisplayStats({
   ecoScore,
   views,
 <<<<<<< HEAD
+<<<<<<< HEAD
   unit,
 =======
 >>>>>>> 8e19f37 (show number of views roughly in the displaystats)
+=======
+  unit,
+>>>>>>> f2fb2cd (units finished)
 }: CarProps) {
   const imageUrl = "https://claq-dev.com/host/" + id + ".jpg";
   // We check if fuel has more than 10 characters
