@@ -174,6 +174,7 @@ function CarFinder() {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		<button className='submit'>Search</button>
 =======
         <button className="submit">Search</button>
@@ -187,6 +188,9 @@ function CarFinder() {
 		<button className='submit'>Search</button>
 >>>>>>> main
 >>>>>>> 2ab7a09 (merge)
+=======
+        <button className="submit">Search</button>
+>>>>>>> ea23464 (Fonctionnel)
       </form>
     </>
   );
