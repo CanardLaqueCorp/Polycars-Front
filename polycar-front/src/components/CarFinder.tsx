@@ -173,6 +173,7 @@ function CarFinder() {
         </p>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 		<button className='submit'>Search</button>
 =======
         <button className="submit">Search</button>
@@ -180,6 +181,12 @@ function CarFinder() {
 =======
         <input className="submit" type="submit" value="Search" name="action" />
 >>>>>>> 6a498b4 (Police correcte)
+=======
+        <button className="submit">Search</button>
+=======
+		<button className='submit'>Search</button>
+>>>>>>> main
+>>>>>>> 2ab7a09 (merge)
       </form>
     </>
   );
