@@ -36,8 +36,10 @@ textarea {
 	width: 210px;
 	height: 80px;
 	color: var(--color--accent-darker);
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-	font-size: 30px;
+	position: relative;
+	left: -100px;
+	margin-left: 50%;
+	font-size: 50px;
 	border: 6px solid var(--color-accent);
 	border-radius: 20px;
 	box-shadow: 0 0 10px #ccc;
