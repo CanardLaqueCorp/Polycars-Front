@@ -171,7 +171,11 @@ function CarFinder() {
           	</select>
 		  </div>
         </p>
+<<<<<<< HEAD
 		<button className='submit'>Search</button>
+=======
+        <button className="submit">Search</button>
+>>>>>>> 902946b (merge)
       </form>
     </>
   );
