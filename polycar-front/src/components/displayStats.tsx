@@ -46,6 +46,7 @@ function DisplayStats({
   smogRating,
   ecoScore,
   views,
+  unit,
 }: CarProps) {
   const imageUrl = "https://claq-dev.com/host/" + id + ".jpg";
   // We check if fuel has more than 10 characters
@@ -215,19 +216,19 @@ function DisplayStats({
                 </tr>
                 <tr>
                   <th scope="row">City Fuel :</th>
-                  <td>{cityFuel} mpg</td>
+                  <td>{unit === "metric" ? cityFuelMetric : cityFuel} {unit === "metric" ? "l/100 km" : "mpg"}</td>
                 </tr>
                 <tr>
                   <th scope="row">Highway Fuel :</th>
-                  <td>{highwayFuel} mpg</td>
+                  <td>{unit === "metric" ? highwayFuelMetric : highwayFuel} {unit === "metric" ? "l/100 km" : "mpg"}</td>
                 </tr>
                 <tr>
                   <th scope="row">Combined Fuel :</th>
-                  <td>{combinedFuel} mpg</td>
+                  <td>{unit === "metric" ? combinedFuelMetric : combinedFuel} {unit === "metric" ? "l/100 km" : "mpg"}</td>
                 </tr>
                 <tr>
                   <th scope="row">Annual Fuel Cost :</th>
-                  <td>{annualFuelCost} $</td>
+                  <td>{unit === "metric" ? annualFuelCostEuro : annualFuelCost} {unit === "metric" ? "€" : "$"}</td>
                 </tr>
               </tbody>
             </table>
@@ -334,22 +335,22 @@ function DisplayStats({
                 <tr>
                   <th scope="row">City Carbon :</th>
                   <td>
-                    {cityCarbon} GCO
-                    <span style={{ fontSize: "0.9rem" }}>2</span>/M
+                    {unit === "metric" ? cityCarbonMetric : cityCarbon} GCO
+                    <span style={{ fontSize: "0.9rem" }}>2</span> {unit === "metric" ? "/km" : "/mi"}
                   </td>
                 </tr>
                 <tr>
                   <th scope="row">Highway Carbon :</th>
                   <td>
-                    {highwayCarbon} GCO
-                    <span style={{ fontSize: "0.9rem" }}>2</span>/M
+                    {unit === "metric" ? highwayCarbonMetric : highwayCarbon} GCO
+                    <span style={{ fontSize: "0.9rem" }}>2</span>{unit === "metric" ? "/km" : "/mi"}
                   </td>
                 </tr>
                 <tr>
                   <th scope="row">Combined Carbon :</th>
                   <td>
-                    {combinedCarbon} GCO
-                    <span style={{ fontSize: "0.9rem" }}>2</span>/M
+                    {unit === "metric" ? combinedCarbonMetric : combinedCarbon} GCO
+                    <span style={{ fontSize: "0.9rem" }}>2</span> {unit === "metric" ? "/km" : "/mi"}
                   </td>
                 </tr>
               </tbody>
