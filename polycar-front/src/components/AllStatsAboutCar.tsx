@@ -15,6 +15,21 @@ function AllStatsAboutCar() {
       .catch((error) => console.error(error));
   }, []);
 
+  const [units, setUnits] = useState("metric");
+
+  useEffect(() => {
+    localStorage.setItem("units", units);
+  }, [units]);
+
+  const switchUnits = () => {
+    if (units === "metric") {
+      setUnits("imperial");
+    } else {
+      setUnits("metric");
+    }
+  };
+
+
   if (!carData) {
     return <LoadingScreen />;
   }
@@ -43,22 +58,37 @@ function AllStatsAboutCar() {
     maxBioFuel,
     hasStartAndStop,
     cityFuel,
+    cityFuelMetric,
     cityCarbon,
+    cityCarbonMetric,
     highwayFuel,
+    highwayFuelMetric,
     highwayCarbon,
+    highwayCarbonMetric,
     combinedFuel,
+    combinedFuelMetric,
     combinedCarbon,
+    combinedCarbonMetric,
     hasGuzzler,
     annualFuelCost,
+    annualFuelCostEuro,
     spendOnFiveYears,
+    spendOnFiveYearsEuro,
     feRating,
     ghgRating,
     smogRating,
     ecoScore,
+    views,
   } = carData;
 
   return (
     <div>
+      <button
+        onClick={switchUnits}
+        className="switch-units"
+      >
+        Click to switch to {units === "metric" ? "imperial" : "metric"}
+      </button>
       <DisplayStats
         id={id}
         brand={brand}
@@ -82,18 +112,29 @@ function AllStatsAboutCar() {
         maxBioFuel={maxBioFuel}
         hasStartAndStop={hasStartAndStop}
         cityFuel={cityFuel}
+        cityFuelMetric={cityFuelMetric}
         cityCarbon={cityCarbon}
+        cityCarbonMetric={cityCarbonMetric}
         highwayFuel={highwayFuel}
+        highwayFuelMetric={highwayFuelMetric}
         highwayCarbon={highwayCarbon}
+        highwayCarbonMetric={highwayCarbonMetric}
         combinedFuel={combinedFuel}
+        combinedFuelMetric={combinedFuelMetric}
         combinedCarbon={combinedCarbon}
+        combinedCarbonMetric={combinedCarbonMetric}
         hasGuzzler={hasGuzzler}
         annualFuelCost={annualFuelCost}
+        annualFuelCostEuro={annualFuelCostEuro}
         spendOnFiveYears={spendOnFiveYears}
+        spendOnFiveYearsEuro={spendOnFiveYearsEuro}
         feRating={feRating}
         ghgRating={ghgRating}
         smogRating={smogRating}
         ecoScore={ecoScore}
+        views={views}
+        unit={units}
+
       />
     </div>
   );

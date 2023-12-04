@@ -1,6 +1,8 @@
 import "../styles/topbar.scss";
+import { useEffect, useState } from "react";
 
 function BasicExample() {
+
   return (
     <div id="TopBar">
       <p onClick={() => window.location.replace("/")} className="TopBarText">
@@ -18,6 +20,8 @@ function BasicExample() {
       >
         Car Finder
       </p>
+      <div>
+      </div>
     </div>
   );
 }
