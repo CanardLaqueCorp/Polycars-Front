@@ -12,7 +12,7 @@ function AllCarList() {
   const [isLoading, setIsLoading] = useState(true);
 
   const params =new URLSearchParams(window.location.search);
-  if (params.get("action")=="Search") {
+  if (params.get("brand")) {
     var param=document.location.href.split("?");
     var path="https://cars.poly-api.fr/public/search/car/light?"+param[1];
   }
