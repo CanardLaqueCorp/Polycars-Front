@@ -90,6 +90,7 @@ function AllStatsAboutCar() {
         className="switch-units"
       >
 <<<<<<< HEAD
+<<<<<<< HEAD
         Click to switch to {units === "metric" ? "imperial" : "metric"}
       </button>
 =======
@@ -103,6 +104,10 @@ function AllStatsAboutCar() {
 =======
       Current units: {units}
 >>>>>>> 6e1cad7 (added metrics in all interfaces)
+=======
+        Click to switch to {units === "metric" ? "imperial" : "metric"}
+      </button>
+>>>>>>> f2fb2cd (units finished)
       <DisplayStats
         id={id}
         brand={brand}
@@ -148,9 +153,14 @@ function AllStatsAboutCar() {
         ecoScore={ecoScore}
         views={views}
 <<<<<<< HEAD
+<<<<<<< HEAD
         unit={units}
 =======
 >>>>>>> 8e19f37 (show number of views roughly in the displaystats)
+=======
+        unit={units}
+
+>>>>>>> f2fb2cd (units finished)
       />
     </div>
   );
