@@ -87,9 +87,8 @@ function AllStatsAboutCar() {
         onClick={switchUnits}
         className="switch-units"
       >
-        Click to switch units
+        Click to switch to {units === "metric" ? "imperial" : "metric"}
       </button>
-      Current units: {units}
       <DisplayStats
         id={id}
         brand={brand}
@@ -134,6 +133,8 @@ function AllStatsAboutCar() {
         smogRating={smogRating}
         ecoScore={ecoScore}
         views={views}
+        unit={units}
+
       />
     </div>
   );
