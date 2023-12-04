@@ -93,10 +93,14 @@ function AllStatsAboutCar() {
 =======
         Click to switch units
       </button>
+<<<<<<< HEAD
       
 
 
 >>>>>>> c1b5002 (button to switch units)
+=======
+      Current units: {units}
+>>>>>>> 6e1cad7 (added metrics in all interfaces)
       <DisplayStats
         id={id}
         brand={brand}
