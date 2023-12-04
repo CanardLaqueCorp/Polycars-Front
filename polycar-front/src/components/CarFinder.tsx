@@ -171,7 +171,7 @@ function CarFinder() {
           	</select>
 		  </div>
         </p>
-        <button className="submit">Search</button>
+        <input className="submit" type="submit" value="Search" name="action" />
       </form>
     </>
   );
