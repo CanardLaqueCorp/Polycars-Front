@@ -50,12 +50,16 @@ function DisplayStats({
   views,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   unit,
 =======
 >>>>>>> 8e19f37 (show number of views roughly in the displaystats)
 =======
   unit,
 >>>>>>> f2fb2cd (units finished)
+=======
+  unit,
+>>>>>>> main
 }: CarProps) {
   const imageUrl = "https://claq-dev.com/host/" + id + ".jpg";
   // We check if fuel has more than 10 characters
@@ -144,6 +148,7 @@ function DisplayStats({
         <div className="TitleContainer-data">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           <h1>Data about this car:</h1>
 =======
           <h1>Data about this car that has {views} views!</h1>
@@ -151,6 +156,9 @@ function DisplayStats({
 =======
           <h1>Data about this car:</h1>
 >>>>>>> fb1cde3 (view count in allcarlist)
+=======
+          <h1>Data about this car:</h1>
+>>>>>>> main
           <div className="brand">
             <h3>Brand : {brand}</h3>
             <h3>Model : {model}</h3>
