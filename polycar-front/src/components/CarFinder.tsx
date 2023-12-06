@@ -29,7 +29,7 @@ function Recup (path: RequestInfo) {
 //return the options for the fuel
 function RecupFuels() {
 	var elements=Recup(`https://cars.poly-api.fr/public/get/fuel`);
-	const elementsHTML=elements.map((element) => (<option value={element['id'].toString()}>{element['label']}</option>));
+	const elementsHTML=elements.map((element) => (<option value={element['label'].toString().toLowerCase()}>{element['label']}</option>));
 	return(elementsHTML);
 }
 
