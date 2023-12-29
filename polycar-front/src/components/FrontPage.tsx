@@ -2,7 +2,9 @@ import { Link } from "react-router-dom";
 import "../styles/frontpage.scss";
 
 import InfosAboutPolycars from "./InfosAboutPolycars";
+import TopCars from "./TopCars";
 import GetInTouchFormulaire from "./GetInTouchFormulaire";
+
 
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
 
@@ -47,6 +49,16 @@ function HomePage() {
             <InfosAboutPolycars />
           </div>
         </ParallaxLayer>
+        <ParallaxLayer offset={1.42} speed={0.15}>
+          <div className="topCars">
+            <TopCars />
+          </div>
+        </ParallaxLayer>
+        <ParallaxLayer offset={2.96} speed={0.2}>
+          <div className="getInTouchFormulaire">
+            <GetInTouchFormulaire />
+          </div>
+        </ParallaxLayer>
         <ParallaxLayer
           offset={1.1}
           speed={0.3}
@@ -71,9 +83,6 @@ function HomePage() {
             zIndex: -1,
           }}
         />
-        <ParallaxLayer offset={1.5} speed={0.2}>
-          <GetInTouchFormulaire />
-        </ParallaxLayer>
       </Parallax>
     </div>
   );
