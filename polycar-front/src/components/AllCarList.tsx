@@ -62,8 +62,6 @@ function AllCarList() {
         return direction * (b.highwayFuel - a.highwayFuel);
       } else if (sortOrder === "combinedFuel") {
         return direction * (b.combinedFuel - a.combinedFuel);
-      } else if (sortOrder === "views") {
-        return direction * (b.views - a.views);
       } else {
         return direction * (b.ecoScore - a.ecoScore); //si on n'applique pas de filtre, on trie par ecoScore
       }
@@ -109,7 +107,6 @@ function AllCarList() {
               <option value="cityFuel">City Fuel Efficiency</option>
               <option value="highwayFuel">Highway Fuel Efficiency</option>
               <option value="combinedFuel">Combined Fuel Efficiency</option>
-              <option value="views">Views</option>
             </select>
             <button onClick={handleSortDirectionChange}>
               {sortDirection === "asc" ? "Ascending" : "Descending"}
