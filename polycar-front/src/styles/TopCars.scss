@@ -1,0 +1,134 @@
+.TopCars {
+    padding: 20px;
+    text-align: center;
+    position: absolute;
+    display: inline;
+    padding: 1rem 2rem;
+    width: 60%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    border: 2px solid white;
+    border-radius: 10px;
+    background-color: var(--color--accent-darker);
+}
+
+.TopCarsList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
+    margin-top: 20px;
+}
+
+.TopCars:Hover {
+    animation: shadow 3s ease-in-out infinite;
+}
+
+.TopCars p {
+    color: white;
+    font-weight: bold;
+}
+
+.TopCars .card{
+    min-width: 30%;
+}
+
+
+
+.TopCars .card-title {
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.TopCars .card-img-top {
+    overflow: hidden;
+}
+
+.TopCars .CarMarque {
+    margin-bottom: 1.2rem;
+}
+
+.TopCars .CarModele {
+    margin-bottom: 1.6rem;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .TopCarsHeader {
+        color: white;
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .TopCarsSubHeader {
+        color: white;
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: 0.9rem;
+        margin-bottom: 2rem;
+    }
+
+    .TopCars .card {
+        font-size: 80%;
+    }
+
+    .TopCars .card-title {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1700px) {
+    .TopCarsHeader {
+        color: white;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .TopCarsSubHeader {
+        color: white;
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+
+    .TopCarsList {
+        margin: 20px;
+    }
+
+    .TopCars .card {
+        font-size: 90%;
+    }
+
+    .TopCars .card-title {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 1701px) {
+    .TopCarsHeader {
+        color: white;
+        font-size: 3rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .TopCarsSubHeader {
+        color: white;
+        margin-bottom: 2rem;
+    }
+
+    .TopCars .card {
+     font-size: 100%;
+    }
+
+    .TopCars .card-img-top {
+        overflow: visible;
+    }
+
+    .TopCars .card-title {
+        font-size: 1.8rem;
+    }
+}
