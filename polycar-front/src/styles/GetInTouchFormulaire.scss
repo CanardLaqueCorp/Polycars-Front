@@ -1,60 +1,84 @@
-@import "../index.scss";
-
-.GetInTouchFormulaire {
-    position: absolute;
-    display: inline;
-    padding: 1rem 2rem;
-    width: 60%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    border: 2px solid white; /* Add a white border */
-    border-radius: 10px; /* Add rounded corners */
+.form-container {
     background-color: var(--color--accent-darker);
-}
-
-.GetInTouchFormulaire:hover {
-    animation: shadow 3s ease-in-out infinite;
-    
-}
-
-.GetInTouchFormulaire p {
-    color: white;
-    font-size: 2rem;
-    font-weight: bold;
-}
-
-.GetInTouchFormulaire p::before {
-    content: "•";
-    margin-right: 1rem;
-}
-
-.bddInfosH1 {
-    color: white;
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 2rem;
-}
-
-@keyframes shadow{
-    0% {
-        box-shadow: 0;
-    }
-    50% {
-        box-shadow: 0 0 5px var(--color-accent), 0 0 10px var(--color-accent), 0 0 20px var(--color-accent), 0 0 40px var(--color-accent);
-    }
-    100% {
-        box-shadow: 0;
-    }
-
-}
-
-
-.infosAboutBdd {
-    //we center this div on the page
     padding: 2rem;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 2rem auto;
 }
 
-label, input {
-    display: block;
-    margin-right: 1rem;
+.form-container:hover {
+    animation: shadow 3s ease-in-out infinite;
+}
+  
+.form-title {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: white;
+}
+  
+.form-field {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.form-row .form-field {
+    flex: 1;
+}
+
+.textarea-field {
+    height: 150px;
+    resize: vertical;
+    width: calc(100% - 18px);
+}
+
+.button {
+    width: 100%;
+}
+
+.form-message {
+    text-align: center;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+    font-size: 1.6rem;
+    font-weight: bold;
+    width: 100%;
+    box-sizing: border-box;
+    color: white;
+}
+
+.confirmation-message {
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.795);
+    margin-top: 0.5rem;
+    margin-bottom: 0.2rem;
+}
+
+@media (max-width: 1000px) {
+    .form-row {
+        flex-direction: column; 
+    }
+
+    .textarea-field {
+        width: 100%;
+    }
+
+    .button {
+        width: calc(100% + 18px);
+    }
+}
+
+@media screen and (min-width: 1701px) {
+    .getInTouchFormulaire {
+        margin-top: -24rem;
+    }
 }
