@@ -1,9 +1,9 @@
 .form-container {
-    background-color: var(--color--accent-darker); /* Arrière-plan blanc pour le formulaire */
-    padding: 2rem; /* Espace interne pour le formulaire */
-    border-radius: 8px; /* Coins arrondis */
-    max-width: 600px; /* Largeur maximale du formulaire */
-    margin: 2rem auto; /* Centrage du formulaire avec une marge en haut et en bas */
+    background-color: var(--color--accent-darker);
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 2rem auto;
 }
 .form-container:hover {
     animation: shadow 3s ease-in-out infinite;
@@ -36,7 +36,7 @@
 .textarea-field {
     height: 150px;
     resize: vertical;
-    width: 100%;
+    width: calc(100% - 18px);
 }
 
 .button {
@@ -65,6 +65,14 @@
 @media (max-width: 1000px) {
     .form-row {
         flex-direction: column; 
+    }
+
+    .textarea-field {
+        width: 100%;
+    }
+
+    .button {
+        width: calc(100% + 18px);
     }
 }
 
