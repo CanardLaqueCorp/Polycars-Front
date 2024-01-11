@@ -12,12 +12,8 @@ function AllCarList() {
   const [isLoading, setIsLoading] = useState(true);
 
   const params =new URLSearchParams(window.location.search);
-  if (params.get("brand")) {
-    var param=document.location.href.split("?");
-    var path="https://cars.poly-api.fr/public/search/car/light?"+param[1];
-  }
-  else
-    var path="https://cars.poly-api.fr/public/get/car/all/light";
+  var param=document.location.href.split("?");
+  var path="https://cars.poly-api.fr/public/search/car/light?"+param[1];
   console.log(path);
   useEffect(() => {
     fetch(path)
