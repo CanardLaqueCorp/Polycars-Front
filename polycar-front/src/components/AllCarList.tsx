@@ -12,8 +12,8 @@ function AllCarList() {
   const [isLoading, setIsLoading] = useState(true);
 
   const params = new URLSearchParams(window.location.search);
-  var param = document.location.href.split("?");
-  var path = "https://cars.poly-api.fr/public/search/car/light?" + param[1];
+  let  param = document.location.href.split("?");
+  let path = "https://cars.poly-api.fr/public/search/car/light?" + param[1];
   console.log(path);
   useEffect(() => {
     fetch(path)
@@ -104,10 +104,6 @@ function AllCarList() {
           <button onClick={() => setFilterValue("")}>Reset</button>
           <select value={sortOrder} onChange={handleSortOrderChange}>
             <option value="ecoScore">Eco Score</option>
-            <option value="cylinder">Number of Cylinders</option>
-            <option value="cityFuel">City Fuel Efficiency</option>
-            <option value="highwayFuel">Highway Fuel Efficiency</option>
-            <option value="combinedFuel">Combined Fuel Efficiency</option>
           </select>
           <button onClick={handleSortDirectionChange}>
             {sortDirection === "asc" ? "Ascending" : "Descending"}
