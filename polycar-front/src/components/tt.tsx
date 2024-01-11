@@ -158,12 +158,7 @@ function AllCarList() {
           </div>
         </div>
       ) : (
-        <div>
-          <h1>On a cherché de partout mais...</h1>
-          <h2>Nous n'avons pas trouvé de voiture correspondant à votre recherche</h2>
-          <h3>Essayez de modifier vos critères de recherche</h3>
-          <p>Vous pouvez revenir à la page d'accueil en cliquant sur le logo en haut à gauche, ou en cliquant <a href="/">ici</a></p>
-        </div>
+        <div>No cars available</div>
       )}
     </>
   );
