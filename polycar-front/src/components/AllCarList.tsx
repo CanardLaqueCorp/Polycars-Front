@@ -65,108 +65,118 @@ function AllCarList() {
         })
     : [];
 
-  return (
-    <>
-      {isLoading ? (
+  let content;
+
+  if (isLoading) {
+    content = (
         <div className="LoadingScreenWrapper" style={{ height: "10" }}>
           <LoadingScreen />
         </div>
-      ) : cars && cars.length > 0 ? (
-        <div className="AllCarListComponent">
-          <div className="AllCarListHeader">
-            <h1>Car List:</h1>
-            <div className="numberOfResults">
-              <p>
-                {filterValue === ""
-                  ? `We have ${filteredCars.length} cars in our database`
-                  : `${filteredCars.length} results for your search`}
-              </p>
-            </div>
-          </div>
-          <div className="HeaderForm">
-            <select value={filterType} onChange={handleFilterTypeChange}>
-              <option value="brand">Brand</option>
-              <option value="priceNew">Price</option>
-              <option value="model">Model</option>
-              <option value="fuel">Fuel</option>
-              <option value="carType">Car Type</option>
-              <option value="cylinder">Cylinders</option>
-            </select>
-            <input
-              type="text"
-              placeholder={`Enter your ${filterType}`}
-              value={filterValue}
-              onChange={handleFilterValueChange}
-            />
-            <button onClick={() => setFilterValue("")}>Reset</button>
-            <select value={sortOrder} onChange={handleSortOrderChange}>
-              <option value="ecoScore">Eco Score</option>
-              <option value="cylinder">Number of Cylinders</option>
-              <option value="cityFuel">City Fuel Efficiency</option>
-              <option value="highwayFuel">Highway Fuel Efficiency</option>
-              <option value="combinedFuel">Combined Fuel Efficiency</option>
-            </select>
-            <button onClick={handleSortDirectionChange}>
-              {sortDirection === "asc" ? "Ascending" : "Descending"}
-            </button>
-          </div>
-          <div className="AllCarList">
-            {filteredCars.map((car) => {
-              const imageUrl = `https://claq-dev.com/host/${car.id}.jpg`;
-              return (
-                <Car
-                  key={car.id}
-                  id={car.id}
-                  brand={car.brand}
-                  model={car.model}
-                  carTypeId={car.carTypeId}
-                  carType={car.carType}
-                  priceNew={car.priceNew}
-                  priceUsed={car.priceUsed}
-                  cylinder={car.cylinder}
-                  transmissionTypeId={car.transmissionTypeId}
-                  transmissionTypeCode={car.transmissionTypeCode}
-                  transmissionType={car.transmissionType}
-                  transmission={car.transmission}
-                  gears={car.gears}
-                  driveSystemId={car.driveSystemId}
-                  driveSystemCode={car.driveSystemCode}
-                  driveSystem={car.driveSystem}
-                  fuelId={car.fuelId}
-                  fuelCode={car.fuelCode}
-                  fuel={car.fuel}
-                  maxBioFuel={car.maxBioFuel}
-                  hasStartAndStop={car.hasStartAndStop}
-                  cityFuel={car.cityFuel}
-                  cityCarbon={car.cityCarbon}
-                  highwayFuel={car.highwayFuel}
-                  highwayCarbon={car.highwayCarbon}
-                  combinedFuel={car.combinedFuel}
-                  combinedCarbon={car.combinedCarbon}
-                  hasGuzzler={car.hasGuzzler}
-                  annualFuelCost={car.annualFuelCost}
-                  spendOnFiveYears={car.spendOnFiveYears}
-                  feRating={car.feRating}
-                  ghgRating={car.ghgRating}
-                  smogRating={car.smogRating}
-                  ecoScore={car.ecoScore}
-                  image={imageUrl}
-                  views={car.views}
-                />
-              );
-            })}
+    );
+  } else if (cars && cars.length > 0) {
+    content = (
+      <div className="AllCarListComponent">
+        <div className="AllCarListHeader">
+          <h1>Car List:</h1>
+          <div className="numberOfResults">
+            <p>
+              {filterValue === ""
+                ? `We have ${filteredCars.length} cars in our database`
+                : `${filteredCars.length} results for your search`}
+            </p>
           </div>
         </div>
-      ) : (
-        <div>
-          <h1>On a cherché de partout mais...</h1>
-          <h2>Nous n'avons pas trouvé de voiture correspondant à votre recherche</h2>
-          <h3>Essayez de modifier vos critères de recherche</h3>
-          <p>Vous pouvez revenir à la page d'accueil en cliquant sur le logo en haut à gauche, ou en cliquant <a href="/">ici</a></p>
+        <div className="HeaderForm">
+          <select value={filterType} onChange={handleFilterTypeChange}>
+            <option value="brand">Brand</option>
+            <option value="priceNew">Price</option>
+            <option value="model">Model</option>
+            <option value="fuel">Fuel</option>
+            <option value="carType">Car Type</option>
+            <option value="cylinder">Cylinders</option>
+          </select> 
+          <input
+            type="text"
+            placeholder={`Enter your ${filterType}`}
+            value={filterValue}
+            onChange={handleFilterValueChange}
+          />
+          <button onClick={() => setFilterValue("")}>Reset</button>
+          <select value={sortOrder} onChange={handleSortOrderChange}>
+            <option value="ecoScore">Eco Score</option>
+            <option value="cylinder">Number of Cylinders</option>
+            <option value="cityFuel">City Fuel Efficiency</option>
+            <option value="highwayFuel">Highway Fuel Efficiency</option>
+            <option value="combinedFuel">Combined Fuel Efficiency</option>
+          </select>
+          <button onClick={handleSortDirectionChange}>
+            {sortDirection === "asc" ? "Ascending" : "Descending"}
+          </button>
         </div>
-      )}
-    </>
-  );
+        <div className="AllCarList">
+          {filteredCars.map((car) => {
+            const imageUrl = `https://claq-dev.com/host/${car.id}.jpg`;
+            return (
+              <Car
+                key={car.id}
+                id={car.id}
+                brand={car.brand}
+                model={car.model}
+                carTypeId={car.carTypeId}
+                carType={car.carType}
+                priceNew={car.priceNew}
+                priceUsed={car.priceUsed}
+                cylinder={car.cylinder}
+                transmissionTypeId={car.transmissionTypeId}
+                transmissionTypeCode={car.transmissionTypeCode}
+                transmissionType={car.transmissionType}
+                transmission={car.transmission}
+                gears={car.gears}
+                driveSystemId={car.driveSystemId}
+                driveSystemCode={car.driveSystemCode}
+                driveSystem={car.driveSystem}
+                fuelId={car.fuelId}
+                fuelCode={car.fuelCode}
+                fuel={car.fuel}
+                maxBioFuel={car.maxBioFuel}
+                hasStartAndStop={car.hasStartAndStop}
+                cityFuel={car.cityFuel}
+                cityCarbon={car.cityCarbon}
+                highwayFuel={car.highwayFuel}
+                highwayCarbon={car.highwayCarbon}
+                combinedFuel={car.combinedFuel}
+                combinedCarbon={car.combinedCarbon}
+                hasGuzzler={car.hasGuzzler}
+                annualFuelCost={car.annualFuelCost}
+                spendOnFiveYears={car.spendOnFiveYears}
+                feRating={car.feRating}
+                ghgRating={car.ghgRating}
+                smogRating={car.smogRating}
+                ecoScore={car.ecoScore}
+                image={imageUrl}
+                views={car.views}
+              />
+            );
+          })}
+        </div>
+      </div>
+    );
+  } else
+    content = (
+      <div>
+        <h1>On a cherché de partout mais...</h1>
+        <h2>
+          Nous n'avons pas trouvé de voiture correspondant à votre recherche
+        </h2>
+        <h3>Essayez de modifier vos critères de recherche</h3>
+        <p>
+          Vous pouvez revenir à la page d'accueil en cliquant sur le logo en
+          haut à gauche, ou en cliquant <a href="/">ici</a>
+        </p>
+      </div>
+    );
+
+  return <>{content}</>;
 }
 
 export default AllCarList;
