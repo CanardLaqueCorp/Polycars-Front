@@ -160,14 +160,14 @@ function AllCarList() {
   } else
     content = (
       <div>
-        <h1>On a cherché de partout mais...</h1>
+        <h1>Sorry but...</h1>
         <h2>
-          Nous n'avons pas trouvé de voiture correspondant à votre recherche
+         We couldn't find any car matching your search criteria
         </h2>
-        <h3>Essayez de modifier vos critères de recherche</h3>
+        <h3>Please try again</h3>
         <p>
-          Vous pouvez revenir à la page d'accueil en cliquant sur le logo en
-          haut à gauche, ou en cliquant <a href="/">ici</a>
+          You can go back to the home page by clicking on the logo on the top
+          or just <a href="/">here</a>
         </p>
       </div>
     );
