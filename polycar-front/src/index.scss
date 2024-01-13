@@ -1,22 +1,17 @@
 //we declare the SCSS variables here
-$primary: #11151C;
-$secondary: #212D40;
-$accent: #ECB7AC;
-$accent-darker: #7D4E57;
-
-
-
+$primary: #11151c;
+$secondary: #212d40;
+$accent: #ecb7ac;
+$accent-darker: #7d4e57;
 
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: $primary;
-  
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -24,15 +19,13 @@ $accent-darker: #7D4E57;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
-  --color-primary: #11151C;
-  --color-secondary: #212D40;
-  --color-accent: #ECB7AC;
-  --color--accent-darker: #7D4E57;
-
-
+  --color-primary: #11151c;
+  --color-secondary: #212d40;
+  --color-accent: #ecb7ac;
+  --color--accent-darker: #7d4e57;
 }
 
-p{
+p {
   color: var(--color--accent-darker);
 }
 
@@ -78,8 +71,7 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
-
-.AllCarListComponent{
+.AllCarListComponent {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
@@ -102,7 +94,7 @@ button:focus-visible {
   }
 }
 
-#TopBar{
+#TopBar {
   position: relative;
   top: 0;
   left: 0;
@@ -116,16 +108,16 @@ button:focus-visible {
   padding: 1.2rem;
 }
 
-#root{  
+#root {
   width: 100%;
   min-height: 1000px;
 }
 
-.HomePage{
+.HomePage {
   position: relative;
 }
 
-.AllCarList{
+.AllCarList {
   min-width: 80%;
 }
 
@@ -136,21 +128,21 @@ button:focus-visible {
   position: absolute;
 }*/
 
-.AllCarListHeader{
+.AllCarListHeader {
   flex-direction: row;
   display: flex;
 }
 
-.HeaderForm{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
+.HeaderForm {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-.numberOfResults{
-    margin-left: 2rem;
+.numberOfResults {
+  margin-left: 2rem;
 }
 
 .AllCarListTop {

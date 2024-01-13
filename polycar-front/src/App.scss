@@ -1,7 +1,7 @@
-@font-face {
-  font-family: Bungee;
-  src: url("./assets/Bungee-Regular.ttf");
-}
+
+//we import the font Bungee Regular from Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Bungee&display=swap');
+
 
 //we import the variables from index.scss
 @import "./index.scss";

@@ -16,6 +16,7 @@ function RouterApp() {
         <Route path="/cars" element={<App />} />
         <Route path="/car/:id" element={<AllStatsAboutCar />} />
         <Route path="/quizz" element={<CarFinder />} />
+        <Route path="*" element={<HomePage />} />
       </Routes>
     </Router>
   );
