@@ -1,5 +1,7 @@
 import "../styles/displayStats.scss";
 import { CarProps } from "../interface/props";
+import { Navigate } from "react-router-dom";
+import { useState } from "react";
 
 import {
   Radar,
@@ -46,6 +48,7 @@ function DisplayStats({
   unit,
 }: CarProps) {
   const imageUrl = "https://claq-dev.com/host/" + id + ".jpg";
+  const [navigate, setNavigate] = useState(false); // New state variable
   // We check if fuel has more than 10 characters
   if (fuel.length > 10) {
     // We cut the string to 10 characters
@@ -55,6 +58,10 @@ function DisplayStats({
   if (transmissionType.length > 10) {
     // We cut the string to 10 characters
     transmissionType = transmissionType.substring(0, 9);
+  }
+
+  if (navigate) {
+    return <Navigate to={"/cars"} />; // Render Navigate component when navigate is true
   }
 
   // Define radar chart data
@@ -387,7 +394,7 @@ function DisplayStats({
       </div>
       <button
         className="btn-data btn-primary"
-        onClick={() => window.location.replace("/cars")}
+        onClick={() => setNavigate(true)} // Set navigate to true when button is clicked
       >
         Back to cars
       </button>
