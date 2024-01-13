@@ -1,5 +1,7 @@
 import { CarProps } from "../interface/props";
+import { Navigate } from "react-router-dom";
 import "../styles/car.scss";
+import { useState } from "react";
 
 function Car({
   id,
@@ -12,11 +14,18 @@ function Car({
   annualFuelCost,
   views,
 }: CarProps) {
+  const [navigate, setNavigate] = useState(false); // New state variable
+
   //we check if fuel has more than 10 characters
   if (fuel.length > 10) {
     //we cut the string to 10 characters
     fuel = fuel.substring(0, 9);
   }
+
+  if (navigate) {
+    return <Navigate to={"/car/" + id} />; // Render Navigate component when navigate is true
+  }
+
   return (
     <div className="Car card">
       <div className="carHeader">
@@ -45,7 +54,7 @@ function Car({
         </div>
         <button
           className="btn btn-primary"
-          onClick={() => window.location.replace("/car/" + id)}
+          onClick={() => setNavigate(true)} // Set navigate to true when button is clicked
         >
           Voir plus
         </button>
