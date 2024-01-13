@@ -1,16 +1,27 @@
 # Polycars
 
-Polycars is a React application that provides a library of cars and a car finder feature.
+Polycars is a React application written in Typescript that provides a library of cars and a car finder feature.
+Polycar was built by Jules Ginhac, Maxime Antoine, Clément Ruchon, Nicolas Gallet et Mathieu Ponton, for the `Projet Tutoré` during the S5 of Polytech Lyon.
 
 ## Table of Contents
 
 - [Polycars](#polycars)
   - [Table of Contents](#table-of-contents)
+  - [Stack](#stack)
   - [Installation](#installation)
   - [Usage](#usage)
   - [Features](#features)
   - [Contributing](#contributing)
   - [License](#license)
+
+## Stack
+
+This project uses a variety of technologies:
+
+- **Frontend**: The frontend is built with React and TypeScript.
+- **Backend**: The backend is written in PHP using the Symfony framework.
+- **Data Scraping**: Python scripts were used to automate the scraping of images.
+- **Data Conversion**: Additional Python scripts were used for converting data between CSV and SQL formats.
 
 ## Installation
 
@@ -30,7 +41,7 @@ To build the project for production, use the command: `npm run build`
 
 - **Car Library**: Browse through a library of cars.
 - **Car Finder**: Find the perfect car for you using our car finder feature.
-- **Cars Stats**: Have nice stats and graphs about the cars
+- **Cars Stats**: Have nice stats and graphs about the cars.
 
 ## Contributing
 
