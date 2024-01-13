@@ -228,6 +228,7 @@ function AllCarList() {
     <>
       {content}
       {currentPage > 0 && (
+        cars && cars.length > 0 &&
         <button
           onClick={() => setCurrentPage(currentPage - 1)}
           className="PreviousPage"
@@ -235,12 +236,14 @@ function AllCarList() {
           Previous Page
         </button>
       )}
-      <button
-        onClick={() => setCurrentPage(currentPage + 1)}
-        className="NextPage"
-      >
-        Next Page
-      </button>{" "}
+      {cars && cars.length > 0 && (
+        <button
+          onClick={() => setCurrentPage(currentPage + 1)}
+          className="NextPage"
+        >
+          Next Page
+        </button>
+      )}
     </>
   );
 }
