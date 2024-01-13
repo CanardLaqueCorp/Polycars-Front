@@ -9,24 +9,15 @@ import "./App.scss";
 
 function RouterApp() {
   return (
-    <>
+    <Router>
       <TopBar />
-      <Router>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <HomePage />
-              </>
-            }
-          />
-          <Route path="/cars" element={<App />} />
-          <Route path="/car/:id" element={<AllStatsAboutCar />} />
-          <Route path="/quizz" element={<CarFinder />} />
-        </Routes>
-      </Router>
-    </>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/cars" element={<App />} />
+        <Route path="/car/:id" element={<AllStatsAboutCar />} />
+        <Route path="/quizz" element={<CarFinder />} />
+      </Routes>
+    </Router>
   );
 }
 

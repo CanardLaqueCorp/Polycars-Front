@@ -1,7 +1,7 @@
 #TopBar{
     width: 100%;
     top:0;
-    border: 3px solid #eaeaea;
+    border: 3px solid #eaeaea !important;
     border-radius: 2%;
     margin-bottom: 3rem;
     margin-top: 1rem;
@@ -13,29 +13,37 @@
 }
 
 .TopBarText{
-    margin-left: 3rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-    font-size: 1.5rem;
+    margin-left: 3rem !important;
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+    font-size: 1.5rem !important;
     //on mobile
     @media (max-width: 768px) {
         font-size: 1.5rem !important;
     }
 }
+//we add hover on the p in TopBarText
+.TopBarText p:hover{
+    color: #eaeaea !important;
+    transition: 0.5s ease-in-out;
+}
+
 
 .TopBarTextSmall{
-    margin-left: 1rem;
-    margin-top: 4rem;
-    font-size: 2.2rem !important;
+    margin-left: 4rem;
     //on mobile
     @media (max-width: 768px) {
         font-size: 1.5rem !important;
     }
-    //we position it on the bottom
 }
 
-.TopBarTextSmall::before{
-    content: "_";
-    margin-right: 1rem;
-    margin-left: 1rem;
+.TopBarTextSmall p{
+    font-size: 2.2rem !important;
+    margin-top: 4rem !important;
 }
+
+.TopBarTextSmall p:hover{
+    color: #eaeaea !important;
+    transition: 0.5s ease-in-out;
+}
+

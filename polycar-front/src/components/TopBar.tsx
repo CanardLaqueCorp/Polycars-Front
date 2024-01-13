@@ -1,26 +1,19 @@
+import { Link } from "react-router-dom";
 import "../styles/topbar.scss";
 
 function BasicExample() {
-
   return (
     <div id="TopBar">
-      <p onClick={() => window.location.replace("/")} className="TopBarText">
-        PolyCars
-      </p>
-      <p
-        onClick={() => window.location.replace("/cars")}
-        className="TopBarTextSmall"
-      >
-        Cars Library
-      </p>
-      <p
-        onClick={() => window.location.replace("/quizz")}
-        className="TopBarTextSmall"
-      >
-        Car Finder
-      </p>
-      <div>
-      </div>
+      <Link to="/" className="TopBarText">
+        <p>Polycars</p>
+      </Link>
+      <Link to="/cars" className="TopBarTextSmall">
+        <p>_Car Library</p>
+      </Link>
+      <Link to="/quizz" className="TopBarTextSmall">
+        <p>_Car Finder</p>
+      </Link>
+      <div></div>
     </div>
   );
 }
