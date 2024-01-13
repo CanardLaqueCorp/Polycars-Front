@@ -21,7 +21,7 @@ function HomePage() {
             offset={0.9}
             speed={0.8}
             style={{
-              backgroundImage: `url(../../public/wpPolycars.jpg)`,
+              backgroundImage: `url(https://claq-dev.com/host/wpPolycars.jpg)`,
               backgroundSize: "cover",
               width: "20%",
               borderRadius: "50% / 10% 20% 14% 20%",
@@ -62,7 +62,7 @@ function HomePage() {
           offset={1.1}
           speed={0.3}
           style={{
-            backgroundImage: `url(../../public/wpBMW.jpg)`,
+            backgroundImage: `url(https://claq-dev.com/host/wpBMW.jpg)`,
             backgroundSize: "cover",
             width: "30%",
             marginLeft: "70%",
@@ -74,7 +74,7 @@ function HomePage() {
           offset={1.1}
           speed={1.9}
           style={{
-            backgroundImage: `url(../../public/wpCar.jpg)`,
+            backgroundImage: `url(https://claq-dev.com/host/wpCar.jpg)`,
             backgroundSize: "cover",
             width: "60%",
             marginLeft: "-5%",
