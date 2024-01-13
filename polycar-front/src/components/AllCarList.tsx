@@ -8,10 +8,13 @@ function AllCarList() {
   const [filterValue, setFilterValue] = useState("");
   const [sortOrder, setSortOrder] = useState("ecoScore");
   const [sortDirection, setSortDirection] = useState<"asc" | "desc">("asc");
-  const [cars, setCars] = useState<CarData[]>([]); //les voitures sont ici
+  const [cars, setCars] = useState<CarData[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(0); // New state variable for the current page
 
-  let  param = document.location.href.split("?");
+  const carsPerPage = 18; // Define how many cars to show per page
+
+  let param = document.location.href.split("?");
   let path = "https://cars.poly-api.fr/public/search/car/light?" + param[1];
   console.log(path);
   useEffect(() => {
@@ -23,7 +26,6 @@ function AllCarList() {
       })
       .catch((error) => console.error(error));
   }, []);
-
   const handleFilterTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFilterType(e.target.value);
   };
@@ -62,15 +64,16 @@ function AllCarList() {
             return direction * (b.ecoScore - a.ecoScore); //si on n'applique pas de filtre, on trie par ecoScore
           }
         })
+        .slice(currentPage * carsPerPage, (currentPage + 1) * carsPerPage)
     : [];
 
   let content;
 
   if (isLoading) {
     content = (
-        <div className="LoadingScreenWrapper" style={{ height: "10" }}>
-          <LoadingScreen />
-        </div>
+      <div className="LoadingScreenWrapper" style={{ height: "10" }}>
+        <LoadingScreen />
+      </div>
     );
   } else if (cars && cars.length > 0) {
     content = (
@@ -93,7 +96,7 @@ function AllCarList() {
             <option value="fuel">Fuel</option>
             <option value="carType">Car Type</option>
             <option value="cylinder">Cylinders</option>
-          </select> 
+          </select>
           <input
             type="text"
             placeholder={`Enter your ${filterType}`}
@@ -150,15 +153,15 @@ function AllCarList() {
                 ecoScore={car.ecoScore}
                 image={imageUrl}
                 views={car.views}
-                cityFuelMetric = {car.cityFuelMetric}
-                highwayFuelMetric = {car.highwayFuelMetric}
-                combinedFuelMetric = {car.combinedFuelMetric}
-                cityCarbonMetric = {car.cityCarbonMetric}
-                highwayCarbonMetric = {car.highwayCarbonMetric}
-                combinedCarbonMetric = {car.combinedCarbonMetric}
-                annualFuelCostEuro = {car.annualFuelCostEuro}
-                spendOnFiveYearsEuro = {car.spendOnFiveYearsEuro}
-                unit = {car.unit}
+                cityFuelMetric={car.cityFuelMetric}
+                highwayFuelMetric={car.highwayFuelMetric}
+                combinedFuelMetric={car.combinedFuelMetric}
+                cityCarbonMetric={car.cityCarbonMetric}
+                highwayCarbonMetric={car.highwayCarbonMetric}
+                combinedCarbonMetric={car.combinedCarbonMetric}
+                annualFuelCostEuro={car.annualFuelCostEuro}
+                spendOnFiveYearsEuro={car.spendOnFiveYearsEuro}
+                unit={car.unit}
               />
             );
           })}
@@ -169,18 +172,34 @@ function AllCarList() {
     content = (
       <div>
         <h1>Sorry but...</h1>
-        <h2>
-         We couldn't find any car matching your search criteria
-        </h2>
+        <h2>We couldn't find any car matching your search criteria</h2>
         <h3>Please try again</h3>
         <p>
-          You can go back to the home page by clicking on the logo on the top
-          or just <a href="/">here</a>
+          You can go back to the home page by clicking on the logo on the top or
+          just <a href="/">here</a>
         </p>
       </div>
     );
 
-  return <>{content}</>;
+  return (
+    <>
+      {content}
+      {currentPage > 0 && (
+        <button
+          onClick={() => setCurrentPage(currentPage - 1)}
+          className="PreviousPage"
+        >
+        Previous Page
+      </button>
+      )}
+      <button
+        onClick={() => setCurrentPage(currentPage + 1)}
+        className="NextPage"
+      >
+        Next Page
+      </button>{" "}
+    </>
+  );
 }
 
 export default AllCarList;
