@@ -14,10 +14,52 @@ function AllCarList() {
 
   const carsPerPage = 18; // Define how many cars to show per page
 
-  let param = document.location.href.split("?");
-  let path = "https://cars.poly-api.fr/public/search/car/light?" + param[1];
-  console.log(path);
+  //we get the params from the url
+  //let param = useParams<any>();
+  //alert(param[1]);
+  //let path = "https://cars.poly-api.fr/public/search/car/light?" + param[1];
+
   useEffect(() => {
+    // Get the current URL
+    const url = window.location.href;
+
+    // Create a new URL object
+    const urlObj = new URL(url);
+
+    // Get the parameters from the URL
+    const params = new URLSearchParams(urlObj.search);
+
+    // Get each parameter
+    const brand = params.get("brand");
+    const cartype = params.get("cartype");
+    const startandstop = params.get("startandstop");
+    const gears = params.get("gears");
+    const minPrice = params.get("minPrice");
+    const maxPrice = params.get("maxPrice");
+    const transmission = params.get("transmission");
+    const drivesystem = params.get("drivesystem");
+    const cylinder = params.get("cylinder");
+    const fuel = params.get("fuel");
+
+    // Check if all parameters are empty
+    const allParamsEmpty = [
+      brand,
+      cartype,
+      startandstop,
+      gears,
+      minPrice,
+      maxPrice,
+      transmission,
+      drivesystem,
+      cylinder,
+      fuel,
+    ].every((param) => !param);
+
+    // Construct the path using the parameters from the URL, or use the base URL if all parameters are empty
+    let path = allParamsEmpty
+      ? "https://cars.poly-api.fr/public/search/car/light?"
+      : `https://cars.poly-api.fr/public/search/car/light?brand=${brand}&cartype=${cartype}&startandstop=${startandstop}&gears=${gears}&minPrice=${minPrice}&maxPrice=${maxPrice}&transmission=${transmission}&drivesystem=${drivesystem}&cylinder=${cylinder}&fuel=${fuel}`;
+
     fetch(path)
       .then((response) => response.json())
       .then((data) => {
@@ -26,6 +68,7 @@ function AllCarList() {
       })
       .catch((error) => console.error(error));
   }, []);
+
   const handleFilterTypeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setFilterType(e.target.value);
   };
@@ -83,7 +126,7 @@ function AllCarList() {
           <div className="numberOfResults">
             <p>
               {filterValue === ""
-                ? `We have ${filteredCars.length} cars in our database`
+                ? `Displaying the first ${filteredCars.length} results of our ${cars.length} cars`
                 : `${filteredCars.length} results for your search`}
             </p>
           </div>
@@ -189,8 +232,8 @@ function AllCarList() {
           onClick={() => setCurrentPage(currentPage - 1)}
           className="PreviousPage"
         >
-        Previous Page
-      </button>
+          Previous Page
+        </button>
       )}
       <button
         onClick={() => setCurrentPage(currentPage + 1)}
