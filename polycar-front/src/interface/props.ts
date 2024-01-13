@@ -43,13 +43,6 @@ export interface CarProps {
   ecoScore: number;
   image?: string;
   views: number;
-<<<<<<< HEAD
-<<<<<<< HEAD
   unit: string;
-=======
->>>>>>> 8e19f37 (show number of views roughly in the displaystats)
-=======
-  unit: string;
->>>>>>> f2fb2cd (units finished)
 }
 

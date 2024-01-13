@@ -1,5 +1,4 @@
 import "../styles/topbar.scss";
-import { useEffect, useState } from "react";
 
 function BasicExample() {
 

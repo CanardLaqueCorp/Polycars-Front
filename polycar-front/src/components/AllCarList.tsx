@@ -11,7 +11,6 @@ function AllCarList() {
   const [cars, setCars] = useState<CarData[]>([]); //les voitures sont ici
   const [isLoading, setIsLoading] = useState(true);
 
-  const params = new URLSearchParams(window.location.search);
   let  param = document.location.href.split("?");
   let path = "https://cars.poly-api.fr/public/search/car/light?" + param[1];
   console.log(path);
@@ -151,6 +150,15 @@ function AllCarList() {
                 ecoScore={car.ecoScore}
                 image={imageUrl}
                 views={car.views}
+                cityFuelMetric = {car.cityFuelMetric}
+                highwayFuelMetric = {car.highwayFuelMetric}
+                combinedFuelMetric = {car.combinedFuelMetric}
+                cityCarbonMetric = {car.cityCarbonMetric}
+                highwayCarbonMetric = {car.highwayCarbonMetric}
+                combinedCarbonMetric = {car.combinedCarbonMetric}
+                annualFuelCostEuro = {car.annualFuelCostEuro}
+                spendOnFiveYearsEuro = {car.spendOnFiveYearsEuro}
+                unit = {car.unit}
               />
             );
           })}

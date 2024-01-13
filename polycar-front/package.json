@@ -1,6 +1,7 @@
 {
   "name": "polycar-front",
   "private": true,
+  "homepage": "https://www.polycars.poly-api.fr",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

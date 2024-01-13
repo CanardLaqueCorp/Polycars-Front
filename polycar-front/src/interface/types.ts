@@ -42,4 +42,5 @@ export interface CarData {
   smogRating: number;
   ecoScore: number;
   views: number;
+  unit: string;
 }

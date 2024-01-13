@@ -1,9 +1,9 @@
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 import "../styles/GetInTouchFormulaire.scss";
 
 function GetInTouchFormulaire() {
-  const form = useRef();
+  const form = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -15,7 +15,7 @@ function GetInTouchFormulaire() {
   const [message, setMessage] = useState(""); // Gérer le message à afficher
   const [confirmationMessage, setConfirmationMessage] = useState(""); // Gérer le deuxième message à afficher
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData(prevFormData => ({
       ...prevFormData,
@@ -23,7 +23,7 @@ function GetInTouchFormulaire() {
       }));
   };
 
-  const sendEmail = (e) => {
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 

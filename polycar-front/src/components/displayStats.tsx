@@ -1,6 +1,5 @@
 import "../styles/displayStats.scss";
 import { CarProps } from "../interface/props";
-import { useEffect, useState } from "react";
 
 import {
   Radar,
@@ -40,12 +39,10 @@ function DisplayStats({
   annualFuelCost,
   annualFuelCostEuro,
   spendOnFiveYears,
-  spendOnFiveYearsEuro,
   feRating,
   ghgRating,
   smogRating,
   ecoScore,
-  views,
   unit,
 }: CarProps) {
   const imageUrl = "https://claq-dev.com/host/" + id + ".jpg";
