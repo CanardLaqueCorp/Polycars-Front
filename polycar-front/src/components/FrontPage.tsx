@@ -34,7 +34,7 @@ function HomePage() {
             {/* j'ai mis une vitesse lente pour que l'appel a l'action soit plus visible */}
             <h2>Find your next car. Now</h2>
           </ParallaxLayer>
-          <ParallaxLayer offset={0.72} speed={0.07}>
+          <ParallaxLayer offset={0.72} speed={0.07} style={{ zIndex: 444 }}>
             <Link to="/cars" className="HomePageButton">
               📚 Car Library
             </Link>

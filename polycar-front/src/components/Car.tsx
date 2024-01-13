@@ -35,7 +35,6 @@ function Car({
             {brand === "HYUNDAI MOTOR COMPANY" ? "Hyundai" : brand}
           </p>
           <p className="CarModele">{model}</p>
-          <p id="views-counter-car">{views} views</p>
         </h5>
       </div>
       <div className="card-body">
