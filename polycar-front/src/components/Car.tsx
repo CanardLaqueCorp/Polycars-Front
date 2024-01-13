@@ -12,7 +12,6 @@ function Car({
   image,
   ecoScore,
   annualFuelCost,
-  views,
 }: CarProps) {
   const [navigate, setNavigate] = useState(false); // New state variable
 
