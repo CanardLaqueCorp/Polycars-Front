@@ -44,5 +44,7 @@ export interface CarProps {
   image?: string;
   views: number;
   unit: string;
+  grades: any;
+  graphs: any;
 }
 

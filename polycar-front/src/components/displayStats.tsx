@@ -16,7 +16,6 @@ function DisplayStats({
   brand,
   model,
   carType,
-  priceNew,
   priceUsed,
   cylinder,
   transmissionType,
@@ -46,6 +45,7 @@ function DisplayStats({
   smogRating,
   ecoScore,
   unit,
+  graphs,
 }: CarProps) {
   const imageUrl = "https://claq-dev.com/host/" + id + ".jpg";
   const [navigate, setNavigate] = useState(false); // New state variable
@@ -68,66 +68,103 @@ function DisplayStats({
   const Carbon = [
     {
       subject: "cityCarbon",
-      A: 154,
-      B: 1135,
+      A: graphs.cityCarbonGraph,
     },
     {
       subject: "highwayCarbon",
-      A: 158,
-      B: 788,
+      A: graphs.highwayCarbonGraph,
     },
     {
       subject: "combinedCarbon",
-      A: 155,
-      B: 979,
+      A: graphs.combinedCarbonGraph,
     },
   ];
 
   const Ecological = [
     {
       subject: "ecoScore",
-      A: 7.3,
-      B: 2.1,
+      A: graphs.ecoScoreGraph,
     },
     {
       subject: "feRating",
-      A: 9,
-      B: 1,
+      A: graphs.feRatingGraph,
     },
     {
       subject: "ghgRating",
-      A: 9,
-      B: 1,
+      A: graphs.ghgRatingGraph,
     },
     {
       subject: "smogRating",
-      A: 7,
-      B: 1,
+      A: graphs.smogRatingGraph,
     },
   ];
 
   const Fuel = [
     {
       subject: "maxBioFuel",
-      A: 15,
-      B: 0,
+      A: graphs.bioFuelGraph,
     },
     {
       subject: "cityFuel",
-      A: 57,
-      B: 7.76,
+      A: graphs.cityFuelGraph,
     },
     {
       subject: "highwayFuel",
-      A: 56,
-      B: 11.24,
+      A: graphs.highwayFuelGraph,
     },
     {
       subject: "combinedFuel",
-      A: 57,
-      B: 9.02,
+      A: graphs.combinedFuelGraph,
     },
   ];
+
+  const All = [
+    {
+      subject: "cityCarbon",
+      A: graphs.cityCarbonGraph,
+    },
+    {
+      subject: "highwayCarbon",
+      A: graphs.highwayCarbonGraph,
+    },
+    {
+      subject: "combinedCarbon",
+      A: graphs.combinedCarbonGraph,
+    },
+    {
+      subject: "ecoScore",
+      A: graphs.ecoScoreGraph,
+    },
+    {
+      subject: "feRating",
+      A: graphs.feRatingGraph,
+    },
+    {
+      subject: "ghgRating",
+      A: graphs.ghgRatingGraph,
+    },
+    {
+      subject: "smogRating",
+      A: graphs.smogRatingGraph,
+    },
+    {
+      subject: "maxBioFuel",
+      A: graphs.bioFuelGraph,
+    },
+    {
+      subject: "cityFuel",
+      A: graphs.cityFuelGraph,
+    },
+    {
+      subject: "highwayFuel",
+      A: graphs.highwayFuelGraph,
+    },
+    {
+      subject: "combinedFuel",
+      A: graphs.combinedFuelGraph,
+    },
+  ];
+
 
   return (
     <div className="all">
@@ -180,28 +217,38 @@ function DisplayStats({
                 </tr>
               </tbody>
             </table>
-          </div>
-        </div>
-        <div className="Price table data-body-container">
-          <div className="data-body">
-            <h5 className="card-title-data">Prices and Costs</h5>
             <table className="table_card">
               <tbody>
                 <tr>
-                  <th scope="row">Price New :</th>
-                  <td>{priceNew} $</td>
-                </tr>
-                <tr>
                   <th scope="row">Price Used :</th>
-                  <td>{priceUsed} $</td>
-                </tr>
-                <tr>
-                  <th scope="row">Spend on Five Years :</th>
-                  <td>{spendOnFiveYears} $</td>
+                  <td>{unit === "metric" ? priceUsed : priceUsed} {unit === "metric" ? "€" : "$"}</td>
                 </tr>
               </tbody>
             </table>
           </div>
+        </div>
+        <div className="AllChart">
+          <ResponsiveContainer width="100%" height={400}>
+            <RadarChart
+              cx={300}
+              cy={170}
+              outerRadius={150}
+              width={600}
+              height={325}
+              data={All}
+            >
+              <PolarGrid />
+              <PolarAngleAxis dataKey="subject" />
+              <PolarRadiusAxis domain={[0, 100]} />
+              <Radar
+                name="All"
+                dataKey="A"
+                stroke="red"
+                fill="red"
+                fillOpacity={0.6}
+              />
+            </RadarChart>
+          </ResponsiveContainer>
         </div>
       </div>
       <div className="TableContainer">
@@ -250,19 +297,12 @@ function DisplayStats({
             >
               <PolarGrid />
               <PolarAngleAxis dataKey="subject" />
-              <PolarRadiusAxis />
+              <PolarRadiusAxis domain={[0, 100]}/>
               <Radar
                 name="Fuel"
                 dataKey="A"
                 stroke="#8884d8"
                 fill="#8884d8"
-                fillOpacity={0.6}
-              />
-              <Radar
-                name="Max Fuel"
-                dataKey="B"
-                stroke="#82ca9d"
-                fill="#82ca9d"
                 fillOpacity={0.6}
               />
             </RadarChart>

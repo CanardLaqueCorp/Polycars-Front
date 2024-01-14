@@ -43,4 +43,6 @@ export interface CarData {
   ecoScore: number;
   views: number;
   unit: string;
+  grades: any;
+  graphs: any;
 }

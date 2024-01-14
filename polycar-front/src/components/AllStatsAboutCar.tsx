@@ -79,6 +79,8 @@ function AllStatsAboutCar() {
     smogRating,
     ecoScore,
     views,
+    grades,
+    graphs,
   } = carData;
 
   return (
@@ -134,6 +136,8 @@ function AllStatsAboutCar() {
         ecoScore={ecoScore}
         views={views}
         unit={units}
+        grades={grades}
+        graphs={graphs}
       />
     </div>
   );
