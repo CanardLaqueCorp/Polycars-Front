@@ -2,6 +2,7 @@ import "../styles/displayStats.scss";
 import { CarProps } from "../interface/props";
 import { Navigate } from "react-router-dom";
 import { useState } from "react";
+import StarRating from "./StarRating";
 
 import {
   Radar,
@@ -39,13 +40,13 @@ function DisplayStats({
   hasGuzzler,
   annualFuelCost,
   annualFuelCostEuro,
-  spendOnFiveYears,
   feRating,
   ghgRating,
   smogRating,
   ecoScore,
   unit,
   graphs,
+  grades,
 }: CarProps) {
   const imageUrl = "https://claq-dev.com/host/" + id + ".jpg";
   const [navigate, setNavigate] = useState(false); // New state variable
@@ -222,6 +223,9 @@ function DisplayStats({
                 <tr>
                   <th scope="row">Price Used :</th>
                   <td>{unit === "metric" ? priceUsed : priceUsed} {unit === "metric" ? "€" : "$"}</td>
+                  <div className="star-rating-container">
+                    <StarRating value={grades.priceUsedGrade} />
+                  </div>
                 </tr>
               </tbody>
             </table>
@@ -264,22 +268,37 @@ function DisplayStats({
                 <tr>
                   <th scope="row">Max BioFuel :</th>
                   <td>{maxBioFuel} %</td>
+                  <div className="star-rating-container">
+                    <StarRating value={grades.bioFuelGrade} />
+                  </div>
                 </tr>
                 <tr>
                   <th scope="row">City Fuel :</th>
                   <td>{unit === "metric" ? cityFuelMetric : cityFuel} {unit === "metric" ? "l/100 km" : "mpg"}</td>
+                  <div className="star-rating-container">
+                    <StarRating value={grades.cityFuelGrade} />
+                  </div>
                 </tr>
                 <tr>
                   <th scope="row">Highway Fuel :</th>
                   <td>{unit === "metric" ? highwayFuelMetric : highwayFuel} {unit === "metric" ? "l/100 km" : "mpg"}</td>
+                  <div className="star-rating-container">  
+                    <StarRating value={grades.highwayFuelGrade} />
+                  </div>
                 </tr>
                 <tr>
                   <th scope="row">Combined Fuel :</th>
                   <td>{unit === "metric" ? combinedFuelMetric : combinedFuel} {unit === "metric" ? "l/100 km" : "mpg"}</td>
+                  <div className="star-rating-container">
+                    <StarRating value={grades.combinedFuelGrade} />
+                  </div>
                 </tr>
                 <tr>
                   <th scope="row">Annual Fuel Cost :</th>
                   <td>{unit === "metric" ? annualFuelCostEuro : annualFuelCost} {unit === "metric" ? "€" : "$"}</td>
+                  <div className="star-rating-container">
+                    <StarRating value={grades.annualFuelCostGrade} />
+                  </div>
                 </tr>
               </tbody>
             </table>
@@ -322,14 +341,23 @@ function DisplayStats({
                 <tr>
                   <th scope="row">fe Rating :</th>
                   <td>{feRating}/10</td>
+                  <div className="star-rating-container">
+                    <StarRating value={grades.feRatingGrade} />
+                  </div>
                 </tr>
                 <tr>
                   <th scope="row">ghg Rating :</th>
                   <td>{ghgRating}/10</td>
+                  <div className="star-rating-container">
+                    <StarRating value={grades.ghgRatingGrade} />
+                  </div>
                 </tr>
                 <tr>
                   <th scope="row">smog Rating :</th>
                   <td>{smogRating}/10</td>
+                  <div className="star-rating-container">
+                    <StarRating value={grades.smogRatingGrade} />
+                  </div>
                 </tr>
                 <tr>
                   <th scope="row">Has Guzzler :</th>
@@ -382,6 +410,9 @@ function DisplayStats({
                     {unit === "metric" ? cityCarbonMetric : cityCarbon} GCO
                     <span style={{ fontSize: "0.9rem" }}>2</span> {unit === "metric" ? "/km" : "/mi"}
                   </td>
+                  <div className="star-rating-container">
+                    <StarRating value={grades.cityCarbonGrade} />
+                  </div>
                 </tr>
                 <tr>
                   <th scope="row">Highway Carbon :</th>
@@ -389,6 +420,9 @@ function DisplayStats({
                     {unit === "metric" ? highwayCarbonMetric : highwayCarbon} GCO
                     <span style={{ fontSize: "0.9rem" }}>2</span>{unit === "metric" ? "/km" : "/mi"}
                   </td>
+                  <div className="star-rating-container">
+                    <StarRating value={grades.highwayCarbonGrade} />
+                  </div>
                 </tr>
                 <tr>
                   <th scope="row">Combined Carbon :</th>
@@ -396,6 +430,9 @@ function DisplayStats({
                     {unit === "metric" ? combinedCarbonMetric : combinedCarbon} GCO
                     <span style={{ fontSize: "0.9rem" }}>2</span> {unit === "metric" ? "/km" : "/mi"}
                   </td>
+                  <div className="star-rating-container">
+                    <StarRating value={grades.combinedCarbonGrade} />
+                  </div>
                 </tr>
               </tbody>
             </table>
