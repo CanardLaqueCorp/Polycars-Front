@@ -205,6 +205,8 @@ function AllCarList() {
                 annualFuelCostEuro={car.annualFuelCostEuro}
                 spendOnFiveYearsEuro={car.spendOnFiveYearsEuro}
                 unit={car.unit}
+                grades = {car.grades}
+                graphs = {car.graphs}
               />
             );
           })}

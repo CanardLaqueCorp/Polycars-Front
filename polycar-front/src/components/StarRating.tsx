@@ -13,7 +13,7 @@ const StarRating: React.FC<StarRatingProps> = ({ value, maxStars = 5 }) => {
   const emptyStars = maxStars - filledStars;
 
   const Star = ({ filled }: { filled: boolean }) =>
-    filled ? <FaStar className="star-filled" /> : <FaRegStar className="star-empty" />;
+    filled ? <FaStar/> : <FaRegStar/>;
 
   return (
     <div className="star-rating">
