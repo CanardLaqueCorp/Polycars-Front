@@ -379,7 +379,7 @@ function DisplayStats({
             >
               <PolarGrid />
               <PolarAngleAxis dataKey="subject" />
-              <PolarRadiusAxis />
+              <PolarRadiusAxis domain={[0, 100]}/>
               <Radar
                 name="Ecological"
                 dataKey="A"
@@ -450,7 +450,7 @@ function DisplayStats({
             >
               <PolarGrid />
               <PolarAngleAxis dataKey="subject" />
-              <PolarRadiusAxis />
+              <PolarRadiusAxis domain={[0, 100]}/>
               <Radar
                 name="Carbon"
                 dataKey="A"
